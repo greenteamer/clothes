@@ -1,0 +1,32 @@
+{% block navigation %}
+{% load i18n %}
+{% load search_tags %}
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="{% url catalog_home %}">{% trans "Internet magazine" %}</a>
+      <div class="nav-collapse">
+        <ul class="nav tabbar" id="nav">
+            <li><a href="{% url show_cart %}">{% trans "Shopping Cart" %}</a></li>
+						{% if user.is_authenticated %}
+              <li><a href="{% url my_account %}">{% trans "My Account" %}</a></li>
+							<li><a href="{% url django.contrib.auth.views.logout %}">{% trans "Logout" %}</a></li>
+						{% else %}
+							<li><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></li>
+              <li><a href="{% url register %}">{% trans "Register" %}</a></li>
+						{% endif %}
+        </ul>
+        {% search_box request %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
