@@ -1,0 +1,67 @@
+{% extends "catalog.html" %}
+{% load i18n %}
+
+{% load checkout_tags %}
+
+{% block content %}
+  {% if not request.user.is_authenticated %}
+    <div class="row-fluid">
+      <a href="{% url login %}?next={{ request.path }}">
+      {% trans "Have an account" %}?<br />{% trans "Sign in now" %}!
+      </a>
+    </div>
+  {% endif %}
+
+  <div class="row-fluid">
+    <h1>{% trans "Checkout" %}</h1>
+    {% if error_message %}
+      <div class="row-fluid">
+      <div class="alert alert-error span5">
+        {{ error_message }}
+      </div>
+    </div>
+    {% endif %}
+    <form class="form-horizontal" action="." method="post">{% csrf_token %}
+      <fieldset>
+        <legend>{% trans "Contact Info" %}</legend>
+          {% form_row form.email %}
+          {% form_row form.phone %}
+      </fieldset>
+{#      <fieldset>#}
+{#        <legend>{% trans "Shipping Info" %}</legend>#}
+{#          {% form_row form.shipping_name %}#}
+{#          {% form_row form.shipping_address_1 %}#}
+{#          {% form_row form.shipping_address_2 %}#}
+{#          {% form_row form.shipping_city %}#}
+{#          {% form_row form.shipping_zip %}#}
+{#          {% form_row form.shipping_country %}#}
+{#      </fieldset>#}
+{#      <fieldset>#}
+{#        <legend>{% trans "Billing Info" %}</legend>#}
+{#          {% form_row form.billing_name %}#}
+{#          {% form_row form.billing_address %}#}
+{#          {% form_row form.billing_city %}#}
+{#          {% form_row form.billing_zip %}#}
+{#          {% form_row form.billing_country %}#}
+{#      </fieldset>#}
+{#      <fieldset>#}
+{#        <legend>{% trans "Credit Card Info" %}</legend>#}
+{#          {% form_row form.credit_card_number %}#}
+{#          {% choice_field form.credit_card_type %}#}
+{#          {% choice_field form.credit_card_expire_month %}#}
+{#          {% choice_field form.credit_card_expire_year %}#}
+{#          {% form_row form.credit_card_cvv %}#}
+{#      </fieldset>#}
+    </form>
+  </div>
+
+  <form method="post" action="." class="cart">{% csrf_token %}
+    <button class="btn btn-success" type="submit">
+    <i class="icon-shopping-cart icon-white"></i> {% trans " Place order" %}</button>
+  </form>
+
+  <div class="alert alert-info span5">
+    <strong>{% trans "Warning" %}!</strong><br />
+    * {% trans "Required fields" %}
+  </div>
+{% endblock %}

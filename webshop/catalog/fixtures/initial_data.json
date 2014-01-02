@@ -1,0 +1,246 @@
+[
+  {
+    "pk": 5, 
+    "model": "catalog.category", 
+    "fields": {
+      "meta_description": "\u0441\u043b\u043e\u0432\u043e", 
+      "rght": 3, 
+      "meta_keywords": "\u0441\u043b\u043e\u0432\u043e", 
+      "description": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435", 
+      "parent": 3, 
+      "level": 1, 
+      "created_at": "2012-04-29T16:32:14.461", 
+      "is_active": true, 
+      "updated_at": "2012-04-29T16:32:14.461", 
+      "lft": 2, 
+      "tree_id": 2, 
+      "slug": "podkategoriya-3", 
+      "name": "\u041f\u043e\u0434\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f 3"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "catalog.category", 
+    "fields": {
+      "meta_description": "\u0441\u043b\u043e\u0432\u043e", 
+      "rght": 5, 
+      "meta_keywords": "\u0441\u043b\u043e\u0432\u043e", 
+      "description": "\u041f\u043e\u0434\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f 2 \u0432 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 1", 
+      "parent": 1, 
+      "level": 1, 
+      "created_at": "2012-04-29T16:31:50.672", 
+      "is_active": true, 
+      "updated_at": "2012-05-14T20:24:27.005", 
+      "lft": 4, 
+      "tree_id": 1, 
+      "slug": "podkategoriya-2", 
+      "name": "\u0421\u043e\u0442\u043e\u0432\u044b\u0435 \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u044b"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "catalog.category", 
+    "fields": {
+      "meta_description": "\u0430\u044b\u0430\u0444\u0430", 
+      "rght": 4, 
+      "meta_keywords": "\u0430\u0444\u044b\u0444\u0430", 
+      "description": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 2", 
+      "parent": null, 
+      "level": 0, 
+      "created_at": "2012-03-30T15:04:47.993", 
+      "is_active": true, 
+      "updated_at": "2012-04-29T16:33:35.087", 
+      "lft": 1, 
+      "tree_id": 2, 
+      "slug": "kategoriya-2", 
+      "name": "\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f 2"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "catalog.category", 
+    "fields": {
+      "meta_description": "\u041f\u043e\u0434\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f \u0434\u043b\u044f \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 1", 
+      "rght": 3, 
+      "meta_keywords": "\u041f\u043e\u0434\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f \u0434\u043b\u044f \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 1", 
+      "description": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u043f\u043e\u0434\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 \u0434\u043b\u044f \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 1", 
+      "parent": 1, 
+      "level": 1, 
+      "created_at": "2012-03-30T15:04:26.700", 
+      "is_active": true, 
+      "updated_at": "2012-04-29T15:38:14.238", 
+      "lft": 2, 
+      "tree_id": 1, 
+      "slug": "podkategoriya-dlya-kategorii-1", 
+      "name": "\u041f\u043e\u0434\u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f 1"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "catalog.category", 
+    "fields": {
+      "meta_description": "\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f 1", 
+      "rght": 6, 
+      "meta_keywords": "\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f 1", 
+      "description": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u043a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u0438 1", 
+      "parent": null, 
+      "level": 0, 
+      "created_at": "2012-03-30T15:04:02.861", 
+      "is_active": true, 
+      "updated_at": "2012-03-30T15:04:02.861", 
+      "lft": 1, 
+      "tree_id": 1, 
+      "slug": "kategoriya-1", 
+      "name": "\u041a\u0430\u0442\u0435\u0433\u043e\u0440\u0438\u044f 1"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "catalog.product", 
+    "fields": {
+      "sku": "11", 
+      "meta_description": "\u043f\u0440\u043e\u0434\u0443\u043a\u0442 2", 
+      "is_featured": true, 
+      "meta_keywords": "\u043f\u0440\u043e\u0434\u0443\u043a\u0442 2", 
+      "name": "\u0422\u0435\u043b\u0435\u0444\u043e\u043d Noname", 
+      "is_active": true, 
+      "brand": "Noname", 
+      "description": "\u041c\u043e\u0449\u043d\u044b\u0439 \u0440\u0435\u043a\u043b\u0430\u043c\u043d\u044b\u0439 \u0437\u0430\u043f\u0430\u043b, \u043c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u0430\u044f \u0446\u0435\u043d\u0430 \u043d\u0430 \u0440\u044b\u043d\u043a\u0435 \u0438 \u0432\u043e\u0440\u043e\u0445 \u0438\u043d\u0442\u0435\u0440\u0435\u0441\u043d\u044b\u0445 \u043e\u0441\u043e\u0431\u0435\u043d\u043d\u043e\u0441\u0442\u0435\u0439 Noname \u0441\u0442\u0430\u043b\u0438 \u0442\u043e\u0439 \u0441\u0430\u043c\u043e\u0439 \u043e\u0442\u043f\u0440\u0430\u0432\u043d\u043e\u0439 \u0442\u043e\u0447\u043a\u043e\u0439, \u043f\u043e\u0437\u0432\u043e\u043b\u0438\u0432\u0448\u0435\u0439 \u0443\u0436\u0435 \u0441\u0435\u0439\u0447\u0430\u0441 \u043d\u0430\u0437\u0432\u0430\u0442\u044c \u044d\u0442\u0443 \u043c\u043e\u0434\u0435\u043b\u044c \u043b\u0443\u0447\u0448\u0438\u043c \u0441\u0435\u043d\u0441\u043e\u0440\u043d\u044b\u043c \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u043e\u043c \u0434\u043b\u044f \u043f\u0440\u043e\u0431\u044b \u0441\u0430\u043c\u043e\u0433\u043e \u0444\u0430\u043a\u0442\u0430 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u0431\u0435\u0437 \u043c\u0435\u0445\u0430\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u043a\u043b\u0430\u0432\u0438\u0448. \u041a\u0440\u043e\u043c\u0435 \u0442\u043e\u0433\u043e, \u0432\u0435\u0441\u044c \u043e\u0441\u0442\u0430\u043b\u044c\u043d\u043e\u0439 \u043d\u0430\u0431\u043e\u0440 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0435\u0439 \u043d\u0430\u0445\u043e\u0434\u0438\u0442\u0441\u044f \u043d\u0430 \u043e\u0434\u043d\u043e\u043c \u0443\u0440\u043e\u0432\u043d\u0435 \u0441 \u0434\u0440\u0443\u0433\u0438\u043c\u0438 \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u0430\u043c\u0438 \u0440\u0430\u0437\u043b\u0438\u0447\u043d\u044b\u0445 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u0435\u0439, \u043e\u0441\u043d\u0430\u0449\u0435\u043d\u043d\u044b\u043c\u0438 \u043f\u0440\u043e\u0441\u0442\u0435\u043d\u044c\u043a\u0438\u043c\u0438 \u0438 \u043d\u0435\u0431\u043e\u043b\u044c\u0448\u0438\u043c\u0438 \u044d\u043a\u0440\u0430\u043d\u0430\u043c\u0438 \u0441 \u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u043e\u0439 \u0432 \u0432\u0438\u0434\u0435 \u043a\u043b\u0430\u0441\u0441\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u043a\u043b\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u043d\u043e\u0433\u043e \u0431\u043b\u043e\u043a\u0430.", 
+      "old_price": "0", 
+      "updated_at": "2012-05-14T20:25:31.611", 
+      "slug": "produkt-2-v-kategorii-2", 
+      "is_bestseller": false, 
+      "created_at": "2012-03-30T15:08:17.340", 
+      "price": "2990", 
+      "categories": [
+        4
+      ], 
+      "quantity": 11
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "catalog.product", 
+    "fields": {
+      "sku": "120", 
+      "meta_description": "\u043f\u0440\u043e\u0434\u0443\u043a\u0442 1", 
+      "is_featured": true, 
+      "meta_keywords": "\u043f\u0440\u043e\u0434\u0443\u043a\u0442 1", 
+      "name": "\u0426\u0438\u0444\u0440\u043e\u0432\u0430\u044f \u043a\u0430\u043c\u0435\u0440\u0430", 
+      "is_active": true, 
+      "brand": "\u0411\u0440\u044d\u043d\u0434", 
+      "description": "\u041e\u043f\u0438\u0441\u0430\u043d\u0438\u0435 \u043f\u0440\u043e\u0434\u0443\u043a\u0442\u0430 1", 
+      "old_price": "100", 
+      "updated_at": "2012-05-14T20:58:17.416", 
+      "slug": "produkt-1-v-kategorii-1", 
+      "is_bestseller": false, 
+      "created_at": "2012-03-30T15:07:15.416", 
+      "price": "120", 
+      "categories": [
+        2
+      ], 
+      "quantity": 1201
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "catalog.productimage", 
+    "fields": {
+      "product": 2, 
+      "default": true, 
+      "image": "products/images/112510_0.1329449314.jpg", 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "catalog.productimage", 
+    "fields": {
+      "product": 2, 
+      "default": false, 
+      "image": "products/images/1218481733_fenek.jpg", 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "catalog.productimage", 
+    "fields": {
+      "product": 1, 
+      "default": true, 
+      "image": "products/images/130971_0.jpg", 
+      "description": ""
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "catalog.characteristictype", 
+    "fields": {
+      "name": "\u0412\u0435\u0441"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "catalog.characteristictype", 
+    "fields": {
+      "name": "\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0434\u0438\u0430\u043f\u0430\u0437\u043e\u043d"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "catalog.characteristictype", 
+    "fields": {
+      "name": "\u0420\u0430\u0437\u043c\u0435\u0440\u044b"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "catalog.characteristictype", 
+    "fields": {
+      "name": "\u0421\u0435\u043d\u0441\u043e\u0440\u043d\u044b\u0439 \u044d\u043a\u0440\u0430\u043d"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "catalog.characteristictype", 
+    "fields": {
+      "name": "\u0422\u0438\u043f"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "catalog.characteristic", 
+    "fields": {
+      "characteristic_type": 4, 
+      "product": 2, 
+      "value": "GSM 1800, GSM 1900, GSM 900"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "catalog.characteristic", 
+    "fields": {
+      "characteristic_type": 2, 
+      "product": 2, 
+      "value": "53x106x12 \u043c\u043c"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "catalog.characteristic", 
+    "fields": {
+      "characteristic_type": 5, 
+      "product": 2, 
+      "value": "\u0414\u0430"
+    }
+  }, 
+  {
+    "pk": 1, 
+    "model": "catalog.characteristic", 
+    "fields": {
+      "characteristic_type": 3, 
+      "product": 2, 
+      "value": "\u0422\u0435\u043b\u0435\u0444\u043e\u043d"
+    }
+  }
+]

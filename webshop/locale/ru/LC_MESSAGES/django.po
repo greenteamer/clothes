@@ -1,0 +1,577 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-12 14:40+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#: .\settings.py:51
+msgid "English"
+msgstr ""
+
+#: .\settings.py:52
+msgid "Russian"
+msgstr "Русский"
+
+#: .\settings.py:197
+msgid "Product magazine"
+msgstr "Интернет магазин"
+
+#: .\settings.py:198
+msgid "products, online, shop, buy"
+msgstr "товары, онлайн, магазин, купить"
+
+#: .\settings.py:199
+msgid "Product magazine is an online supplier of products"
+msgstr ""
+
+#: .\views.py:10
+msgid "Page Not Found"
+msgstr "Страница не найдена"
+
+#: .\accounts\views.py:18
+msgid "User Registration"
+msgstr ""
+
+#: .\accounts\views.py:41 .\templates\common\navigation.html.py:17
+msgid "My Account"
+msgstr "Мой аккаунт"
+
+#: .\accounts\views.py:50
+msgid "Order details for order #"
+msgstr "Данные заказа #"
+
+#: .\cart\views.py:16 .\templates\tags\footer.html.py:8
+msgid "Shopping cart"
+msgstr "Корзина"
+
+#: .\catalog\admin.py:15 .\templates\catalog\product.html.py:60
+msgid "Characteristic"
+msgstr "Характеристика"
+
+#: .\catalog\admin.py:16 .\catalog\models.py:143
+#: .\templates\catalog\product.html.py:61
+msgid "Value"
+msgstr "Значение"
+
+#: .\catalog\admin.py:25 .\catalog\models.py:111
+msgid "Image"
+msgstr "Изображение"
+
+#: .\catalog\admin.py:26 .\catalog\models.py:21 .\catalog\models.py:70
+#: .\catalog\models.py:113 .\news\models.py:14
+#: .\templates\catalog\product.html.py:46
+msgid "Description"
+msgstr "Описание"
+
+#: .\catalog\admin.py:27 .\catalog\models.py:116
+msgid "Default"
+msgstr ""
+
+#: .\catalog\forms.py:17
+msgid "Price must be greater than zero."
+msgstr "Цена должна быть больше нуля"
+
+#: .\catalog\forms.py:25
+msgid "Please enter a valid quantity."
+msgstr "Вы ввели не корректные данные."
+
+#: .\catalog\forms.py:41
+msgid "Cookies must be enabled."
+msgstr "Cookies должны быть включены"
+
+#: .\catalog\models.py:17 .\catalog\models.py:57 .\catalog\models.py:128
+msgid "Name"
+msgstr "Название"
+
+#: .\catalog\models.py:18 .\catalog\models.py:58 .\news\models.py:13
+msgid "Slug"
+msgstr "Ленивая ссылка"
+
+#: .\catalog\models.py:19
+msgid "Slug for product url created from name."
+msgstr ""
+
+#: .\catalog\models.py:22 .\catalog\models.py:66
+msgid "Active"
+msgstr "Активный"
+
+#: .\catalog\models.py:23 .\catalog\models.py:71
+msgid "Meta keywords"
+msgstr "Ключевые слова"
+
+#: .\catalog\models.py:24 .\catalog\models.py:72
+msgid "Comma-delimited set of SEO keywords for meta tag"
+msgstr "Мета теги"
+
+#: .\catalog\models.py:26 .\catalog\models.py:73
+msgid "Meta description"
+msgstr "Мета описание"
+
+#: .\catalog\models.py:27
+msgid "Content for description meta tags"
+msgstr ""
+
+#: .\catalog\models.py:28 .\catalog\models.py:75
+msgid "Created at"
+msgstr "Создан"
+
+#: .\catalog\models.py:29 .\catalog\models.py:76
+msgid "Updated at"
+msgstr "Обновлен"
+
+#: .\catalog\models.py:30
+msgid "Parent category"
+msgstr ""
+
+#: .\catalog\models.py:32
+msgid "Parent-category for current category"
+msgstr ""
+
+#: .\catalog\models.py:38 .\catalog\models.py:77
+#: .\templates\tags\category_list.html.py:7
+msgid "Categories"
+msgstr "Категории"
+
+#: .\catalog\models.py:59
+msgid "Unique value for product page URL, created from name."
+msgstr "Уникальное значение ссылки на продукт, генерируется из имени"
+
+#: .\catalog\models.py:60 .\templates\catalog\product.html.py:14
+msgid "Brand"
+msgstr "Производитель"
+
+#: .\catalog\models.py:61 .\templates\catalog\product.html.py:16
+msgid "SKU"
+msgstr "На складе"
+
+#: .\catalog\models.py:62
+msgid "Stock-keeping unit"
+msgstr "Колличество товара на складе"
+
+#: .\catalog\models.py:67
+msgid "Bestseller"
+msgstr "Лучшие продажи"
+
+#: .\catalog\models.py:68
+msgid "Featured"
+msgstr "Популярные товары"
+
+#: .\catalog\models.py:69 .\templates\cart\cart.html.py:12
+#: .\templates\checkout\receipt.html.py:13
+msgid "Quantity"
+msgstr "Количество"
+
+#: .\catalog\models.py:74
+msgid "Content for description meta tag"
+msgstr ""
+
+#: .\catalog\models.py:78
+msgid "Categories for product"
+msgstr ""
+
+#: .\catalog\models.py:86
+msgid "Products"
+msgstr "Товары"
+
+#: .\catalog\models.py:114 .\catalog\models.py:144
+#: .\templates\cart\cart.html.py:10 .\templates\checkout\receipt.html.py:11
+msgid "Product"
+msgstr "Продукт"
+
+#: .\catalog\models.py:115 .\catalog\models.py:145
+msgid "Referenced product"
+msgstr ""
+
+#: .\catalog\models.py:133
+msgid "Characteristics Types"
+msgstr "Типы характеристик"
+
+#: .\catalog\models.py:150 .\templates\catalog\product.html.py:47
+msgid "Characteristics"
+msgstr "Характеристики"
+
+#: .\catalog\views.py:18
+msgid "Internet Magazine"
+msgstr "Интернет магазин"
+
+#: .\checkout\checkout.py:61
+msgid "There is a problem with your credit card."
+msgstr ""
+
+#: .\checkout\checkout.py:63
+msgid "Error processing your order."
+msgstr ""
+
+#: .\checkout\forms.py:93
+msgid "The credit card you entered is invalid."
+msgstr ""
+
+#: .\checkout\forms.py:100
+msgid ""
+"\n"
+"            Enter a valid phone number with area code.(e.g.8-920-351-21-21)"
+msgstr ""
+
+#: .\checkout\models.py:23
+msgid "Submitted"
+msgstr "Принят"
+
+#: .\checkout\models.py:24
+msgid "Processed"
+msgstr "Обрабатывается"
+
+#: .\checkout\models.py:25
+msgid "Shipped"
+msgstr "Отправлен"
+
+#: .\checkout\models.py:26
+msgid "Cancelled"
+msgstr "Отменен"
+
+#: .\checkout\models.py:56
+msgid "Order #"
+msgstr "Заказ №"
+
+#: .\checkout\views.py:32
+msgid "Correct the errors below"
+msgstr "Исправьте ошибки ниже"
+
+#: .\checkout\views.py:35 .\templates\checkout\checkout.html.py:8
+#, fuzzy
+msgid "Checkout"
+msgstr "Оформить заказ"
+
+#: .\news\models.py:12
+msgid "Header"
+msgstr "Заголовок"
+
+#: .\news\models.py:15
+#, fuzzy
+msgid "Created"
+msgstr "Создан"
+
+#: .\news\models.py:16
+#, fuzzy
+msgid "Updated"
+msgstr "Обновлен"
+
+#: .\news\models.py:17
+msgid "User"
+msgstr "Пользователь"
+
+#: .\news\models.py:18
+msgid "Views count"
+msgstr "Счетчик просмотров"
+
+#: .\news\models.py:24
+msgid "Post"
+msgstr "Новость"
+
+#: .\news\models.py:25 .\templates\catalog\index.html.py:7
+msgid "News"
+msgstr "Новости"
+
+#: .\news\models.py:33
+msgid "Published today?"
+msgstr "Опубликована сегодня?"
+
+#: .\templates\404.html.py:5
+msgid "Страница не найдена. Приносим Вам свои извинения."
+msgstr ""
+
+#: .\templates\404.html.py:6
+msgid "Проверьте что вы ввели правильный адрес в строке браузера."
+msgstr ""
+
+#: .\templates\catalog.html.py:8
+msgid "Skip to main content"
+msgstr ""
+
+#: .\templates\catalog.html.py:9
+msgid "Banner"
+msgstr ""
+
+#: .\templates\index.html.py:5
+msgid "Welcome!"
+msgstr "Добро пожаловать!"
+
+#: .\templates\cart\cart.html.py:7
+msgid "Your Shopping Cart"
+msgstr "Ваша корзина"
+
+#: .\templates\cart\cart.html.py:11 .\templates\catalog\product.html.py:34
+#: .\templates\checkout\receipt.html.py:12
+msgid "Price"
+msgstr "Цена"
+
+#: .\templates\cart\cart.html.py:15 .\templates\checkout\receipt.html.py:14
+msgid "Total"
+msgstr "Всего"
+
+#: .\templates\cart\cart.html.py:28 .\templates\cart\cart.html.py:50
+#: .\templates\cart\cart.html.py:64 .\templates\catalog\product.html.py:30
+#: .\templates\catalog\product.html.py:32
+#: .\templates\catalog\product.html.py:34
+msgid "руб."
+msgstr ""
+
+#: .\templates\cart\cart.html.py:40
+#, fuzzy
+msgid "Update"
+msgstr "Обновлен"
+
+#: .\templates\cart\cart.html.py:47
+msgid "Remove"
+msgstr "Удалить"
+
+#: .\templates\cart\cart.html.py:56
+msgid "Your cart is empty"
+msgstr "Ваша корзина пуста"
+
+#: .\templates\cart\cart.html.py:63
+msgid "Cart Subtotal"
+msgstr "Итого"
+
+#: .\templates\cart\cart.html.py:72
+#, fuzzy
+msgid " Checkout"
+msgstr "Оформить заказ"
+
+#: .\templates\catalog\category.html.py:22
+msgid "Products for this category not found"
+msgstr ""
+
+#: .\templates\catalog\index.html.py:5
+msgid "Welcome to our shop!"
+msgstr "Добро пожаловать в наш магазин!"
+
+#: .\templates\catalog\index.html.py:18
+#, fuzzy
+msgid "Feautured products"
+msgstr "Популярные товары"
+
+#: .\templates\catalog\index.html.py:32
+msgid "Feautured products not found"
+msgstr ""
+
+#: .\templates\catalog\product.html.py:19
+msgid ""
+"\n"
+"        В категории:\n"
+"      "
+msgid_plural ""
+"\n"
+"        В категориях:\n"
+"      "
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: .\templates\catalog\product.html.py:30
+msgid "Was"
+msgstr "Было"
+
+#: .\templates\catalog\product.html.py:32
+msgid "Now"
+msgstr "Сейчас"
+
+#: .\templates\catalog\product.html.py:39
+#: .\templates\catalog\product.html.py:40
+msgid "Add To Cart"
+msgstr "Добавить в корзину"
+
+#: .\templates\catalog\product.html.py:48
+msgid "Feedback"
+msgstr "Комментарии"
+
+#: .\templates\catalog\product.html.py:57
+#, fuzzy
+msgid "Product characteristics"
+msgstr "Характеристики продукта"
+
+#: .\templates\catalog\product.html.py:74
+msgid "Characteristics not specified"
+msgstr "Характеристики не указаны"
+
+#: .\templates\checkout\checkout.html.py:18
+#, fuzzy
+msgid "Contact Info"
+msgstr "Наши контакты"
+
+#: .\templates\checkout\checkout.html.py:23
+#, fuzzy
+msgid "Shipping Info"
+msgstr "Корзина"
+
+#: .\templates\checkout\checkout.html.py:32
+msgid "Billing Info"
+msgstr "Платежная информация"
+
+#: .\templates\checkout\checkout.html.py:40
+msgid "Credit Card Info"
+msgstr "Данные кредитной карты"
+
+#: .\templates\checkout\checkout.html.py:52
+msgid " Place order"
+msgstr " Сделать заказ"
+
+#: .\templates\checkout\checkout.html.py:56
+msgid "Warning"
+msgstr "Предупреждение"
+
+#: .\templates\checkout\checkout.html.py:57
+msgid "Required fields"
+msgstr "Обязательные поля"
+
+#: .\templates\checkout\receipt.html.py:6
+msgid "Your order has been placed!"
+msgstr ""
+
+#: .\templates\checkout\receipt.html.py:7
+msgid "Your Order Number is: {{ order.id }}"
+msgstr ""
+
+#: .\templates\checkout\receipt.html.py:20
+#, fuzzy
+msgid "Order Total"
+msgstr "Всего"
+
+#: .\templates\common\navigation.html.py:12
+msgid "Internet magazine"
+msgstr "Интернет магазин"
+
+#: .\templates\common\navigation.html.py:15
+#: .\templates\tags\cart_box.html.py:6
+msgid "Shopping Cart"
+msgstr "Корзина"
+
+#: .\templates\common\navigation.html.py:18
+msgid "Logout"
+msgstr "Выйти"
+
+#: .\templates\common\navigation.html.py:20
+#: .\templates\registration\login.html.py:16
+#: .\templates\registration\login.html.py:17
+#: .\templates\registration\login.html.py:28
+msgid "Login"
+msgstr "Войти"
+
+#: .\templates\common\navigation.html.py:24
+msgid "Search..."
+msgstr "Поиск..."
+
+#: .\templates\news\news_all.html.py:4
+msgid "All news"
+msgstr "Все новости"
+
+#: .\templates\registration\logged_out.html.py:4
+msgid "You are Logged Out!"
+msgstr ""
+
+#: .\templates\registration\login.html.py:9
+msgid "Important"
+msgstr "Важно"
+
+#: .\templates\registration\login.html.py:10
+msgid "You entered an invalid username or password."
+msgstr ""
+
+#: .\templates\registration\my_account.html.py:5
+msgid "My account"
+msgstr "Мой аккаунт"
+
+#: .\templates\registration\my_account.html.py:6
+#, fuzzy
+msgid "Welcome"
+msgstr "Добро пожаловать!"
+
+#: .\templates\registration\my_account.html.py:9
+msgid "Order history"
+msgstr "История заказов"
+
+#: .\templates\registration\my_account.html.py:12
+msgid "Order"
+msgstr "Заказ"
+
+#: .\templates\registration\my_account.html.py:12
+msgid "view"
+msgstr "смотреть"
+
+#: .\templates\registration\my_account.html.py:16
+msgid "You have no past orders"
+msgstr ""
+
+#: .\templates\registration\my_account.html.py:21
+msgid "Account settings"
+msgstr "Настройки аккаунта"
+
+#: .\templates\registration\my_account.html.py:25
+msgid "Change password"
+msgstr "Изменить пароль"
+
+#: .\templates\registration\my_account.html.py:29
+msgid "Edit Billing/Shipping information"
+msgstr "Изменить личный данные/адрес"
+
+#: .\templates\registration\password_change_done.html.py:5
+msgid "Password Changed"
+msgstr "Пароль изменен"
+
+#: .\templates\registration\password_change_done.html.py:6
+msgid "Your password has been changed succesfully."
+msgstr "Пароль был успешно изменен"
+
+#: .\templates\registration\password_change_done.html.py:7
+msgid "Continue shopping"
+msgstr ""
+
+#: .\templates\registration\password_change_form.html.py:7
+msgid "Change Password"
+msgstr "Изменить пароль"
+
+#: .\templates\registration\password_change_form.html.py:11
+msgid "Change"
+msgstr "Изменить"
+
+#: .\templates\registration\register.html.py:6
+#: .\templates\registration\register.html.py:12
+msgid "Register"
+msgstr "Зарегистрироваться"
+
+#: .\templates\registration\register.html.py:7
+msgid "Sign Up For Your Account"
+msgstr "Зарегистрируйтесь"
+
+#: .\templates\tags\cart_box.html.py:8
+msgid "Item"
+msgstr "Товар в корзине"
+
+#: .\templates\tags\footer.html.py:2 .\templates\tags\navigation.html.py:3
+msgid "Home"
+msgstr "Главная"
+
+#: .\templates\tags\navigation.html.py:4
+msgid "About"
+msgstr "О нас"
+
+#: .\templates\tags\navigation.html.py:5
+msgid "Privacy"
+msgstr "Соглашения"
+
+#: .\templates\tags\navigation.html.py:6
+msgid "Contact"
+msgstr "Наши контакты"
