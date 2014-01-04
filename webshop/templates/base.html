@@ -24,23 +24,22 @@
 </head>
 <body>
 	{% include "common/navigation.html" %}
-	<div class="container-fluid">
-		<div class="row-fluid">
+	<div class="container">
+		<div class="row">
 			<div class="span12">
 				{% block header %}{% endblock %}
+                {% include "common/languages.html" %}
 			</div>
 		</div>
-		<div class="row-fluid">
+		<div class="row">
 			<div class="span12">
 				{% block site_wrapper %}{% endblock %}
 			</div>
 		</div>
-		<div class="row-fluid">
-			<div class="span12">
-				{% include "common/languages.html" %}
-			</div>
-		</div>
 	</div>
+    {% block footer %}
+        {% include "common/footer.html" %}
+    {% endblock %}
 	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
   <script src="{{ STATIC_URL }}js/custom.js"></script>
   <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>

@@ -3,7 +3,7 @@
 {% load catalog_tags %}
 
 {% block site_wrapper %}
-  <div class="row-fluid">
+  <div class="row">
 		<div class="span10">
       <a href="#content" class="skip_link">{% trans "Skip to main content" %}</a>
 		  <a href="{% url catalog_home %}"><h1>{% trans "Banner" %}</h1></a>
@@ -12,16 +12,16 @@
       {% cart_box request %}
 		</div>
 	</div>
-	<div class="row-fluid">
+	<div class="row">
 		<div class="span3">
 			{% categories_tree request %}
 		</div>
-		<div class="span9 offset3">
+		<div class="span9">
 			<a name="content"></a>
 				{% block content %}{% endblock %}
 		</div>
 	</div>
-	<div class="row-fluid" align="center">
+	<div class="row" align="center">
 		<div class="span12">
 {#			{% footer_links %}#}
 		</div>
