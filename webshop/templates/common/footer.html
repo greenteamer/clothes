@@ -1,0 +1,23 @@
+{% load i18n %}
+{% load search_tags %}
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <a class="brand" href="http://forward70.ru">Создание сайтов Forward Group</a>
+                <div class="">
+                    <ul>
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url my_account %}">{% trans "My Account" %}</a></li>
+                            <li><a href="{% url django.contrib.auth.views.logout %}">{% trans "Logout" %}</a></li>
+                        {% else %}
+                            <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></li>
+                            <li><a href="{% url register %}">{% trans "Register" %}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+        </div>
+        </div>
+    </div>
+</div>

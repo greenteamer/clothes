@@ -36,11 +36,10 @@
 				{% block site_wrapper %}{% endblock %}
 			</div>
 		</div>
-		<div class="row">
-			<div class="span12">
-			</div>
-		</div>
 	</div>
+    {% block footer %}
+        {% include "common/footer.html" %}
+    {% endblock %}
 	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
   <script src="{{ STATIC_URL }}js/custom.js"></script>
   <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
