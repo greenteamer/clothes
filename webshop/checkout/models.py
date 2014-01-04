@@ -16,22 +16,22 @@ class BaseOrderInfo(models.Model):
         abstract = True
 
     # Контактная информация
-    email = models.EmailField(max_length=50)
-    phone = models.CharField(max_length=20)
+    email = models.EmailField(max_length=50, verbose_name=(u'Ваш email'))
+    phone = models.CharField(max_length=20, verbose_name=(u'Ваш телефон'))
     # Информация об адресе для отправки товара
-    shipping_name = models.CharField(max_length=50)
-    shipping_address_1 = models.CharField(max_length=50)
-    shipping_address_2 = models.CharField(max_length=50, blank=True)
-    shipping_city = models.CharField(max_length=50)
+    shipping_name = models.CharField(max_length=50, verbose_name=(u'Имя получателя'))
+    shipping_address_1 = models.CharField(max_length=50, verbose_name=(u'Адрес доставки'))
+    shipping_address_2 = models.CharField(max_length=50, verbose_name=(u'Дополнительный адрес(необязательно)'), blank=True)
+    shipping_city = models.CharField(max_length=50, verbose_name=(u'Город'))
     #shipping_country = models.CharField(max_length=50) #Область
-    shipping_country = models.CharField(max_length=50)
-    shipping_zip = models.CharField(max_length=10)
+    shipping_country = models.CharField(max_length=50, verbose_name=(u'Страна'))
+    shipping_zip = models.CharField(max_length=10, verbose_name=(u'Почтовый индекс'))
     # Информация о плательщике
-    billing_name = models.CharField(max_length=50)
-    billing_address = models.CharField(max_length=50)
-    billing_city = models.CharField(max_length=50)
-    billing_country = models.CharField(max_length=50)
-    billing_zip = models.CharField(max_length=10)
+    # billing_name = models.CharField(max_length=50, default='default')
+    # billing_address = models.CharField(max_length=50, null=True)
+    # billing_city = models.CharField(max_length=50, default='default')
+    # billing_country = models.CharField(max_length=50, default='default')
+    # billing_zip = models.CharField(max_length=10, default='default')
 
 
 class Order(BaseOrderInfo):
