@@ -1,5 +1,4 @@
-#Django webshop#
+clothes
+=======
 
-Open-source CMS for internet shops
-**Was written in educational purposes**
-
+clothes Django for Moscow
