@@ -169,6 +169,7 @@ INSTALLED_APPS = (
     'webshop.news',
     'webshop.search',
     'mptt',
+    'bootstrap3',
 )
 
 # A sample logging configuration. The only tangible logging

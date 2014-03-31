@@ -2,17 +2,56 @@
 {% load mptt_tags %}
 
 <div class="row">
-	<div class="well sidebar-nav">
-		<ul class="nav nav-list tabbar">
-			<li class="nav-header">{% trans "Categories" %}</li>
-			{% recursetree nodes %}
-			<li>
-				<a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
-				{% if not node.is_leaf_node %}
-					<ul class="children nav nav-list">{{ children }}</ul>
-				{% endif %}
-			</li>
-			{% endrecursetree %}
-		</ul>
-	</div>
+
+    <header id="navbar" role="banner" class="navbar navbar-default">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-second">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse navbar-collapse-second collapse">
+            <nav role="navigation">
+            <div class="region region-navigation">
+                <ul class="menu nav navbar-nav">
+                    {% recursetree nodes %}
+                    <li>
+                        <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
+                        {% if not node.is_leaf_node %}
+                            <ul class="children nav nav-list">{{ children }}</ul>
+                        {% endif %}
+                    </li>
+                    {% endrecursetree %}
+                </ul>
+                <div class="phone_area">
+                    <div class="phone">8-913-888-68-99</div>
+                    <div class="form_button">
+                        <!-- <button class="btn btn-primary form-submit" data-toggle="modal" data-target="#myModalForm">Заказать</button> -->
+                        <button class="btn btn-primary form-submit" data-toggle="modal" data-target="#myModalForm">Заказать</button>
+                    </div>
+                </div>
+            </div>
+            </nav>
+        </div>
+    </header>
+
+
+{#	<div class="well sidebar-nav">#}
+{#		<ul class="nav nav-list tabbar">#}
+{#			<li class="nav-header">{% trans "Categories" %}</li>#}
+{#			{% recursetree nodes %}#}
+{#			<li>#}
+{#				<a href="{{ node.get_absolute_url }}">{{ node.name }}</a>#}
+{#				{% if not node.is_leaf_node %}#}
+{#					<ul class="children nav nav-list">{{ children }}</ul>#}
+{#				{% endif %}#}
+{#			</li>#}
+{#			{% endrecursetree %}#}
+{#		</ul>#}
+{#	</div>#}
+
+
 </div>

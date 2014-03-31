@@ -1,11 +1,25 @@
+{#bootstrap#}
+{% load bootstrap3 %}
+{% load catalog_tags %}
+{% load i18n %}
+{% load mptt_tags %}
+
 <!DOCTYPE HTML>
 <html>
 <head>
+
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/css.css" />
-	<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet" />
-	<link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
-	<link href="{{ STATIC_URL }}css/custom.css" rel="stylesheet" />
-  <link href="{{ STATIC_URL }}css/categoryproducts.css" rel="stylesheet" />
+
+    {% bootstrap_css %}
+
+	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
+
+{#    flex-slider#}
+    <link href="{{ STATIC_URL }}css/flexslider.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/theme-style.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}font/css/font-awesome.min.css" rel="stylesheet">
+
+
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 	<title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock %}</title>
 	<meta charset="utf-8">
@@ -23,27 +37,40 @@
   </style>
 </head>
 <body>
+
 	{% include "common/navigation.html" %}
-	<div class="container">
+
+    <div class="container">
+{#		<div class="row">#}
+{#			<div class="span12">#}
+{#				{% block header %}{% endblock %}#}
+{#                {% include "common/languages.html" %}#}
+{#			</div>#}
+{#		</div>#}
 		<div class="row">
-			<div class="span12">
-				{% block header %}{% endblock %}
-                {% include "common/languages.html" %}
-			</div>
-		</div>
-		<div class="row">
-			<div class="span12">
-				{% block site_wrapper %}{% endblock %}
+			<div class="col-md-12">
+{#                содержимое в catalog.html#}
+				{% block site_wrapper %}
+                {% endblock %}
 			</div>
 		</div>
 	</div>
     {% block footer %}
         {% include "common/footer.html" %}
     {% endblock %}
+
 	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
     <script src="{{ STATIC_URL }}js/custom.js"></script>
-    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
-	<script src="{{ STATIC_URL }}bootstrap/js/bootstrap-collapse.js"></script>
-  <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-tab.js"></script>
+
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
+
+{#    flex-slider#}
+    <script src="{{ STATIC_URL }}js/jquery.flexslider-min.js"></script>
+    <script src="{{ STATIC_URL }}js/script.js"></script>
+
+{#    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>#}
+{#	<script src="{{ STATIC_URL }}bootstrap/js/bootstrap-collapse.js"></script>#}
+{#  <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-tab.js"></script>#}
 </body>
 </html>

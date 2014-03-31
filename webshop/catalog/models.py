@@ -51,6 +51,9 @@ class FeauturedProductManager(models.Manager):
     def get_query_set(self):
         return super(FeauturedProductManager, self).get_query_set().filter(is_active=True, is_featured=True)
 
+class BestsellerProductManager(models.Manager):
+    def get_query_set(self):
+        return super(BestsellerProductManager, self).get_query_set().filter(is_active=True, is_bestseller=True)
 
 class Product(models.Model):
     """Класс для товаров"""
@@ -79,6 +82,7 @@ class Product(models.Model):
     objects = models.Manager()
     active = CommonActiveManager()
     feautured = FeauturedProductManager()
+    bestseller = BestsellerProductManager()
 
     class Meta:
         db_table = 'products'
