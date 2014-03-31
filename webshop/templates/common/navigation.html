@@ -1,37 +1,101 @@
 {% block navigation %}
-{% load i18n %}
-{% load search_tags %}
 
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="{% url catalog_home %}">Христианский интернет магазин</a>
-            <div class="nav-collapse">
-                <ul class="nav tabbar" id="nav">
-                    <li><a href="/o-nas/">О нас</a></li>
-                    <li><a href="/dostavka/">Доставка</a></li>
-                    <li><a href="/contact/">Контакты</a></li>
-                    <li><a href="{% url show_cart %}">{% trans "Shopping Cart" %}</a></li>
-                </ul>
-                {% search_box request %}
-                <ul class="nav log_menu" id="nav">
-                    {% if user.is_authenticated %}
-                        <li><a href="{% url my_account %}">{% trans "My Account" %}</a></li>
-                        <li><a href="{% url django.contrib.auth.views.logout %}">{% trans "Logout" %}</a></li>
-                    {% else %}
-                        <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></li>
-                        <li><a href="{% url register %}">{% trans "Register" %}</a></li>
-                    {% endif %}
-                </ul>
+    {% load i18n %}
+    {% load search_tags %}
+    {% load catalog_tags %}
+
+{#<div class="navbar navbar-fixed-top">#}
+{#    <div class="navbar-inner">#}
+{#        <div class="container">#}
+{#            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">#}
+{#                <span class="icon-bar"></span>#}
+{#                <span class="icon-bar"></span>#}
+{#                <span class="icon-bar"></span>#}
+{#            </a>#}
+{#            <a class="brand" href="{% url catalog_home %}">Христианский интернет магазин</a>#}
+{#            <div class="nav-collapse">#}
+{#                <ul class="nav tabbar" id="nav">#}
+{#                    <li><a href="/o-nas/">О нас</a></li>#}
+{#                    <li><a href="/dostavka/">Доставка</a></li>#}
+{#                    <li><a href="/contact/">Контакты</a></li>#}
+{#                    <li><a href="{% url show_cart %}">{% trans "Shopping Cart" %}</a></li>#}
+{#                </ul>#}
+{#                {% search_box request %}#}
+{#                <ul class="nav log_menu" id="nav">#}
+{#                    {% if user.is_authenticated %}#}
+{#                        <li><a href="{% url my_account %}">{% trans "My Account" %}</a></li>#}
+{#                        <li><a href="{% url django.contrib.auth.views.logout %}">{% trans "Logout" %}</a></li>#}
+{#                    {% else %}#}
+{#                        <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></li>#}
+{#                        <li><a href="{% url register %}">{% trans "Register" %}</a></li>#}
+{#                    {% endif %}#}
+{#                </ul>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
+<header id="navbar" role="banner" class="navbar navbar-fixed-top navbar-default">
+
+    <div class='container'>
+        <div class="row">
+
+            <div class="col-md-7">
+                <div class="navbar-header">
+                    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-top">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse navbar-collapse-top collapse">
+                    <nav role="navigation">
+                        <div class="region region-navigation">
+                            <ul class="menu nav navbar-nav">
+                                <li><a href="/o-nas/">О нас</a></li>
+                                <li><a href="/dostavka/">Доставка</a></li>
+                                <li><a href="/contact/">Контакты</a></li>
+                                <li><a href="{% url show_cart %}">{% trans "Shopping Cart" %}</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
+
+            <div class="col-md-3">
+                <div class="phone_area">
+                    <div class="auth">
+                        <ul class="nav log_menu" id="nav">
+                            {% if user.is_authenticated %}
+                                <li><a href="{% url my_account %}">{% trans "My Account" %}</a></li>
+                                <li><a href="{% url django.contrib.auth.views.logout %}">{% trans "Logout" %}</a></li>
+                            {% else %}
+                                <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></li>
+                                <li><a href="{% url register %}">{% trans "Register" %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+{#                        <div class="phone">8-913-888-68-99</div>#}
+{#                        <div class="form_button">#}
+{#                            <!-- <button class="btn btn-primary form-submit" data-toggle="modal" data-target="#myModalForm">Заказать</button> -->#}
+{#                            <button class="btn btn-primary form-submit" data-toggle="modal" data-target="#myModalForm">Заказать</button>#}
+{#                        </div>#}
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                {% cart_box request %}
+            </div>
+
         </div>
+
+
+
     </div>
-</div>
+
+</header>
 
 {% endblock %}
 

@@ -1,0 +1,100 @@
+/* стили для страницы категории */
+div.product_thumbnail{
+    text-align: center;
+    float: left;
+    /*height: 100px;*/
+}
+.product_thumbnail img {
+    width: 100%;
+}
+ul#categories{
+    list-style: none;
+}
+ul#categories li{
+    font-weight: bold;
+    color: #616161;
+}
+ul#categories li a{
+    text-decoration: underline;
+}
+
+/* стили для страницы товаров */
+div.product_image{
+    float:left;
+    padding: 0 10px 10px 0;
+}
+
+/*Стиль для страницы отображающей корзину*/
+table#shopping_cart{
+     width:100%;
+     border-collapse:collapse;
+     color:#616161;
+}
+h1,caption{
+     text-align:left;
+     font-size:x-large;
+     margin-bottom:15px;
+     color:Black;
+}
+th,td{
+     text-align:left;
+     padding:3px;
+}
+thead th{
+     color:White;
+     background-color:#616161;
+}
+tfoot th{
+     height:40px;
+}
+table#shopping_cart th.right, td.right{
+     text-align:right;
+}
+a.cart{
+     color:DarkOrange;
+}
+
+/*навигация*/
+#navigation{
+    width: 900px;
+    height: auto;
+    background-color: #98AC5E;
+    text-align: middle;
+}
+#navigation ul{
+    list-style:none;
+}
+#navigation ul li{
+    float: left;
+    margin-right: 15px;
+}
+#navigation ul li a{
+    color: White;
+    font-weight: bold;
+    text-decoration: underline;
+}
+#navigation ul li a:hover{
+    color: #616161;
+    background-color: White;
+    text-decoration: none;
+}
+.phone_area .auth,
+.phone_area .phone,
+.phone_area .form_button{
+    float: left;
+}
+.phone_area .auth ul li {
+    float: left;
+}
+ul.menu li ul.children {
+    display: none;
+    position: absolute;
+}
+ul.menu li:hover ul.children {
+    display: block;
+}
+
+/*мои стили*/
+.phone_area {
+    float: right;
+}

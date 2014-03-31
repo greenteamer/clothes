@@ -2,34 +2,76 @@
 {% load i18n %}
 
 {% block content %}
-	<h2>{% trans "Welcome to our shop!" %}</h2>
-  {% if news %}
-    <div class="breadcrumb"><h3>{% trans "News" %}</h3></div>
-    <div class="well">
-    {% for n in news %}
-      <h4><a href="{{ n.get_absolute_url }}">{{ n.header }}</a></h4>
-      <i class="icon-time"></i>&nbsp;{{ n.created|date:"h:m, j F Y" }}<br />
-      <div class="alert alert-info">
-      {{ n.body|safe }}</div>
-    {% endfor %}
+    <div class="row">
+        <h2>Добро пожаловать в наш магазин</h2>
+
+        <div class="col-md-12">
+            {% if news %}
+                <div class="breadcrumb"><h3>Новости</h3></div>
+                <div class="well">
+                {% for n in news %}
+                    <h4><a href="{{ n.get_absolute_url }}">{{ n.header }}</a></h4>
+                    <i class="icon-time"></i>&nbsp;{{ n.created|date:"h:m, j F Y" }}<br />
+                    <div class="alert alert-info">
+                    {{ n.body|safe }}</div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                {% if products %}
+                    <h3><div class="breadcrumb">Популярные товары</div></h3>
+                    {% for p in products %}
+
+                        <div class="col-md-4">
+                            <div class="product_thumbnail">
+                            <a href="{{ p.get_absolute_url }}">
+                              <img src="{{ p.image_url }}"alt="{{ p.name }}" />
+                              <br />
+                              {{ p.name }}
+                            </a>
+                            <br />
+                              {{ p.price }} руб.
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                    {% else %}
+                    Популярные товары не найдены
+                {% endif %}
+            </div>
+        </div>
+
+{#        блок лучшие продажи#}
+        <div class="col-md-12">
+            <div class="row">
+                {% if bestseller %}
+                    <h3><div class="breadcrumb">Лучшие продажи</div></h3>
+                    {% for b in bestseller %}
+
+                        <div class="col-md-4">
+                            <div class="product_thumbnail">
+                            <a href="{{ b.get_absolute_url }}">
+                              <img src="{{ b.image_url }}"alt="{{ b.name }}" />
+                              <br />
+                              {{ b.name }}
+                            </a>
+                            <br />
+                              {{ b.price }} руб.
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                    {% else %}
+                    Лучшие продажи не найдены
+                {% endif %}
+            </div>
+        </div>
+
     </div>
-  {% endif %}
-  {% if products %}
-    <h3><div class="breadcrumb">{% trans "Feautured products" %}</div></h3><br />
-    {% for p in products %}
-      <div class="product_thumbnail">
-        <a href="{{ p.get_absolute_url }}">
-          <img src="{{ p.image_url }}"
-               alt="{{ p.name }}" />
-          <br />
-          {{ p.name }}
-          </a>
-          <br />
-          {{ p.price }} руб.
-      </div>
-    {% endfor %}
-  {% else %}
-    {% trans "Feautured products not found" %}
-  {% endif %}
-  <br /><br />
+
 {% endblock %}

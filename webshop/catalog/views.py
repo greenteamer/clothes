@@ -22,6 +22,14 @@ def index_view(request, template_name="catalog/index.html"):
             p.image_url = ProductImage.objects.get(product=p, default=True).url
         except Exception:
             p.image_url = "/media/products/images/none.png"
+
+    bestseller = Product.bestseller.all()
+    for b in bestseller:
+        try:
+            b.image_url = ProductImage.objects.get(product=b, default=True).url
+        except Exception:
+            b.image_url = "/media/products/images/none.png"
+
     #Далее вывод новостей
     news = News.objects.all()[:5]
     # Функция locals получает все поля словаря
