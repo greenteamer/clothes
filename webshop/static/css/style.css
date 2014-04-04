@@ -1,100 +1,192 @@
 /* стили для страницы категории */
 div.product_thumbnail{
-    text-align: center;
-    float: left;
-    /*height: 100px;*/
+	text-align: center;
+	float: left;
+	/*height: 100px;*/
 }
 .product_thumbnail img {
-    width: 100%;
+	width: 100%;
 }
 ul#categories{
-    list-style: none;
+	list-style: none;
 }
 ul#categories li{
-    font-weight: bold;
-    color: #616161;
+	font-weight: bold;
+	color: #616161;
 }
 ul#categories li a{
+
     text-decoration: underline;
 }
 
 /* стили для страницы товаров */
 div.product_image{
-    float:left;
-    padding: 0 10px 10px 0;
+	float:left;
+	padding: 0 10px 10px 0;
 }
 
 /*Стиль для страницы отображающей корзину*/
 table#shopping_cart{
-     width:100%;
-     border-collapse:collapse;
-     color:#616161;
+	 width:100%;
+	 border-collapse:collapse;
+
+	 color:#616161;
 }
 h1,caption{
-     text-align:left;
-     font-size:x-large;
-     margin-bottom:15px;
-     color:Black;
+	 text-align:left;
+	 font-size:x-large;
+	 margin-bottom:15px;
+	 color:Black;
 }
 th,td{
-     text-align:left;
-     padding:3px;
+	 text-align:left;
+	 padding:3px;
 }
 thead th{
-     color:White;
-     background-color:#616161;
+	 color:White;
+	 background-color:#616161;
 }
 tfoot th{
-     height:40px;
+	 height:40px;
 }
 table#shopping_cart th.right, td.right{
-     text-align:right;
+	 text-align:right;
 }
 a.cart{
-     color:DarkOrange;
+	 color:DarkOrange;
 }
 
 /*навигация*/
 #navigation{
-    width: 900px;
-    height: auto;
-    background-color: #98AC5E;
-    text-align: middle;
+	width: 900px;
+	height: auto;
+	background-color: #98AC5E;
+	text-align: middle;
+}
+.navbar-fixed-top{
+    font-size: 17px;
+	background: #f9f6f7!important;
+    font-family: 'PT Sans Narrow', sans-serif;
+	border:none ;
+
+}
+.navbar-fixed-top .nav>li>a{
+    float: left;
+}
+.nav.log_menu a{
+    padding-left: 10px;
+    font-size:16px;
+    color:#333333;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.nav.log_menu a:hover{
+    color:#343331;
+    text-decoration:none;
+}
+
+i.fa.fa-check-square{
+    font-size:18px!important;
+}
+.navbar-collapse.navbar-collapse-top.collapse{
+    float:right;
+}
+
+.region-navigation .navbar-nav a{
+    padding: 15px 7px 0px 7px;
+}
+
+.nav.log_menu i{
+    font-size:16px;
+}
+
+.cart_icon .icon-addtocart{
+	font-size:20px;
+}
+.cart_icon a{
+    font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 16px;
+	color:#333;
 }
 #navigation ul{
     list-style:none;
+
+}
+.cart_bloc .col-md-3{
+	padding: 11px 0px 10px 28px;
+	background:#f0f0f0 ;
 }
 #navigation ul li{
-    float: left;
-    margin-right: 15px;
+	float: left;
+	margin-right: 15px;
 }
 #navigation ul li a{
-    color: White;
-    font-weight: bold;
-    text-decoration: underline;
+	color: White;
+	font-weight: bold;
+	text-decoration: underline;
 }
 #navigation ul li a:hover{
-    color: #616161;
-    background-color: White;
-    text-decoration: none;
+	color: #616161;
+	background-color: White;
+	text-decoration: none;
 }
 .phone_area .auth,
 .phone_area .phone,
 .phone_area .form_button{
-    float: left;
+	float: left;
 }
 .phone_area .auth ul li {
-    float: left;
+	float: left;
 }
 ul.menu li ul.children {
-    display: none;
-    position: absolute;
+	display: none;
+	position: absolute;
 }
 ul.menu li:hover ul.children {
-    display: block;
+	display: block;
 }
 
 /*мои стили*/
 .phone_area {
-    float: right;
+	float: right;
+}
+
+/*-----------Логотип телефон----------------*/
+
+.logo_phone img {
+    float: left;
+}
+
+.logo_phone{
+margin: 30px 0px 30px 0px;
+}
+.logo_phone p {
+margin: 16px 0px 0px 17px;
+float: left;
+text-transform: uppercase;
+font-family: 'Poiret One', cursive;
+font-size: 18px;
+color: #333;
+}
+
+/*----------------Слайдер--------------------*/
+
+.slide.row-fluid.second{
+    background: url(../images/bg-slide2.jpg) repeat-x;
+}
+.slide.row-fluid.first{
+   background: url(../images/bg-slide.jpg)repeat-x;
+}
+.slide.row-fluid.third{
+    background: url(../images/bg-slide3.jpg)repeat-x;
+}
+.hidden-phone{
+    padding-top: 40px;
+}
+#navbar.navbar-default{
+    border: none;
+    background: none;
+}
+.navbar-collapse{
+    border-top: 1px solid #e8e8e8;
 }

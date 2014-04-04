@@ -15,10 +15,12 @@
 	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
 
 {#    flex-slider#}
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <link href="{{ STATIC_URL }}css/flexslider.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}css/theme-style.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}font/css/font-awesome.min.css" rel="stylesheet">
-
+    <link href="{{ STATIC_URL }}font/css/whhg.css" rel="stylesheet">
 
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 	<title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock %}</title>
@@ -40,21 +42,20 @@
 
 	{% include "common/navigation.html" %}
 
-    <div class="container">
+
 {#		<div class="row">#}
 {#			<div class="span12">#}
 {#				{% block header %}{% endblock %}#}
 {#                {% include "common/languages.html" %}#}
 {#			</div>#}
 {#		</div>#}
-		<div class="row">
-			<div class="col-md-12">
-{#                содержимое в catalog.html#}
-				{% block site_wrapper %}
-                {% endblock %}
-			</div>
-		</div>
-	</div>
+
+
+    {#                содержимое в catalog.html#}
+    {% block site_wrapper %}
+    {% endblock %}
+
+
     {% block footer %}
         {% include "common/footer.html" %}
     {% endblock %}

@@ -3,7 +3,9 @@
 {% load catalog_tags %}
 
 {% block site_wrapper %}
-    <div class="row">
+    <div class="col-md-12">
+        <div class="row">
+
 		<div class="span10">
             <a href="#content" class="skip_link">{% trans "Skip to main content" %}</a>
 {#		    <a href="{% url catalog_home %}"><h1>Каталог</h1></a>#}
@@ -12,26 +14,55 @@
 {#        <div class="span2">#}
 {#          {% cart_box request %}#}
 {#        </div>#}
-
-        <div class="col-md-12">
-            <h3>Блок между меню</h3>
+    <div class="logo_phone">
+        <div class="container">
+           <div class="row">
+              <div class="col-md-3">
+               <div class="logo">
+                  <a href="/"> <img src="static/images/podarkoff_logo.png"></a>
+               </div>
+              </div>
+            <div class="col-md-3">
+               <div class="phone">
+                   <img src="static/images/phone.png">
+                   <p>+7(926) 304 5777</p>
+               </div>
+              </div>
+            <div class="col-md-3">
+               <div class="purchase">
+                   <a href="/">
+                   <img src="static/images/credit-card.png">
+                   <p>условия оплаты</p>
+                    </a>
+               </div>
+              </div>
+            <div class="col-md-3">
+               <div class="dostavka">
+                   <a href="/">
+                   <img src="static/images/bag.png">
+                   <p>условия доставки</p>
+                   </a>
+               </div>
+              </div>
+             </div>
+            </div>
         </div>
         <div class="col-md-12">
 {#            содержимое в category_list.html#}
-            <h3>Блок основное меню</h3>
+{#            <h3>Блок основное меню</h3>#}
             {% categories_tree request %}
         </div>
 
 {#            flex-slider#}
         <div class="col-md-12">
-            <h3>блок слайдер</h3>
-            <section class="flexslider-wrapper container">
+             <div class="row">
+             <section class="flexslider-wrapper ">
                 <div class="flexslider" data-slidernav="auto" data-transition="slide" id="flexslider-0">
                     <div class="slides" style="width:800%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(-1170px, 0, 0);">
                         <!--Slide #1 with caption-->
-                        <div class="slide row-fluid flex-active-slide animate-in" style="width: 1170px; float: left; display: block;">
+                        <div class="slide row-fluid first flex-active-slide animate-in" style="width: 100%; float: left; display: block;">
                             <div class="col-md-4 pull-center hidden-phone">
-                                <img src="http://demos.themelize.me/flexor/img/slides/slide1.png" alt="Slide 1">
+                                <img src="static/images/bg3-banner.png" alt="Slide 1">
                             </div>
                             <div class="col-md-6 caption">
                                 <h2 class="enlarge">Welcome to <span class="em">Flexor</span></h2>
@@ -42,7 +73,7 @@
                         </div>
 
                         <!--Slide #2 -->
-                        <div class="slide row-fluid" style="width: 1170px; float: left; display: block;">
+                        <div class="slide row-fluid second" style="width: 100%; float: left; display: block;">
                             <div class="col-md-5 col-md-offset-1 caption caption-right">
                                 <h2 class="enlarge"><span class="em">Flexor</span> Bootstrap Theme</h2>
                                 <h4>High quality, responsive theme!</h4>
@@ -50,26 +81,41 @@
                                 <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large"><i class="default"></i> Learn More</a>
                             </div>
                             <div class="col-md-6  hidden-phone">
-                                <img src="http://demos.themelize.me/flexor/img/slides/slide2.png" alt="Slide 2">
+                                <img src="static/images/icon-2.png" alt="Slide 2">
+                            </div>
+                        </div>
+{#                        slide 3#}
+                         <div class="slide row-fluid third" style="width: 100%; float: left; display: block;">
+                            <div class="col-md-5 col-md-offset-1 caption caption-right">
+                                <h2 class="enlarge"><span class="em">Flexor</span> Bootstrap Theme</h2>
+                                <h4>High quality, responsive theme!</h4>
+                                <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
+                                <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large"><i class="default"></i> Learn More</a>
+                            </div>
+                            <div class="col-md-6  hidden-phone">
+                                <img src="static/images/icon-3.png" alt="Slide 2">
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-
+    </div>
 {#        блок разделов#}
+
         <div class="col-md-12">
-            <h3>Блок разделов</h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Раздел обувь</h4>
+            <div class="container">
+                <h3>Блок разделов</h3>
+                    <div class="row">
+                         <div class="col-md-4">
+                        <h4>Раздел обувь</h4>
                 </div>
-                <div class="col-md-4">
+            <div class="col-md-4">
                     <h4>Раздел сумки</h4>
-                </div>
+            </div>
                 <div class="col-md-4">
                     <h4>Раздел очки</h4>
+                </div>
                 </div>
             </div>
         </div>
@@ -88,6 +134,6 @@
         <div class="col-md-12">
     			{% footer_links %}
         </div>
-
     </div>
+  </div
 {% endblock %}
