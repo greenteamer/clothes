@@ -1,4 +1,9 @@
 /* стили для страницы категории */
+
+h1,h2,h3,h4{
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
 div.product_thumbnail{
 	text-align: center;
 	float: left;
@@ -6,6 +11,7 @@ div.product_thumbnail{
 }
 .product_thumbnail img {
 	width: 100%;
+
 }
 ul#categories{
 	list-style: none;
@@ -70,6 +76,19 @@ a.cart{
 	border:none ;
 
 }
+
+.menu_main a{
+    font-family: 'PT Sans Narrow', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.menu_main li a:hover{
+    color: #e67c8e!important;
+}
+.navbar-collapse{
+    padding-left: 0!important;}
 .navbar-fixed-top .nav>li>a{
     float: left;
 }
@@ -189,4 +208,99 @@ color: #333;
 }
 .navbar-collapse{
     border-top: 1px solid #e8e8e8;
+}
+
+/*-----------популярные товары---------------*/
+
+.tri_bloka .col-md-12{
+    margin: 22px 0px 60px 0px;
+}
+.tri_bloka h2{
+text-transform: uppercase;
+font-weight: bold;
+letter-spacing: 2px;
+color: #555;
+text-align: center;
+font-size: 27px;
+}
+.tri_bloka_text{
+    text-align: center;
+margin-bottom: 50px;
+text-transform: uppercase;
+}
+.tri_bloka_text h3{
+    font-family: 'Open Sans Condensed';
+    font-size: 30px;
+}
+.tri_bloka a{
+    text-decoration: none;
+}
+.tri_bloka p{
+    text-align: center;
+}
+
+.popular_products, .best_selling{
+    margin-top: 100px;
+}
+#popular_products{
+background: #F7F7F7;
+padding: 40px 0px 60px 0px;
+}
+#popular_products .breadcrumb,#best_selling .breadcrumb{
+background: #E67C8E;
+text-align: center;
+color: #fff;
+font-size: 22px;
+}
+#popular_products .product_thumbnail{
+background: #fff;
+padding: 30px;
+border: 1px solid #E8E8E8;
+border-radius: 3px;
+}
+#popular_products .product_thumbnail img, .best_selling .product_thumbnail img{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E8E8E8;
+    -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+       -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
+#popular_products .product_thumbnail img:hover, .best_selling .product_thumbnail img:hover{
+    -webkit-filter: blur(2px);
+}
+
+#popular_products .product_thumbnail:hover{
+border: 1px solid #ccc;
+}
+#popular_products  h3, #best_selling h3{
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 21px;
+    color: #333;
+    margin-bottom: 0;
+}
+#popular_products  h3:hover, #best_selling h3:hover{
+    color: #E67C8E;
+}
+#popular_products a, #best_selling a{
+  text-decoration: none;
+}
+#popular_products p,#best_selling p{
+font-size: 19px;
+color: #E67C8E;
+}
+#best_selling{
+    padding: 40px 0px 60px 0px;
+}
+#best_selling .product_thumbnail{
+    margin-bottom: 30px;
+}
+#promotion_discount{
+    background-image: url(../images/poly.png);
+    background-position: 50% 50%;
+    background-color: #735988;
+    height: 250px;
+
 }

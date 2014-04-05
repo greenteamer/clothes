@@ -3,8 +3,6 @@
 
 {% block content %}
     <div class="row">
-        <h2>Добро пожаловать в наш магазин</h2>
-
         <div class="col-md-12">
             {% if news %}
                 <div class="breadcrumb"><h3>Новости</h3></div>
@@ -18,22 +16,22 @@
                 </div>
             {% endif %}
         </div>
-
-        <div class="col-md-12">
-            <div class="row">
+    <div id="popular_products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
                 {% if products %}
-                    <h3><div class="breadcrumb">Популярные товары</div></h3>
-                    {% for p in products %}
-
+                   <div class="col-md-3"> <h3><div class="breadcrumb">Популярные товары</div></h3></div>
+                    <div class="popular_products">{% for p in products %}
                         <div class="col-md-4">
                             <div class="product_thumbnail">
                             <a href="{{ p.get_absolute_url }}">
                               <img src="{{ p.image_url }}"alt="{{ p.name }}" />
                               <br />
-                              {{ p.name }}
+                              <h3>{{ p.name }}</h3>
                             </a>
                             <br />
-                              {{ p.price }} руб.
+                              <p>{{ p.price }} руб.</p>
                             </div>
                         </div>
 
@@ -43,24 +41,46 @@
                     Популярные товары не найдены
                 {% endif %}
             </div>
+            </div>
         </div>
+    </div>
+    </div>
+    <div id="promotion_discount">
+       <div class="row">
+           <div class="container">
+               <div class="promotion">
+                   <div class="col-md-6">
+                     <p>текст</p>
+                   </div>
+               </div>
+               <div class="discount">
+                   <div class="col-md-6">
+                    <p>текст</p>
+                   </div>
+               </div>
+           </div>
 
+       </div>
+    </div>
 {#        блок лучшие продажи#}
+    <div id="best_selling">
+    <div class="container">
         <div class="col-md-12">
             <div class="row">
                 {% if bestseller %}
-                    <h3><div class="breadcrumb">Лучшие продажи</div></h3>
+                   <div class="col-md-3">  <h3><div class="breadcrumb">Лучшие продажи</div></h3></div>
+                    <div class="best_selling">
                     {% for b in bestseller %}
 
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="product_thumbnail">
                             <a href="{{ b.get_absolute_url }}">
                               <img src="{{ b.image_url }}"alt="{{ b.name }}" />
                               <br />
-                              {{ b.name }}
+                            <h3>{{ b.name }}</h3>
                             </a>
                             <br />
-                              {{ b.price }} руб.
+                             <p>{{ b.price }} руб.</p>
                             </div>
                         </div>
 
@@ -70,8 +90,10 @@
                     Лучшие продажи не найдены
                 {% endif %}
             </div>
+            </div>
         </div>
-
+    </div>
+    </div>
     </div>
 
 {% endblock %}
