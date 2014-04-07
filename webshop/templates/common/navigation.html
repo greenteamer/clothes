@@ -1,4 +1,9 @@
+
 {% block navigation %}
+<div slass="container">
+    <div class="row">
+
+
 
     {% load i18n %}
     {% load search_tags %}
@@ -40,7 +45,7 @@
     <div class='container'>
         <div class="row">
 
-            <div class="col-md-7">
+            <div class="col-md-6">
                 <div class="navbar-header">
                     <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-top">
@@ -57,7 +62,7 @@
                                 <li><a href="/o-nas/">О нас</a></li>
                                 <li><a href="/dostavka/">Доставка</a></li>
                                 <li><a href="/contact/">Контакты</a></li>
-                                <li><a href="{% url show_cart %}">{% trans "Shopping Cart" %}</a></li>
+                                <li></i><a href="{% url show_cart %}">{% trans "Shopping Cart" %}</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -69,11 +74,11 @@
                     <div class="auth">
                         <ul class="nav log_menu" id="nav">
                             {% if user.is_authenticated %}
-                                <li><a href="{% url my_account %}">{% trans "My Account" %}</a></li>
-                                <li><a href="{% url django.contrib.auth.views.logout %}">{% trans "Logout" %}</a></li>
+                                <li><i class="icon-avataralt"><a href="{% url my_account %}">{% trans "My Account" %}</a></i></li>
+                                <li ><i class="icon-avataralt"><a href="{% url django.contrib.auth.views.logout %}">{% trans "Logout" %}</a></i></li>
                             {% else %}
-                                <li><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></li>
-                                <li><a href="{% url register %}">{% trans "Register" %}</a></li>
+                                <li style=" margin: 15px 22px 0px 0px; "><i class="icon-avataralt"><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></i></li>
+                               <li style=" margin-top: 15px; "> <i class="fa fa-check-square"><a href="{% url register %}">{% trans "Register" %}</a></i></li>
                             {% endif %}
                         </ul>
                     </div>
@@ -84,10 +89,11 @@
 {#                        </div>#}
                 </div>
             </div>
-
-            <div class="col-md-2">
-                {% cart_box request %}
+        <div class="cart_bloc">
+            <div class="col-md-3"><div class="cart_icon"><i class="icon-addtocart">
+                {% cart_box request %}</i></div>
             </div>
+         <div/>
 
         </div>
 
@@ -96,6 +102,7 @@
     </div>
 
 </header>
-
+    </div>
+</div>
 {% endblock %}
 
