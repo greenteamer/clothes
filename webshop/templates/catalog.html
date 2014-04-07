@@ -3,146 +3,171 @@
 {% load catalog_tags %}
 
 {% block site_wrapper %}
-    <div class="col-md-12">
-        <div class="row">
 
-		<div class="span10">
-            <a href="#content" class="skip_link">{% trans "Skip to main content" %}</a>
-{#		    <a href="{% url catalog_home %}"><h1>Каталог</h1></a>#}
-        </div>
 
-{#        <div class="span2">#}
-{#          {% cart_box request %}#}
-{#        </div>#}
-    <div class="logo_phone">
-        <div class="container">
-           <div class="row">
-              <div class="col-md-3">
-               <div class="logo">
-                  <a href="/"> <img src="static/images/podarkoff_logo.png"></a>
-               </div>
-              </div>
-            <div class="col-md-3">
-               <div class="phone">
-                   <img src="static/images/phone.png">
-                   <p>+7(926) 304 5777</p>
-               </div>
-              </div>
-            <div class="col-md-3">
-               <div class="purchase">
-                   <a href="/">
-                   <img src="static/images/credit-card.png">
-                   <p>условия оплаты</p>
-                    </a>
-               </div>
-              </div>
-            <div class="col-md-3">
-               <div class="dostavka">
-                   <a href="/">
-                   <img src="static/images/bag.png">
-                   <p>условия доставки</p>
-                   </a>
-               </div>
-              </div>
-             </div>
+
+            <div class="span10">
+                <a href="#content" class="skip_link">{% trans "Skip to main content" %}</a>
+    {#		    <a href="{% url catalog_home %}"><h1>Каталог</h1></a>#}
+            </div>
+
+    {#        <div class="span2">#}
+    {#          {% cart_box request %}#}
+    {#        </div>#}
+        <div class="logo_phone">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                      <div class="logo">
+                        <a href="/"> <img src="{{ STATIC_URL }}images/podarkoff_logo.png"></a>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="phone">
+                           <img src="{{ STATIC_URL }}images/phone.png">
+                           <p>+7(926) 304 5777</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                       <div class="purchase">
+                           <a href="/">
+                           <img src="{{ STATIC_URL }}images/credit-card.png">
+                           <p>условия оплаты</p>
+                            </a>
+                       </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dostavka">
+                           <a href="/">
+                           <img src="{{ STATIC_URL }}images/bag.png">
+                           <p>условия доставки</p>
+                           </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-12">
-{#            содержимое в category_list.html#}
-{#            <h3>Блок основное меню</h3>#}
-            {% categories_tree request %}
+
+        <div class="main_menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+            {#            содержимое в category_list.html#}
+            {#            <h3>Блок основное меню</h3>#}
+                        {% categories_tree request %}
+                    </div>
+                </div>
+            </div>
         </div>
 
-{#            flex-slider#}
-        <div class="col-md-12">
-             <div class="row">
-             <section class="flexslider-wrapper ">
-                <div class="flexslider" data-slidernav="auto" data-transition="slide" id="flexslider-0">
-                    <div class="slides" style="width:800%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(-1170px, 0, 0);">
-                        <!--Slide #1 with caption-->
-                        <div class="slide row-fluid first flex-active-slide animate-in" style="width: 100%; float: left; display: block;">
-                            <div class="col-md-4 pull-center hidden-phone">
-                                <img src="static/images/bg3-banner.png" alt="Slide 1">
-                            </div>
-                            <div class="col-md-6 caption">
-                                <h2 class="enlarge">Welcome to <span class="em">Flexor</span></h2>
-                                <h4>Super flexible responsive theme with a modest design touch.</h4>
-                                <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
-                                <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large i-right">Buy Now <i class="default"></i></a>
-                            </div>
-                        </div>
 
-                        <!--Slide #2 -->
-                        <div class="slide row-fluid second" style="width: 100%; float: left; display: block;">
-                            <div class="col-md-5 col-md-offset-1 caption caption-right">
-                                <h2 class="enlarge"><span class="em">Flexor</span> Bootstrap Theme</h2>
-                                <h4>High quality, responsive theme!</h4>
-                                <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
-                                <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large"><i class="default"></i> Learn More</a>
+
+    {#            flex-slider#}
+            <div class="my_slider">
+
+                 <section class="flexslider-wrapper ">
+                    <div class="flexslider" data-slidernav="auto" data-transition="slide" id="flexslider-0">
+                        <div class="slides" style="width:800%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(-1170px, 0, 0);">
+                            <!--Slide #1 with caption-->
+                            <div class="slide row-fluid first flex-active-slide animate-in" style="width: 100%; float: left; display: block;">
+                                <div class="col-md-4 pull-center hidden-phone">
+                                    <img src="{{ STATIC_URL }}images/bg3-banner.png" alt="Slide 1">
+                                </div>
+                                <div class="col-md-6 caption">
+                                    <h2 class="enlarge">Welcome to <span class="em">Flexor</span></h2>
+                                    <h4>Super flexible responsive theme with a modest design touch.</h4>
+                                    <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
+                                    <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large i-right">Buy Now <i class="default"></i></a>
+                                </div>
                             </div>
-                            <div class="col-md-6  hidden-phone">
-                                <img src="static/images/icon-2.png" alt="Slide 2">
+
+                            <!--Slide #2 -->
+                            <div class="slide row-fluid second" style="width: 100%; float: left; display: block;">
+                                <div class="col-md-5 col-md-offset-1 caption caption-right">
+                                    <h2 class="enlarge"><span class="em">Flexor</span> Bootstrap Theme</h2>
+                                    <h4>High quality, responsive theme!</h4>
+                                    <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
+                                    <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large"><i class="default"></i> Learn More</a>
+                                </div>
+                                <div class="col-md-6  hidden-phone">
+                                    <img src="{{ STATIC_URL }}images/icon-2.png" alt="Slide 2">
+                                </div>
+                            </div>
+    {#                        slide 3#}
+                             <div class="slide row-fluid third" style="width: 100%; float: left; display: block;">
+                                <div class="col-md-5 col-md-offset-1 caption caption-right">
+                                    <h2 class="enlarge"><span class="em">Flexor</span> Bootstrap Theme</h2>
+                                    <h4>High quality, responsive theme!</h4>
+                                    <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
+                                    <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large"><i class="default"></i> Learn More</a>
+                                </div>
+                                <div class="col-md-6  hidden-phone">
+                                    <img src="{{ STATIC_URL }}images/icon-3.png" alt="Slide 2">
+                                </div>
                             </div>
                         </div>
-{#                        slide 3#}
-                         <div class="slide row-fluid third" style="width: 100%; float: left; display: block;">
-                            <div class="col-md-5 col-md-offset-1 caption caption-right">
-                                <h2 class="enlarge"><span class="em">Flexor</span> Bootstrap Theme</h2>
-                                <h4>High quality, responsive theme!</h4>
-                                <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
-                                <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large"><i class="default"></i> Learn More</a>
-                            </div>
-                            <div class="col-md-6  hidden-phone">
-                                <img src="static/images/icon-3.png" alt="Slide 2">
+                    </div>
+                </section>
+
+        </div>
+
+
+    {#        блок разделов#}
+        <div class="tri_bloka">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 tri_bloka_text">
+                        <h3>Магазин брендовой одежды кожгалантиреи солнцезащитных очков и аксесуаров</h3>
+                    </div>
+                     <div class="col-md-4">
+                         <a href="#">
+                            <img src="{{ STATIC_URL }}images/odejda.jpg" alt="Верхняя одежда">
+                            <h2>Верхняя одежда</h2>
+                         </a>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/category/sumki/">
+                            <img src="{{ STATIC_URL }}images/coj_gal.jpg" alt="Кожгалантерея ">
+                            <h2>Кожгалантерея </h2>
+                        </a>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/category/ochki/">
+                            <img src="{{ STATIC_URL }}images/ochci.jpg" alt="Солнцезащитные очки">
+                            <h2>Солнцезащитные очки</h2>
+                        </a>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {#        блок контент#}
+
+    {#содержимое в catalog/index.html#}
+        {% block content %}
+        {% endblock %}
+
+
+            <div class="col-md-12">
+                <h2>Раздел после контента</h2>
+            </div>
+
+    {#        блок футер#}
+            <div id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                {% footer_links %}
+                                <a class="brand" href="http://forward70.ru">Создание сайтов Forward Group</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-    </div>
-{#        блок разделов#}
-    <div class="tri_bloka">
-        <div class="col-md-12">
-            <div class="container">
-                <div class="tri_bloka_text"><h3>Магазин брендовой одежды кожгалантиреи солнцезащитных очков и аксесуаров</h3></div>
-                    <div class="row">
-                         <div class="col-md-4">
-                             <a href="#"><img src="static/images/odejda.jpg" alt="Верхняя одежда">
-                        <h2>Верхняя одежда</h2></a>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                </div>
-            <div class="col-md-4">
-              <a href="/category/sumki/"> <img src="static/images/coj_gal.jpg" alt="Кожгалантерея ">
-                    <h2>Кожгалантерея </h2></a>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-            </div>
-                <div class="col-md-4">
-                    <a href="/category/ochki/"> <img src="static/images/ochci.jpg" alt="Солнцезащитные очки">
-                    <h2>Солнцезащитные очки</h2></a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{#        блок контент#}
-        <div class="col-md-12">
-{#            содержимое в catalog/index.html#}
-            {% block content %}{% endblock %}
-        </div>
 
-        <div class="col-md-12">
-            <h2>Раздел после контента</h2>
-        </div>
 
-{#        блок футер#}
-        <div class="col-md-12">
-    			{% footer_links %}
-        </div>
-    </div>
-  </div
 {% endblock %}

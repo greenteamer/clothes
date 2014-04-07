@@ -2,98 +2,140 @@
 {% load i18n %}
 
 {% block content %}
-    <div class="row">
-        <div class="col-md-12">
-            {% if news %}
-                <div class="breadcrumb"><h3>Новости</h3></div>
-                <div class="well">
-                {% for n in news %}
-                    <h4><a href="{{ n.get_absolute_url }}">{{ n.header }}</a></h4>
-                    <i class="icon-time"></i>&nbsp;{{ n.created|date:"h:m, j F Y" }}<br />
-                    <div class="alert alert-info">
-                    {{ n.body|safe }}</div>
-                {% endfor %}
+    <div class="boloc_news">
+        <div class="row">
+           {% if news %}
+                <div class="breadcrumb">
+                    <h3>Новости</h3>
                 </div>
+                    <div class="well">
+                        {% for n in news %}
+                            <h4>
+                                <a href="{{ n.get_absolute_url }}">{{ n.header }}</a>
+                            </h4>
+                                <i class="icon-time"></i>&nbsp;{{ n.created|date:"h:m, j F Y" }}
+                            <br />
+                            <div class="alert alert-info">
+                                {{ n.body|safe }}
+                            </div>
+                        {% endfor %}
+                    </div>
             {% endif %}
         </div>
+    </div>
+
     <div id="popular_products">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="container">
+            <div class="row">
                 {% if products %}
-                   <div class="col-md-3"> <h3><div class="breadcrumb">Популярные товары</div></h3></div>
-                    <div class="popular_products">{% for p in products %}
-                        <div class="col-md-4">
-                            <div class="product_thumbnail">
-                            <a href="{{ p.get_absolute_url }}">
-                              <img src="{{ p.image_url }}"alt="{{ p.name }}" />
-                              <br />
-                              <h3>{{ p.name }}</h3>
-                            </a>
-                            <br />
-                              <p>{{ p.price }} руб.</p>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h3>
+                                    <div class="breadcrumb">Популярные товары</div>
+                                </h3>
                             </div>
                         </div>
+                    </div>
+                    {% for p in products %}
+                        <div class="col-md-4 popular_products">
 
+                            <div class="product_thumbnail">
+                                <a href="{{ p.get_absolute_url }}">
+                                  <img src="{{ p.image_url }}"alt="{{ p.name }}" />
+                                  <br />
+                                  <h3>{{ p.name }}</h3>
+                                </a>
+                                <br />
+                                <p>{{ p.price }} руб.</p>
+                            </div>
+
+                        </div>
                     {% endfor %}
-
-                    {% else %}
-                    Популярные товары не найдены
+                {% else %}
+                    <p>Популярные товары не найдены</p>
                 {% endif %}
-            </div>
             </div>
         </div>
     </div>
-    </div>
+
     <div id="promotion_discount">
-       <div class="row">
-           <div class="container">
+         <div class="container">
+           <div class="row">
                <div class="promotion">
                    <div class="col-md-6">
-                     <p>текст</p>
+                        <div class="box-static col">
+                            <div class="row-fluid">
+                                <div class="static-image">
+                                    <a href="#"><img src="{{ STATIC_URL }}images/price-tag.png" alt=""></a>
+                                </div>
+                                    <div class="col-md-8">
+                                        <div class="static-text">
+                                                <div class="icon">&nbsp;</div>
+                                            <h3>АКЦИИ И СКИДКИ</h3>
+                                            <p>В нашем интернет магазине существуют выгодные акции и большие скидки</p>
+                                            <a href="#">Подробнее</a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
                    </div>
                </div>
                <div class="discount">
                    <div class="col-md-6">
-                    <p>текст</p>
+                        <div class="box-static col1">
+                            <div class="row-fluid">
+                                    <div>
+                                        <div class="static-image"><a href="#">
+                                            <img src="{{ STATIC_URL }}images/ak-phone.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                <div class="col-md-8">
+                                    <div class="static-text">
+                                    <div class="icon"></div>
+                                        <h3>ТЕЛЕФОН +7(926) 304 5777</h3>
+                                        <p>Вы можите звонить нам в любое время, Вы получить ответ не все ваши вопросы и предложения </p>
+                                    <a href="#">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                    </div>
                </div>
            </div>
-
-       </div>
+         </div>
     </div>
 {#        блок лучшие продажи#}
     <div id="best_selling">
-    <div class="container">
-        <div class="col-md-12">
-            <div class="row">
-                {% if bestseller %}
-                   <div class="col-md-3">  <h3><div class="breadcrumb">Лучшие продажи</div></h3></div>
-                    <div class="best_selling">
-                    {% for b in bestseller %}
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                    {% if bestseller %}
+                       <div class="col-md-3">  <h3><div class="breadcrumb">Лучшие продажи</div></h3></div>
+                        <div class="best_selling">
+                            {% for b in bestseller %}
+                                <div class="col-md-3">
+                                    <div class="product_thumbnail">
+                                        <a href="{{ b.get_absolute_url }}">
+                                          <img src="{{ b.image_url }}"alt="{{ b.name }}" />
+                                          <br />
+                                        <h3>{{ b.name }}</h3>
+                                        </a>
+                                        <br />
+                                     <p>{{ b.price }} руб.</p>
+                                    </div>
+                                </div>
 
-                        <div class="col-md-3">
-                            <div class="product_thumbnail">
-                            <a href="{{ b.get_absolute_url }}">
-                              <img src="{{ b.image_url }}"alt="{{ b.name }}" />
-                              <br />
-                            <h3>{{ b.name }}</h3>
-                            </a>
-                            <br />
-                             <p>{{ b.price }} руб.</p>
-                            </div>
+                                {% endfor %}
+
+                            {% else %}
+                            <p>Лучшие продажи не найдены</p>
+                            {% endif %}
                         </div>
-
-                    {% endfor %}
-
-                    {% else %}
-                    Лучшие продажи не найдены
-                {% endif %}
-            </div>
+                </div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
+
 
 {% endblock %}
