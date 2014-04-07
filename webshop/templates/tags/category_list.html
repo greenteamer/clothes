@@ -13,10 +13,12 @@
             <span class="icon-bar"></span>
             </button>
         </div>
+    <div class="container">
+    <div class="row">
         <div class="navbar-collapse navbar-collapse-second collapse">
             <nav role="navigation">
             <div class="region region-navigation">
-                <ul class="menu nav navbar-nav">
+                <ul class="menu nav navbar-nav menu_main">
                     {% recursetree nodes %}
                     <li>
                         <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
@@ -26,16 +28,18 @@
                     </li>
                     {% endrecursetree %}
                 </ul>
-                <div class="phone_area">
-                    <div class="phone">8-913-888-68-99</div>
-                    <div class="form_button">
-                        <!-- <button class="btn btn-primary form-submit" data-toggle="modal" data-target="#myModalForm">Заказать</button> -->
-                        <button class="btn btn-primary form-submit" data-toggle="modal" data-target="#myModalForm">Заказать</button>
-                    </div>
-                </div>
+{#                <div class="phone_area">#}
+{#                    <div class="phone">8-913-888-68-99</div>#}
+{#                    <div class="form_button">#}
+{#                        <!-- <button class="btn btn-primary form-submit" data-toggle="modal" data-target="#myModalForm">Заказать</button> -->#}
+{#                        <button class="btn btn-primary form-submit" data-toggle="modal" data-target="#myModalForm">Заказать</button>#}
+{#                    </div>#}
+{#                </div>#}
             </div>
             </nav>
         </div>
+     </div>
+    </div>
     </header>
 
 
