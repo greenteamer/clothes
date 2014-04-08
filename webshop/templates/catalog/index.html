@@ -23,7 +23,7 @@
             {% endif %}
         </div>
     </div>
-
+{% block popular_products %}
     <div id="popular_products">
         <div class="container">
             <div class="row">
@@ -42,7 +42,9 @@
 
                             <div class="product_thumbnail">
                                 <a href="{{ p.get_absolute_url }}">
-                                  <img src="{{ p.image_url }}"alt="{{ p.name }}" />
+                                    <div class="product_thumbnail_img">
+                                          <img src="{{ p.image_url }}"alt="{{ p.name }}" />
+                                    </div>
                                   <br />
                                   <h3>{{ p.name }}</h3>
                                 </a>
@@ -58,7 +60,8 @@
             </div>
         </div>
     </div>
-
+{% endblock %}
+{% block promotion_discount %}
     <div id="promotion_discount">
          <div class="container">
            <div class="row">
@@ -81,6 +84,7 @@
                         </div>
                    </div>
                </div>
+
                <div class="discount">
                    <div class="col-md-6">
                         <div class="box-static col1">
@@ -105,6 +109,7 @@
            </div>
          </div>
     </div>
+{% endblock %}
 {#        блок лучшие продажи#}
     <div id="best_selling">
         <div class="container">

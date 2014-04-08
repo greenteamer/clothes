@@ -63,6 +63,7 @@
 
 
     {#            flex-slider#}
+     {% block slider %}
             <div class="my_slider">
 
                  <section class="flexslider-wrapper ">
@@ -110,9 +111,10 @@
                 </section>
 
         </div>
-
+     {% endblock %}
 
     {#        блок разделов#}
+    {% block tri_bloka %}
         <div class="tri_bloka">
             <div class="container">
                 <div class="row">
@@ -145,6 +147,7 @@
                 </div>
             </div>
         </div>
+    {% endblock %}
     {#        блок контент#}
 
     {#содержимое в catalog/index.html#}
@@ -152,9 +155,9 @@
         {% endblock %}
 
 
-            <div class="col-md-12">
-                <h2>Раздел после контента</h2>
-            </div>
+{#            <div class="col-md-12">#}
+{#                <h2>Раздел после контента</h2>#}
+{#            </div>#}
 
     {#        блок футер#}
             <div id="footer">
