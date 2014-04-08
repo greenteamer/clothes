@@ -24,7 +24,7 @@
             {% endif %}
         </div>
     </div>
-
+{% block popular_products %}
     <div id="popular_products">
         <div class="container">
             <div class="row">
@@ -64,7 +64,8 @@
             </div>
         </div>
     </div>
-
+{% endblock %}
+{% block promotion_discount %}
     <div id="promotion_discount">
         <div class="container">
             <div class="row">
@@ -85,10 +86,11 @@
                                     </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="discount">
-                    <div class="col-md-6">
+                   </div>
+               </div>
+
+               <div class="discount">
+                   <div class="col-md-6">
                         <div class="box-static col1">
                             <div class="row-fluid">
                                     <div>
@@ -111,6 +113,7 @@
             </div>
         </div>
     </div>
+{% endblock %}
 {#        блок лучшие продажи#}
     <div id="best_selling">
         <div class="container">
