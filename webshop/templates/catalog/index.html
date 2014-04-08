@@ -42,7 +42,9 @@
 
                             <div class="product_thumbnail">
                                 <a href="{{ p.get_absolute_url }}">
-                                  <img src="{{ p.image_url }}"alt="{{ p.name }}" />
+                                    <div class="product_thumbnail_img">
+                                          <img src="{{ p.image_url }}"alt="{{ p.name }}" />
+                                    </div>
                                   <br />
                                   <h3>{{ p.name }}</h3>
                                 </a>
