@@ -3,6 +3,7 @@
 import os
 
 from django.utils.translation import ugettext_lazy as _
+from os.path import abspath, dirname, basename, join, split
 
 CURRPATH = os.path.abspath('.')
 
@@ -170,7 +171,10 @@ INSTALLED_APPS = (
     'webshop.search',
     'mptt',
     'bootstrap3',
+    'sorl.thumbnail',
 )
+
+THUMBNAIL_DEBUG = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

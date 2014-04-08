@@ -55,6 +55,13 @@
                                         name="submit" alt="{% trans "Add To Cart" %}" />
                                     </form>
                                </div>
+                               <div class="col-md-4">
+								{#    покупка в 1 клик#}
+    <form method="post" action="." class="cart">{% csrf_token %}
+        {{ form2.as_p }}
+        <input class="btn btn-primary" type="submit" value="1 клик" name="submit" alt="" />
+    </form>
+                               </div>
                         </div>
                       </div>
                   </div>
