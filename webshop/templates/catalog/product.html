@@ -41,6 +41,35 @@
         <input class="btn btn-primary" type="submit" value="{% trans "Add To Cart" %}"
                name="submit" alt="{% trans "Add To Cart" %}" />
       </form>
+
+{#    покупка в 1 клик#}
+    <form method="post" action="." class="cart">{% csrf_token %}
+        {{ form2.as_p }}
+        <input class="btn btn-primary" type="submit" value="1 клик" name="submit" alt="" />
+    </form>
+{#    <a href="#myModal" type="button" class="btn btn-primary" data-toggle="modal">Закатать в 1 клик</a>#}
+{#    <!-- Modal -->#}
+{#    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">#}
+{#        <div class="modal-header">#}
+{#            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>#}
+{#            <span><h3 id="myModalLabel" class="">Отправить заявку</h3></span><span><input id="status" class="hidden" value="" type="text"></span>#}
+{#        </div>#}
+{#        <form action="." method="post" id="my_form">#}
+{#            <div class="modal-body">#}
+{#                {% csrf_token %}#}
+{#                {{ form.as_p }}#}
+{#            </div>#}
+{#            <div class="modal-footer">#}
+{#                <div class="loading hidden">#}
+{#                    <img src="{% static 'theme/img/335.gif' %}" alt=""/>#}
+{#                </div>#}
+{#                <input id="id_submit" value="Отправить" type="button" onclick="send_form();">#}
+{#                <button id="id_submit" class="red" data-dismiss="modal" aria-hidden="true">Отменить</button>#}
+{#            </div>#}
+{#        </form>#}
+{#    </div>#}
+{#    покупка в 1 клик конец#}
+
     </div>
   </div>
   <div class="tabbable">
