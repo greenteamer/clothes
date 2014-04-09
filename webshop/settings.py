@@ -185,7 +185,7 @@ INSTALLED_APPS = (
     'dajax',
 )
 
-# THUMBNAIL_DEBUG = True
+THUMBNAIL_DEBUG = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
