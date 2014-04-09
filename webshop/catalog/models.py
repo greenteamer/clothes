@@ -124,7 +124,7 @@ class ProductImage(models.Model):
 
     @property
     def url(self):
-        return self.image.url
+        return self.image
 
 
 class CharacteristicType(models.Model):

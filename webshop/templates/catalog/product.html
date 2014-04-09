@@ -1,85 +1,162 @@
 {% extends "catalog.html" %}
 {% load i18n %}
 {% load catalog_filters %}
+{% load thumbnail %}
+
+{% block slider %}
+{% endblock %}
+{% block tri_bloka %}
+{% endblock %}
 
 {% block content %}
-  <div class="row-fluid">
-    <div class="span4">
-      <div align="center">
-        <img src="{{ product_image.url }}" alt="{{ p.name }}" />
-      </div>
+    <div id="product_lict">
+        <div class="container">
+            <div class="row row-fluid">
+
+                <div class="col-md-4">
+{#                    {% thumbnail product_image.url "298x319" crop="center" as im %}#}
+{#                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">#}
+{#                    {% endthumbnail %}#}
+                    {% if images %}
+
+                        <div id="my_slider" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                {% for image in images %}
+                                    <li data-target="#my_slider" data-slide-to="{{ forloop.counter0 }}" class="{% if image == images|first %}active{% endif %}">
+                                        <img src="/media/{{ image.url }}" alt="">
+                                    </li>
+                                {% endfor %}
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                {% for image in images %}
+                                    <div class="item {% if image == images|first %}active{% endif %}">
+{#                                        <img src="/media/{{ image.url }}" alt="">#}
+                                        {% thumbnail image.url "360x360" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% endthumbnail %}
+{#                                        <div class="carousel-caption">#}
+{#                                            <p>{{ image.url }}</p>#}
+{#                                        </div>#}
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#my_slider" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#my_slider" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+
+                    {% else %}
+                        <p>Нет фото</p>
+                    {% endif %}
+{#                    <img src="{{ product_image.url }}" alt="{{ p.name }}" />#}
+                </div>
+
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="product_text">
+                            <h1>{{ p.name }}</h1>
+                            {#                  {% trans "ID" %}: {{ p.id }}#}
+                            <br />
+                            {% trans "Brand" %}: <em>{{ p.brand }}</em>
+                            <br />
+                            {% trans "SKU" %}: {{ p.sku }}
+                            <br />
+                            {# Переписать V #}
+                            {#                    {% blocktrans count counter=categories|length %}#}
+                            {#                    In category:#}
+                            {#                    {% plural %}#}
+                            {#                    In categories:#}
+                            {#                    {% endblocktrans %}#}
+                            {#                    {% for c in categories %}#}
+                            {#                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>#}
+                            {#                    {% if not forloop.last %}, {% endif %}#}
+                            {#                    {% endfor %}#}
+                            {#                    <br /><br />#}
+                        </div>
+                        <div class="price_cart">
+                            <div class="col-md-3">
+                                {% if p.sale_price %}
+                                    <div class="price_was">
+                                        {% trans "Was" %}: <span>{{ p.old_price }}{% trans "руб." %}</span>
+                                    </div>
+                                    <div class="price_now">
+                                        {% trans "Now" %}:<span> {{ p.price }} {% trans "руб." %}</span>
+                                    </div>
+                                {% else %}
+                                    {% trans "Price" %}: {{ p.price }} {% trans "руб." %}
+                                {% endif %}
+                            </div>
+                            <div class="col-md-3">
+                                <form method="post" action="." class="cart">{% csrf_token %}
+                                    {{ form.as_p }}
+                                    <input class="btn btn-primary" type="submit" value="{% trans "Add To Cart" %}"
+                                    name="submit" alt="{% trans "Add To Cart" %}" />
+                                </form>
+                            </div>
+                            {#    покупка в 1 клик#}
+                            <div class="col-md-3">
+                                <h4>Купить в 1 клик</h4>
+                                <form action="." method="post" id="my_form">{% csrf_token %}
+                                    {{ form2.as_p }}
+                                    <input id="id_submit" class="btn btn-primary" value="Отправить" type="button" onclick="send_form();">
+{#                                    <input class="btn btn-primary" type="submit" value="1 клик" name="submit" onclick="send_form();" alt="" />#}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+              <div class="tabbable">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" id="myTab">
+                      <li class="active"><a href="#description" data-toggle="tab">{% trans "Description" %}</a></li>
+                      <li><a href="#characteristics" data-toggle="tab">{% trans "Characteristics" %}</a></li>
+                      <li><a href="#feedback" data-toggle="tab">{% trans "Feedback" %}</a></li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="description">{{ p.description }}</div>
+                      <div class="tab-pane" id="characteristics">
+                        <div class="row-fluid">
+                          <div class="span5">
+                            {% if characteristics %}
+                              <table class="table table-striped table-bordered table-condensed">
+                              <caption>{% trans "Product characteristics" %}</caption>
+                                <thead>
+                                <tr>
+                                  <th><b>{% trans "Characteristic" %}</b></th>
+                                  <th>{% trans "Value" %}</th>
+                                </tr>
+                                <tbody>
+                                  {% for characteristic in characteristics %}
+                                    <tr>
+                                    <th>{{ characteristic.characteristic_type }}</th>
+                                    <th>{{ characteristic.value }}</th>
+                                  </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </thead>
+                            </table>
+                            {% else %}
+                              {% trans "Characteristics not specified" %}
+                            {% endif %}
+                          </div>
+                         </div>
+                      </div>
+                      <div class="tab-pane" id="feedback">Feedback... TODO</div>
+                    </div>
+                </div>
+              </div>
+
+        </div>
     </div>
-    <div class="span6">
-      <h1>{{ p.name }}</h1>
-      {% trans "ID" %}: {{ p.id }}
-      <br />
-      {% trans "Brand" %}: <em>{{ p.brand }}</em>
-      <br />
-	    {% trans "SKU" %}: {{ p.sku }}
-	    <br />
-      {# Переписать V #}
-      {% blocktrans count counter=categories|length %}
-        In category:
-      {% plural %}
-        In categories:
-      {% endblocktrans %}
-      {% for c in categories %}
-        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-        {% if not forloop.last %}, {% endif %}
-      {% endfor %}
-      <br /><br />
-      {% if p.sale_price %}
-        {% trans "Was" %}: {{ p.old_price }} {% trans "руб." %}
-        <br />
-        {% trans "Now" %}: {{ p.price }} {% trans "руб." %}
-      {% else %}
-        {% trans "Price" %}: {{ p.price }} {% trans "руб." %}
-      {% endif %}
-      <br /><br />
-      <form method="post" action="." class="cart">{% csrf_token %}
-        {{ form.as_p }}
-        <input class="btn btn-primary" type="submit" value="{% trans "Add To Cart" %}"
-               name="submit" alt="{% trans "Add To Cart" %}" />
-      </form>
-    </div>
-  </div>
-  <div class="tabbable">
-    <ul class="nav nav-tabs" id="myTab">
-      <li class="active"><a href="#description" data-toggle="tab">{% trans "Description" %}</a></li>
-      <li><a href="#characteristics" data-toggle="tab">{% trans "Characteristics" %}</a></li>
-      <li><a href="#feedback" data-toggle="tab">{% trans "Feedback" %}</a></li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane active" id="description">{{ p.description }}</div>
-      <div class="tab-pane" id="characteristics">
-        <div class="row-fluid">
-          <div class="span5">
-            {% if characteristics %}
-              <table class="table table-striped table-bordered table-condensed">
-              <caption>{% trans "Product characteristics" %}</caption>
-                <thead>
-                <tr>
-                  <th><b>{% trans "Characteristic" %}</b></th>
-                  <th>{% trans "Value" %}</th>
-                </tr>
-                <tbody>
-                  {% for characteristic in characteristics %}
-                    <tr>
-                    <th>{{ characteristic.characteristic_type }}</th>
-                    <th>{{ characteristic.value }}</th>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </thead>
-            </table>
-            {% else %}
-              {% trans "Characteristics not specified" %}
-            {% endif %}
-          </div>
-         </div>
-      </div>
-      <div class="tab-pane" id="feedback">Feedback... TODO</div>
-    </div>
-  </div>
-<br /><br />
 {% endblock %}

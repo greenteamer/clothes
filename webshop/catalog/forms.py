@@ -40,3 +40,8 @@ class ProductAddToCartForm(forms.Form):
 			if not self.request.session.test_cookie_worked():
 				raise forms.ValidationError(_(u'Cookies must be enabled.'))
 		return self.cleaned_data
+
+
+class ProductOneClickForm(forms.Form):
+    phone = forms.CharField(label=u'Ваш телефон (обязательно)', max_length=255)
+    product_slug = forms.CharField(widget=forms.HiddenInput())

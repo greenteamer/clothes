@@ -8,7 +8,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.decorators.csrf import csrf_protect
 
 from webshop.cart import cart
-from webshop.catalog.forms import ProductAddToCartForm
+from webshop.catalog.forms import *
+from django.core.mail import send_mail
 from webshop.catalog.models import Category, Product, Characteristic, ProductImage
 from webshop.news.models import News
 
@@ -19,16 +20,16 @@ def index_view(request, template_name="catalog/index.html"):
     products = Product.feautured.all()
     for p in products:
         try:
-            p.image_url = ProductImage.objects.get(product=p, default=True).url
+            p.image = ProductImage.objects.get(product=p, default=True)
         except Exception:
-            p.image_url = "/media/products/images/none.png"
+            p.image = "/media/products/images/none.png"
 
     bestseller = Product.bestseller.all()
     for b in bestseller:
         try:
-            b.image_url = ProductImage.objects.get(product=b, default=True).url
+            b.image = ProductImage.objects.get(product=b, default=True)
         except Exception:
-            b.image_url = "/media/products/images/none.png"
+            b.image = "/media/products/images/none.png"
 
     #Далее вывод новостей
     news = News.objects.all()[:5]
@@ -61,6 +62,7 @@ def product_view(request, product_slug, template_name="catalog/product.html"):
     meta_description = p.meta_description
     try:
         product_image = ProductImage.objects.get(product=p, default=True)
+        images = ProductImage.objects.filter(product=p)
     except Exception:
         print "Image for product #%s not found" % p.id
     characteristics = Characteristic.objects.filter(product=p)
@@ -69,6 +71,8 @@ def product_view(request, product_slug, template_name="catalog/product.html"):
         # Добавление в корзину, создаем связанную форму
         postdata = request.POST.copy()
         form = ProductAddToCartForm(request, postdata)
+        form2 = ProductOneClickForm(request.POST or None)
+
         # Проверка что отправляемые данные корректны
         if form.is_valid():
             # Добавляем в корзину и делаем перенаправление на страницу с корзиной
@@ -78,11 +82,19 @@ def product_view(request, product_slug, template_name="catalog/product.html"):
                 request.session.delete_test_cookie()
             url = urlresolvers.reverse('show_cart')
             return HttpResponseRedirect(url)
+        # if form2.is_valid():
+        #     phone = request.POST['phone']
+        #     text = u'Заявка на товар %s \n телефон: %s' % (page_title, phone)
+        #     send_mail('в 1 клик', text, 'teamer777@gmail.com', ['greenteamer@bk.ru'], fail_silently=False)
+        #     return HttpResponseRedirect('/product/%s/' % product_slug)
+
     else:
         # Если запрос GET, создаем не привязанную форму. request передаем в kwarg
         form = ProductAddToCartForm(request=request, label_suffix=':')
+        form2 = ProductOneClickForm()
     # Присваиваем значению скрытого поля чистое имя продукта
     form.fields['product_slug'].widget.attrs['value'] = product_slug
+    form2.fields['product_slug'].widget.attrs['value'] = product_slug
     # Устанавливаем тестовые cookies при первом GET запросе
     request.session.set_test_cookie()
     return render_to_response(template_name, locals(),

@@ -3,6 +3,8 @@
 {% load catalog_tags %}
 {% load i18n %}
 {% load mptt_tags %}
+{% load thumbnail %}
+{% load dajaxice_templatetags %}
 
 <!DOCTYPE HTML>
 <html>
@@ -32,12 +34,28 @@
 	<!--[if lt IE 9]>
   	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
-  <style type="text/css">
-    body {
-      padding-top: 60px;
-      padding-bottom: 40px;
-    }
-  </style>
+    <style type="text/css">
+        body {
+          padding-top: 60px;
+          padding-bottom: 40px;
+        }
+    </style>
+
+{#    dajax#}
+    <script type="text/javascript" src="{{ STATIC_URL }}dajax/jquery.dajax.core.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        function send_form(){
+{#            $('.loading').removeClass('hidden');#}
+            Dajaxice.webshop.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
+        }
+
+        function closeMessage(){
+            $('#message_show').addClass('hidden');
+        }
+    </script>
+    {% dajaxice_js_import %}
+{#    dajax end#}
+
 </head>
 <body>
 
@@ -60,6 +78,15 @@
 {#    {% block footer %}#}
 {#        {% include "common/footer.html" %}#}
 {#    {% endblock %}#}
+
+
+    <div id="message_show" class="hidden">
+        <div class="message_inner">
+            <h6>Спасибо!</h6>
+            <p>В ближайшее время наш менеджер свяжется с Вами</p>
+            <button id="id_submit" class="red" onclick="closeMessage();">Закрыть</button>
+        </div>
+    </div>
 
 	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
     <script src="{{ STATIC_URL }}js/custom.js"></script>

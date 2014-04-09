@@ -1,5 +1,6 @@
 {% extends "catalog.html" %}
 {% load i18n %}
+{% load thumbnail %}
 
 {% block content %}
     <div class="boloc_news">
@@ -23,10 +24,11 @@
             {% endif %}
         </div>
     </div>
-
+{% block popular_products %}
     <div id="popular_products">
         <div class="container">
             <div class="row">
+
                 {% if products %}
                     <div class="col-md-12">
                         <div class="row">
@@ -37,33 +39,38 @@
                             </div>
                         </div>
                     </div>
+
                     {% for p in products %}
                         <div class="col-md-4 popular_products">
-
                             <div class="product_thumbnail">
                                 <a href="{{ p.get_absolute_url }}">
-                                  <img src="{{ p.image_url }}"alt="{{ p.name }}" />
+                                    {% thumbnail p.image.url "298x319" crop="center" as im %}
+                                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                    {% endthumbnail %}
+{#                                  <img src="{{ p.image_url }}"alt="{{ p.name }}" />#}
                                   <br />
                                   <h3>{{ p.name }}</h3>
                                 </a>
                                 <br />
                                 <p>{{ p.price }} руб.</p>
                             </div>
-
                         </div>
                     {% endfor %}
+
                 {% else %}
                     <p>Популярные товары не найдены</p>
                 {% endif %}
+
             </div>
         </div>
     </div>
-
+{% endblock %}
+{% block promotion_discount %}
     <div id="promotion_discount">
-         <div class="container">
-           <div class="row">
-               <div class="promotion">
-                   <div class="col-md-6">
+        <div class="container">
+            <div class="row">
+                <div class="promotion">
+                    <div class="col-md-6">
                         <div class="box-static col">
                             <div class="row-fluid">
                                 <div class="static-image">
@@ -71,7 +78,7 @@
                                 </div>
                                     <div class="col-md-8">
                                         <div class="static-text">
-                                                <div class="icon">&nbsp;</div>
+                                            <div class="icon">&nbsp;</div>
                                             <h3>АКЦИИ И СКИДКИ</h3>
                                             <p>В нашем интернет магазине существуют выгодные акции и большие скидки</p>
                                             <a href="#">Подробнее</a>
@@ -81,6 +88,7 @@
                         </div>
                    </div>
                </div>
+
                <div class="discount">
                    <div class="col-md-6">
                         <div class="box-static col1">
@@ -92,37 +100,42 @@
                                     </div>
                                 <div class="col-md-8">
                                     <div class="static-text">
-                                    <div class="icon"></div>
-                                        <h3>ТЕЛЕФОН +7(926) 304 5777</h3>
-                                        <p>Вы можите звонить нам в любое время, Вы получить ответ не все ваши вопросы и предложения </p>
-                                    <a href="#">Подробнее</a>
+                                        <div class="icon"></div>
+                                            <h3>ТЕЛЕФОН +7(926) 304 5777</h3>
+                                            <p>Вы можите звонить нам в любое время, Вы получить ответ не все ваши вопросы и предложения </p>
+                                        <a href="#">Подробнее</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                   </div>
-               </div>
-           </div>
-         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+{% endblock %}
 {#        блок лучшие продажи#}
     <div id="best_selling">
         <div class="container">
             <div class="col-md-12">
                 <div class="row">
                     {% if bestseller %}
-                       <div class="col-md-3">  <h3><div class="breadcrumb">Лучшие продажи</div></h3></div>
+                        <div class="col-md-3">
+                           <h3><div class="breadcrumb">Лучшие продажи</div></h3>
+                        </div>
                         <div class="best_selling">
                             {% for b in bestseller %}
                                 <div class="col-md-3">
                                     <div class="product_thumbnail">
                                         <a href="{{ b.get_absolute_url }}">
-                                          <img src="{{ b.image_url }}"alt="{{ b.name }}" />
-                                          <br />
-                                        <h3>{{ b.name }}</h3>
+                                            {% thumbnail b.image.url "255x255" crop="center" as im %}
+                                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                            {% endthumbnail %}
+                                            <br />
+                                            <h3>{{ b.name }}</h3>
                                         </a>
                                         <br />
-                                     <p>{{ b.price }} руб.</p>
+                                        <p>{{ b.price }} руб.</p>
                                     </div>
                                 </div>
 
