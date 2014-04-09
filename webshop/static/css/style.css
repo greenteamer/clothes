@@ -428,6 +428,9 @@ margin-top: 40px;
 border: 1px solid #DBDBDB;
 padding: 20px;
 }
+#my_form #product_name {
+    display: none;
+}
 
 /*подтверждение отправки письма*/
 .error{

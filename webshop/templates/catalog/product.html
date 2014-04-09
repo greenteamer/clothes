@@ -105,7 +105,14 @@
                             <div class="col-md-3">
                                 <h4>Купить в 1 клик</h4>
                                 <form action="." method="post" id="my_form">{% csrf_token %}
-                                    {{ form2.as_p }}
+{#                                    {{ form2.as_p }}#}
+                                    <div id="product_name">
+                                        {{ form2.product_name }}
+                                    </div>
+                                    <div id="user_phone">
+                                        <label for="id_phone">Ваш телефон:</label>
+                                        {{ form2.phone }}
+                                    </div>
                                     <input id="id_submit" class="btn btn-primary" value="Отправить" type="button" onclick="send_form();">
 {#                                    <input class="btn btn-primary" type="submit" value="1 клик" name="submit" onclick="send_form();" alt="" />#}
                                 </form>

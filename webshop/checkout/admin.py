@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 from django.contrib import admin
 
-from webshop.checkout.models import Order, OrderItem
+from webshop.checkout.models import Order, OrderItem, OrderOneClick
 
 
 class OrderItemInline(admin.StackedInline):
@@ -41,3 +41,4 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
+admin.site.register(OrderOneClick)
