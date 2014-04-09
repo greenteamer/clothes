@@ -37,3 +37,4 @@ Thumbs.db
 workspace.xml
 .idea
 settings_local.py
+media/cache
