@@ -3,6 +3,7 @@
 import os
 
 from django.utils.translation import ugettext_lazy as _
+from os.path import abspath, dirname, basename, join, split
 
 CURRPATH = os.path.abspath('.')
 
@@ -101,6 +102,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
 	'django.contrib.staticfiles.finders.FileSystemFinder',
 	'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'dajaxice.finders.DajaxiceFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
@@ -109,9 +111,9 @@ SECRET_KEY = 'rs!w229&m79-)f3ohat)gd=u7q)^3#3(*1)k4-)*qwc^4zgom9'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-	'django.template.loaders.filesystem.Loader',
-	'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -144,8 +146,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	'django.core.context_processors.media',
 	'django.core.context_processors.static',
 	'django.core.context_processors.request',
-	# 'django.contrib.messages.context_processors.messages',
+	'django.contrib.messages.context_processors.messages',
 	'webshop.utils.context_processors.webshop',
+)
+
+DAJAXICE_MEDIA_PREFIX="dajaxice"
+
+DAJAX_FUNCTIONS=(
+    'webshop.ajaxapp.ajax.send_form',
+    'webshop.ajaxapp.ajax.load_form',
 )
 
 INSTALLED_APPS = (
@@ -168,9 +177,15 @@ INSTALLED_APPS = (
     'webshop.checkout',
     'webshop.news',
     'webshop.search',
+    'webshop.ajaxapp',
     'mptt',
     'bootstrap3',
+    'sorl.thumbnail',
+    'dajaxice',
+    'dajax',
 )
+
+THUMBNAIL_DEBUG = True
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

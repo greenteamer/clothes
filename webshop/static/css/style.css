@@ -457,6 +457,70 @@ border: 1px solid #DBDBDB;
 padding: 20px;
 }
 
+
+/*подтверждение отправки письма*/
+.error{
+    border:1px solid red !important;
+    background-color:#fdd !important;
+}
+#message_show {
+    position: fixed;
+    top: 30%;
+    text-align: center;
+    width: 100%;
+    color: #333333;
+}
+.message_inner {
+    background:#fff;
+    width: 420px;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding:40px;
+    border: 1px solid #C2C2C2;
+}
+.message_inner button#id_submit.red {
+    margin: 0;
+    float: none;
+    background: #999;
+}
+.message_inner button#id_submit.red:hover {
+    background: #467add;
+}
+.message_inner h6 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 200;
+}
+.message_inner p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/*карточка товара*/
+.slide .active img {
+    opacity: 1;
+}
+.slide ol li img {
+    position: absolute;
+    opacity: 1;
+    width: 100px
+}
+#my_slider ol li {
+    width: 110px;
+    height: 100px;
+}
+#my_slider .carousel-indicators {
+    left: 0;
+    width: 100%;
+    margin-left: 0;
+    text-align: left;
+    top: 360px;
+}
+#my_slider.carousel.slide {
+    margin-bottom: 120px;
+}
+
 /*-------------Подвал---------------*/
 .soc_battom li{
 list-style-type:none;
@@ -521,4 +585,5 @@ font-size: 18px;
 }
 .brand{
     margin-top: 75px;
+
 }
