@@ -62,6 +62,7 @@ def product_view(request, product_slug, template_name="catalog/product.html"):
     meta_description = p.meta_description
     try:
         product_image = ProductImage.objects.get(product=p, default=True)
+        images = ProductImage.objects.filter(product=p)
     except Exception:
         print "Image for product #%s not found" % p.id
     characteristics = Characteristic.objects.filter(product=p)
@@ -81,11 +82,11 @@ def product_view(request, product_slug, template_name="catalog/product.html"):
                 request.session.delete_test_cookie()
             url = urlresolvers.reverse('show_cart')
             return HttpResponseRedirect(url)
-        if form2.is_valid():
-            phone = u'7works заявка от %s' % request.POST['phone']
-            text = "Заявка на товар %s" % page_title
-            send_mail('в 1 клик', phone, 'teamer777@gmail.com', ['greenteamer@bk.ru'], fail_silently=False)
-            return HttpResponseRedirect('/product/%s/' % product_slug)
+        # if form2.is_valid():
+        #     phone = request.POST['phone']
+        #     text = u'Заявка на товар %s \n телефон: %s' % (page_title, phone)
+        #     send_mail('в 1 клик', text, 'teamer777@gmail.com', ['greenteamer@bk.ru'], fail_silently=False)
+        #     return HttpResponseRedirect('/product/%s/' % product_slug)
 
     else:
         # Если запрос GET, создаем не привязанную форму. request передаем в kwarg
