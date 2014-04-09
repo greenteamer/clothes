@@ -431,6 +431,9 @@ padding: 20px;
 #my_form #product_name {
     display: none;
 }
+.blueimp-gallery>.slides>.slide>.slide-content {
+    height: 80%!important;
+}
 
 /*подтверждение отправки письма*/
 .error{
