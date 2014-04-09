@@ -25,6 +25,13 @@
     <link href="{{ STATIC_URL }}font/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ STATIC_URL }}font/css/whhg.css" rel="stylesheet">
 
+{#    blueimp #}
+    <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}blueimp/blueimp-gallery.min.css" media="all">
+
+{#fancybox#}
+{#    <link href="{{ STATIC_URL }}fancybox/jquery.fancybox.css" rel="stylesheet">#}
+
+
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 	<title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock %}</title>
 	<meta charset="utf-8">
@@ -55,6 +62,12 @@
     </script>
     {% dajaxice_js_import %}
 {#    dajax end#}
+
+    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/custom.js"></script>
+
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
 
 </head>
 <body>
@@ -88,15 +101,62 @@
         </div>
     </div>
 
-	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}js/custom.js"></script>
 
-    {% bootstrap_javascript %}
-    {% bootstrap_messages %}
 
 {#    flex-slider#}
     <script src="{{ STATIC_URL }}js/jquery.flexslider-min.js"></script>
     <script src="{{ STATIC_URL }}js/script.js"></script>
+
+{#    blueimp#}
+    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls " style="display: none;">
+		<div class="slides" style="width: 7684px;"></div>
+		<h3 class="title">Галерея</h3>
+		<a class="prev">‹</a>
+		<a class="next">›</a>
+		<a class="close">×</a>
+		<a class="play-pause"></a>
+		<ol class="indicator"></ol>
+	</div>
+    <script type="text/javascript" src="{{ STATIC_URL }}blueimp/blueimp-gallery.min.js"></script>
+    <script type="text/javascript">
+		document.getElementById('links').onclick = function (event) {
+			event = event || window.event;
+			var target = event.target || event.srcElement,
+				link = target.src ? target.parentNode : target,
+				options = {index: link, event: event},
+				links = this.getElementsByTagName('a');
+			blueimp.Gallery(links, options);
+		};
+		document.getElementById('links2').onclick = function (event) {
+			event = event || window.event;
+			var target = event.target || event.srcElement,
+				link = target.src ? target.parentNode : target,
+				options = {index: link, event: event},
+				links = this.getElementsByTagName('a');
+			blueimp.Gallery(links, options);
+		};
+	</script>
+{#    конец blueimp#}
+
+{#    fancybox#}
+{#    <script type="text/javascript" src="{{ STATIC_URL }}fancybox/jquery.fancybox.pack.js"></script>#}
+{#    <script type="text/javascript">#}
+{#        $(document).ready(function() {#}
+{#            $(".fancybox").fancybox();#}
+{##}
+{#            $("#popup").fancybox({#}
+{#                'padding'           : 0,#}
+{#                'width'             : '650px',#}
+{#                'height'            : '700px',#}
+{#                'autoScale'     	: false,#}
+{#                'transitionIn'		: 'none',#}
+{#                'transitionOut'		: 'none',#}
+{#                'type'				: 'iframe'#}
+{#            });#}
+{##}
+{#        });#}
+{#    </script>#}
+{#    fancybox end#}
 
 {#    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>#}
 {#	<script src="{{ STATIC_URL }}bootstrap/js/bootstrap-collapse.js"></script>#}

@@ -30,12 +30,14 @@
                             </ol>
 
                             <!-- Wrapper for slides -->
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" id="links">
                                 {% for image in images %}
                                     <div class="item {% if image == images|first %}active{% endif %}">
 {#                                        <img src="/media/{{ image.url }}" alt="">#}
                                         {% thumbnail image.url "360x360" crop="center" as im %}
-                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                            <a href="/media/{{ image.url }}">
+                                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                            </a>
                                         {% endthumbnail %}
 {#                                        <div class="carousel-caption">#}
 {#                                            <p>{{ image.url }}</p>#}
