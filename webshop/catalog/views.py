@@ -94,7 +94,7 @@ def product_view(request, product_slug, template_name="catalog/product.html"):
         form2 = ProductOneClickForm()
     # Присваиваем значению скрытого поля чистое имя продукта
     form.fields['product_slug'].widget.attrs['value'] = product_slug
-    form2.fields['product_slug'].widget.attrs['value'] = product_slug
+    form2.fields['product_name'].widget.attrs['value'] = p.name
     # Устанавливаем тестовые cookies при первом GET запросе
     request.session.set_test_cookie()
     return render_to_response(template_name, locals(),

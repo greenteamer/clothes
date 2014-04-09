@@ -5,6 +5,7 @@ from dajaxice.decorators import dajaxice_register
 from dajaxice.utils import deserialize_form
 from webshop.catalog.forms import *
 from django.core.mail import send_mail
+from webshop.checkout.models import OrderOneClick
 
 @dajaxice_register
 # def sayhello(request):
@@ -20,9 +21,15 @@ def send_form(request, form):
 
         # result = u'Отправляем сообщение'
         # dajax.assign('#status', 'value', result)
+
+        phone = form.cleaned_data.get('phone')
+        product_name = form.cleaned_data.get('product_name')
         subject = u'Заявка в 1 клик'
-        message = u'Телефон: %s \n Товар: http://127.0.0.1:8000/product/%s' % (form.cleaned_data.get('phone'),form.cleaned_data.get('product_slug'))
+        message = u'Телефон: %s \n Товар: %s' % (phone , product_name)
         send_mail(subject, message, 'teamer777@gmail.com', ['forward.70@yandex.ru'], fail_silently=False)
+
+        order = OrderOneClick(phone=phone , product_name=product_name)
+        order.save()
 
         # dajax.remove_css_class('#status', 'hidden')
         # result = u'Сообщение отправлено'

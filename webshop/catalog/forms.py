@@ -4,6 +4,7 @@ from django import forms
 from django.utils.translation import ugettext_lazy as _
 
 from models import Product
+from webshop.checkout.models import OrderOneClick
 
 
 class ProductAdminForm(forms.ModelForm):
@@ -42,6 +43,16 @@ class ProductAddToCartForm(forms.Form):
 		return self.cleaned_data
 
 
-class ProductOneClickForm(forms.Form):
-    phone = forms.CharField(label=u'Ваш телефон (обязательно)', max_length=255)
-    product_slug = forms.CharField(widget=forms.HiddenInput())
+class ProductOneClickForm(forms.ModelForm):
+    # phone = forms.CharField(label=u'Ваш телефон (обязательно)', max_length=255)
+    # product_slug = forms.CharField(widget=forms.HiddenInput())
+    class Meta:
+        model = OrderOneClick
+        # exclude = ('product_name')
+        # widgets = {
+        #     'phone': forms.TextInput(attrs={'placeholder': "Ваш телефон"}),
+        #     'description': forms.Textarea(
+        #         attrs={'placeholder': 'Enter description here'}),
+        # }
+
+

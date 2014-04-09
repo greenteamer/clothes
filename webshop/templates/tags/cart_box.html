@@ -8,4 +8,9 @@
 		Колличество товаров:{{ cart_count }}
 {#        {{ cart_count|pluralize }}#}
 	</a>
+    {% if cart_items %}
+        есть
+    {% else %}
+        нет
+    {% endif %}
 {% endwith %}

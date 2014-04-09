@@ -103,3 +103,15 @@ class OrderItem(models.Model):
     def get_absolute_url(self):
         """Абсолютная ссылка на товар в корзине"""
         return self.product.get_absolute_url()
+
+class OrderOneClick(models.Model):
+    product_name = models.CharField(max_length=128, verbose_name=u'Имя продукта')
+    phone = models.CharField(max_length=20, verbose_name=u'Телефон')
+
+    class Meta:
+        verbose_name = ('Заказы')
+        verbose_name_plural = ('Заказы в 1 клик')
+        ordering = ['product_name']
+
+    def __unicode__(self):
+        return self.product_name
