@@ -42,7 +42,7 @@
 
                     {% for p in products %}
                         <div class="col-md-4 popular_products">
-                            <div class="product_thumbnail">
+                            <div class="product_thumbnail" onfocus="showDescription()">
                                 <a href="{{ p.get_absolute_url }}">
                                     {% thumbnail p.image.url "298x319" crop="center" as im %}
                                         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
@@ -53,6 +53,11 @@
                                 </a>
                                 <br />
                                 <p>{{ p.price }} руб.</p>
+                                <div class="description_hidden hidden">
+                                    <p>{{ p.brand }}</p>
+                                    <p>{{ p.name }}</p>
+                                    <p>{{ p.description }}</p>
+                            </div>
                             </div>
                         </div>
                     {% endfor %}

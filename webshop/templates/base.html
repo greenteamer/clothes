@@ -8,98 +8,121 @@
 
 <!DOCTYPE HTML>
 <html>
-<head>
+    <head>
 
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/css.css" />
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/css.css" />
 
-    {% bootstrap_css %}
+        {% bootstrap_css %}
 
-	<link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
+        <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
 
-{#    flex-slider#}
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link href="{{ STATIC_URL }}css/flexslider.css" rel="stylesheet">
-    <link href="{{ STATIC_URL }}css/theme-style.css" rel="stylesheet">
-    <link href="{{ STATIC_URL }}font/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ STATIC_URL }}font/css/whhg.css" rel="stylesheet">
+{#        flex-slider#}
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href="{{ STATIC_URL }}css/flexslider.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}css/theme-style.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}font/css/font-awesome.min.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}font/css/whhg.css" rel="stylesheet">
 
-	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-	<title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock %}</title>
-	<meta charset="utf-8">
-	<meta name="keywords" content="{{ meta_keywords }}" />
-	<meta name="description" content="{{ meta_description }}" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<!--[if lt IE 9]>
-  	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-    <style type="text/css">
-        body {
-          padding-top: 60px;
-          padding-bottom: 40px;
-        }
-    </style>
+    {#    blueimp #}
+        <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}blueimp/blueimp-gallery.min.css" media="all">
 
-{#    dajax#}
-    <script type="text/javascript" src="{{ STATIC_URL }}dajax/jquery.dajax.core.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        function send_form(){
-{#            $('.loading').removeClass('hidden');#}
-            Dajaxice.webshop.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
-        }
-
-        function closeMessage(){
-            $('#message_show').addClass('hidden');
-        }
-    </script>
-    {% dajaxice_js_import %}
-{#    dajax end#}
-
-</head>
-<body>
-
-	{% include "common/navigation.html" %}
+    {#fancybox#}
+    {#    <link href="{{ STATIC_URL }}fancybox/jquery.fancybox.css" rel="stylesheet">#}
 
 
-{#		<div class="row">#}
-{#			<div class="span12">#}
-{#				{% block header %}{% endblock %}#}
-{#                {% include "common/languages.html" %}#}
-{#			</div>#}
-{#		</div>#}
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+        <title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="keywords" content="{{ meta_keywords }}" />
+        <meta name="description" content="{{ meta_description }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <style type="text/css">
+            body {
+              padding-top: 60px;
+              padding-bottom: 40px;
+            }
+        </style>
+
+    {#    dajax#}
+        <script type="text/javascript" src="{{ STATIC_URL }}dajax/jquery.dajax.core.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            function send_form(){
+    {#            $('.loading').removeClass('hidden');#}
+                Dajaxice.webshop.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
+            }
+
+            function closeMessage(){
+                $('#message_show').addClass('hidden');
+            }
+            function showDescription(){
+                $(".description_hidden").toggleClass('hidden');
+            }
+        </script>
+        {% dajaxice_js_import %}
+    {#    dajax end#}
 
 
-    {#                содержимое в catalog.html#}
-    {% block site_wrapper %}
-    {% endblock %}
+
+        <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+        <script src="{{ STATIC_URL }}js/custom.js"></script>
+
+        {% bootstrap_javascript %}
+        {% bootstrap_messages %}
+
+    </head>
+    <body>
+
+        {% include "common/navigation.html" %}
 
 
-{#    {% block footer %}#}
-{#        {% include "common/footer.html" %}#}
-{#    {% endblock %}#}
+    {#		<div class="row">#}
+    {#			<div class="span12">#}
+    {#				{% block header %}{% endblock %}#}
+    {#                {% include "common/languages.html" %}#}
+    {#			</div>#}
+    {#		</div>#}
 
 
-    <div id="message_show" class="hidden">
-        <div class="message_inner">
-            <h6>Спасибо!</h6>
-            <p>В ближайшее время наш менеджер свяжется с Вами</p>
-            <button id="id_submit" class="red" onclick="closeMessage();">Закрыть</button>
-        </div>
-    </div>
+        {#                содержимое в catalog.html#}
+        {% block site_wrapper %}
+        {% endblock %}
 
-	<script src="{{ STATIC_URL }}js/jquery.min.js"></script>
-    <script src="{{ STATIC_URL }}js/custom.js"></script>
 
-    {% bootstrap_javascript %}
-    {% bootstrap_messages %}
+    {#    {% block footer %}#}
+    {#        {% include "common/footer.html" %}#}
+    {#    {% endblock %}#}
 
-{#    flex-slider#}
-    <script src="{{ STATIC_URL }}js/jquery.flexslider-min.js"></script>
-    <script src="{{ STATIC_URL }}js/script.js"></script>
 
-{#    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>#}
-{#	<script src="{{ STATIC_URL }}bootstrap/js/bootstrap-collapse.js"></script>#}
-{#  <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-tab.js"></script>#}
-</body>
+
+
+
+
+    {#    flex-slider#}
+        <script src="{{ STATIC_URL }}js/jquery.flexslider-min.js"></script>
+        <script src="{{ STATIC_URL }}js/script.js"></script>
+
+        {#    blueimp#}
+        {% block bottom_script %}
+        {% endblock %}
+        {#    конец blueimp#}
+
+    {#    <script type="text/javascript">#}
+    {#        (function($) {#}
+    {#      		$(document).ready(function(){#}
+    {##}
+    {#                $(".popular_products").hover(function () {#}
+    {#                    $(this).find(".description_hidden").removeClass(".hidden");#}
+    {#                    alert("Hello");#}
+    {#                });#}
+    {##}
+    {#      		});#}
+    {#    	})(jQuery);#}
+    {#    </script>#}
+
+    </body>
 </html>

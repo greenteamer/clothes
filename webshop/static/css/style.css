@@ -167,8 +167,27 @@ ul.menu li ul.children {
 ul.menu li:hover ul.children {
 	display: block;
     z-index: 999;
+    background-color: #fff;
+    text-align: left;
+    padding: 10px;
+    border-left: 1px solid #f1f5f6;
+    border-right: 1px solid #f1f5f6;
+    border-top: 4px solid #b2b2b2;
+    border-bottom: 1px solid #f1f5f6;
+    width: 150px;
 }
-
+.region-navigation  .nav>li>a:hover,.region-navigation  .nav>li>a:focus {
+background-color: #FFF;
+}
+.region-navigation li a{
+    padding-bottom: 12px!important;
+}
+.region-navigation li ul li a{
+    padding: 0px 0px 0px !important;
+    color: #777;
+    text-transform: none;
+    font-weight: normal;
+}
 /*мои стили*/
 .phone_area {
 	float: right;
@@ -244,11 +263,11 @@ text-transform: uppercase;
 }
 
 .popular_products, .best_selling{
-    margin-top: 100px;
+    margin-top: 30px;
 }
 #popular_products{
 background: #F7F7F7;
-padding: 40px 0px 60px 0px;
+padding: 40px 0px 100px 0px;
 }
 #popular_products .breadcrumb,#best_selling .breadcrumb, #catalog .col-md-3 h1{
 background: #E67C8E;
@@ -258,6 +277,9 @@ border-radius: 4px;
 font-family: 'Open Sans Condensed' ;
 color: #fff;
 font-size: 22px;
+}
+.tri_bloka{
+    margin-bottom: 60px;
 }
 #popular_products .product_thumbnail, #catalog .product_thumbnail{
 background: #fff;
@@ -438,7 +460,7 @@ background-color: #E67C8E;
 font-family: 'Open Sans Condensed', sans-serif;
 font-size: 21px;
 }
-.nav>li>a:hover, .nav>li>a:focus {
+.nav-tabs>li>a:hover, #myTab .nav>li>a:focus {
 color: #fff;
 background-color:#E67C8E;
 }
@@ -454,6 +476,12 @@ margin-top: 40px;
 .tab-content{
 border: 1px solid #DBDBDB;
 padding: 20px;
+}
+#my_form #product_name {
+    display: none;
+}
+.blueimp-gallery>.slides>.slide>.slide-content {
+    height: 80%!important;
 }
 
 
