@@ -7,11 +7,15 @@
 
 
 {% block content %}
-    <div id="cotalog">
+    <div id="catalog">
         <div class="container">
             <div class="row">
-                <h1>{{ c.name }}</h1>
-                <h3>{{ c.description }}</h3>
+                    <div class="col-md-3">
+                        <h1>{{ c.name }}</h1>
+                    </div>
+                   <div class="col-md-12">
+                        <h3>{{ c.description }}</h3>
+                   </div>
 
 {#                    если продукты существуют#}
                     {% if products %}
@@ -23,9 +27,9 @@
                                         <img src="{{ p.image_url }}"
                                         alt="{{ p.name }}" />
                                         <br />
-                                        {{ p.name }}
+                                        <h2>{{ p.name }}</h2>
                                     </a>
-                                    {{ p.price }} руб.
+                                   <p>{{ p.price }} руб.</p>
                                 </div>
                             </div>
                         {% endfor %}
@@ -33,7 +37,9 @@
 
 {#                    иначе .... если продукты не существуют#}
                     {% else %}
-                        {% trans "Products for this category not found" %}
+                       <div class="none_tovar">
+                        {% trans "В категории отсутствуют товары" %}
+                       </div>
                     {% endif %}
 {#                    закончить условие "если"#}
             </div>
