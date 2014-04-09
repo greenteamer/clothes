@@ -6,77 +6,86 @@
 {% endblock %}
 {% block tri_bloka %}
 {% endblock %}
-<table class="table">
-	<caption>{% trans "Your Shopping Cart" %}</caption>
-	<thead>
-		<tr>
-			<th scope="col">{% trans "Product" %}</th>
-			<th scope="col">{% trans "Price" %}</th>
-			<th>{% trans "Quantity" %}</th>
-			<th></th>
-			<th></th>
-			<th scope="col" class="right">{% trans "Total" %}</th>
-		</tr>
-	</thead>
-	<tbody>
-		{% if cart_items %}
-			{% for item in cart_items %}
-		<tr>
-			<td>
-				<a href="{{ item.get_absolute_url }}" class="cart">
-				{{ item.name }}
-				</a>
-			</td>
-			<td>
-				{{ item.price }} {% trans "руб." %}
-			</td>
-			<td class="right">
-				<form method="post" action="." class="cart">{% csrf_token %}
-					{#<label class="control-label" for="quantity">{% trans "Quantity" %}:</label>#}
-					<input type="text" name="quantity" value="{{ item.quantity }}" id="quantity"
-						   size="2" class="quantity" maxlength="5" />
-					<input type="hidden" name="item_id" value="{{ item.id }}" />
-			</td>
-			<td>
-					<input type="hidden" name="item_id" value="{{ item.id }}" />
-					<button class="btn btn-info" type="submit" name="update">
-						<i class="icon-refresh icon-white"></i> {% trans "Update" %}</button>
-				</form>
-			</td>
-			<td>
-				<form method="post" action="." class="cart">{% csrf_token %}
-					<input type="hidden" name="item_id" value="{{ item.id }}" />
-					<button class="btn btn-danger" type="submit" name="remove">
-						<i class="icon-trash icon-white"></i> {% trans "Remove" %}</button>
-				</form>
-			</td>
-			<td class="right">{{ item.total }} {% trans "руб." %}</td>
-		</tr>
-		{% endfor %}
-		{% else %}
-		<tr>
-			<td colspan="6" style="height:30px;">
-				{% trans "Your cart is empty" %}
-			</td>
-		</tr>
-		{% endif %}
-	</tbody>
-	<tfoot>
-		<tr>
-			<th colspan="5">{% trans "Cart Subtotal" %}:</th>
-			<th>{{ cart_subtotal }} {% trans "руб." %}</th>
-		</tr>
-		{% if cart_items %}
-		<tr>
-      <th colspan="5"></th>
-			<th class="right">
-        <form method="post" action="." class="cart">{% csrf_token %}
-					<button class="btn btn-success" type="submit" name="checkout">
-					<i class="icon-shopping-cart icon-white"></i> {% trans " Checkout" %}</button>
-				</form>
-			</th>
-		</tr>
-		{% endif %}
-	</tfoot>
-</table>
+    <div id="cart">
+        <div class="container">
+            <div class="row">
+                            <table class="table">
+                <caption>{% trans "Your Shopping Cart" %}</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">{% trans "Product" %}</th>
+                        <th scope="col">{% trans "Price" %}</th>
+                        <th>{% trans "Quantity" %}</th>
+                        <th></th>
+                        <th></th>
+                        <th scope="col" class="right">{% trans "Total" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if cart_items %}
+                        {% for item in cart_items %}
+                    <tr>
+                        <td>
+                            <a href="{{ item.get_absolute_url }}" class="cart">
+                            {{ item.name }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ item.price }} {% trans "руб." %}
+                        </td>
+                        <td class="right">
+                            <form method="post" action="." class="cart">{% csrf_token %}
+                                {#<label class="control-label" for="quantity">{% trans "Quantity" %}:</label>#}
+                                <input type="text" name="quantity" value="{{ item.quantity }}" id="quantity"
+                                       size="2" class="quantity" maxlength="5" />
+                                <input type="hidden" name="item_id" value="{{ item.id }}" />
+                        </td>
+                        <td>
+                                <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                <button class="btn btn-info" type="submit" name="update">
+                                    <i class="icon-refresh icon-white"></i> {% trans "Update" %}</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" action="." class="cart">{% csrf_token %}
+                                <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                <button class="btn btn-danger" type="submit" name="remove">
+                                    <i class="icon-trash icon-white"></i> {% trans "Remove" %}</button>
+                            </form>
+                        </td>
+                        <td class="right">{{ item.total }} {% trans "руб." %}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="6" style="height:30px;">
+                            {% trans "Your cart is empty" %}
+                        </td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="5">{% trans "Cart Subtotal" %}:</th>
+                        <th>{{ cart_subtotal }} {% trans "руб." %}</th>
+                    </tr>
+                    {% if cart_items %}
+                    <tr>
+                  <th colspan="5"></th>
+                        <th class="right">
+                    <form method="post" action="." class="cart">{% csrf_token %}
+                                <button class="btn btn-success" type="submit" name="checkout">
+                                <i class="icon-shopping-cart icon-white"></i> {% trans " Checkout" %}</button>
+                            </form>
+                        </th>
+                    </tr>
+                    {% endif %}
+                </tfoot>
+            </table>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
+
+
