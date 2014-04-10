@@ -737,85 +737,85 @@ margin: 8px 0px 0px 103px;
     .cart_icon .icon-addtocart{
         float: left;}
     .cart_bloc .col-md-3 {
-padding: 0px 0px 10px 10px;
+        padding: 0px 0px 10px 10px;
     }
-.menu_top{
-    float: none;
-}
-#navbar .col-md-6{
+    .menu_top{
+        float: none;
+    }
+    #navbar .col-md-6{
+        overflow: hidden;
+    }
+
+    .my_slider{
+        display: none;
+    }
+    .navbar-nav{
+        margin: 0!important;
+    }
+    .cart_bloc .col-md-3{
+        background: none;
+    }
+    .logo {
+    text-align: center;
+    margin: 16px 0px 16px 58px;
     overflow: hidden;
-}
+    }
 
-.my_slider{
-    display: none;
-}
-.navbar-nav{
-    margin: 0!important;
-}
-.cart_bloc .col-md-3{
-    background: none;
-}
-.logo {
-text-align: center;
-margin: 16px 0px 16px 58px;
-overflow: hidden;
-}
+    .nav.log_menu i {
+    font-size: 0px;
+    }
+    .phone img, .purchase img{
+        width: 45px;
+    }
+    .phone,.purchase {
+        overflow: hidden;
+        margin: 0px 6px 6px 54px
+    }
 
-.nav.log_menu i {
-font-size: 0px;
-}
-.phone img, .purchase img{
-    width: 45px;
-}
-.phone,.purchase {
-    overflow: hidden;
-    margin: 0px 6px 6px 54px
-}
-
-.dostavka{
-    display: none;
-}
-.navbar-toggle{
-    float: left;
-    margin-left: 30px;
-}
-.tri_bloka img{
+    .dostavka{
+        display: none;
+    }
+    .navbar-toggle{
+        float: left;
+        margin-left: 30px;
+    }
+    .tri_bloka img{
+        width: 100%;
+    }
+    .navbar-collapse-second nav{
+        margin-left: 30px;
+    }
+    .tri_bloka_text h3 {
+    font-size: 22px;
+    }
+    .tri_bloka p {
+    padding: 12px;
+    }
+    #popular_products .col-md-3{
+        margin: 0px 12px 0px 12px;
+    }
+    #footer{
+        height: 500px;
+    }
+    .promotion img, .discount img{
+        display: none;
+    }
+    #promotion_discount{
+      height: 390px;
+    }
+    .promotion .static-text, .discount .static-text{
     width: 100%;
-}
-.navbar-collapse-second nav{
-    margin-left: 30px;
-}
-.tri_bloka_text h3 {
-font-size: 22px;
-}
-.tri_bloka p {
-padding: 12px;
-}
-#popular_products .col-md-3{
-    margin: 0px 12px 0px 12px;
-}
-#footer{
-    height: 500px;
-}
-.promotion img, .discount img{
-    display: none;
-}
-#promotion_discount{
-  height: 390px;
-}
-.promotion .static-text, .discount .static-text{
-width: 100%;
-margin-bottom: 20px;
-}
-#my_slider .carousel-indicators{
-    top: 330px;
-}
-#my_slider ol li {
-width: 90px;
-height: 90px;
-}
-.slide ol li img {
-width: 75px;
-}
+    margin-bottom: 20px;
+    }
+    #my_slider .carousel-indicators{
+        top: 330px;
+    }
+    #my_slider ol li {
+    width: 90px;
+    height: 90px;
+    }
+    .slide ol li img {
+    width: 75px;
+    }
 
 }

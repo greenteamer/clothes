@@ -244,6 +244,9 @@ body.popup .submit-row {
 
 .inline-related {
     position: relative;
+    margin: 30px;
+    padding: 20px;
+    border: 1px solid #E4E4E4;
 }
 
 .inline-related h3 {
@@ -334,9 +337,10 @@ body.popup .submit-row {
 .inline-group div.add-row,
 .inline-group .tabular tr.add-row td {
     color: #666;
-    padding: 3px 5px;
-    border-bottom: 1px solid #ddd;
-    background: #e1e1e1 url(../img/nav-bg.gif) top left repeat-x;
+    padding: 20px;
+    margin: 30px;
+    display: inline-block;
+    background: #FCDFDF;
 }
 
 .inline-group .tabular tr.add-row td {
@@ -355,4 +359,7 @@ body.popup .submit-row {
 
 .empty-form {
     display: none;
+}
+.form-row.field-image {
+    background: #ECECEC;
 }
