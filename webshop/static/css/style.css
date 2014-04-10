@@ -317,15 +317,61 @@ margin-top: 40px;
 font-size: 17px;
 }
 #popular_products .product_thumbnail img:hover, .best_selling .product_thumbnail img:hover{
-    width: 90%;
-    height:90%;
-
+    /*width: 90%;*/
+    /*height:90%;*/
+    /*-webkit-filter: blur(5px);*/
+    /*-moz-filter: blur(5px);*/
+    /*-ms-filter: blur(5px);*/
+    /*-o-filter: blur(5px);*/
+    /*filter: blur(5px);*/
+}
+.product_thumbnail:hover {
+    /*-webkit-filter: blur(5px);*/
+    /*-moz-filter: blur(5px);*/
+    /*-ms-filter: blur(5px);*/
+    /*-o-filter: blur(5px);*/
+    /*filter: blur(5px);*/
+    /*transition: all 300ms ease-out;*/
+    /*-moz-transition: all 300ms ease-out;*/
+    /*-webkit-transition: all 300ms ease-out;*/
+    /*-o-transition: all 300ms ease-out;*/
+}
+.blur {
+    /*-webkit-filter: brightness(1.1);*/
+    /*-moz-filter: brightness(1.1);*/
+    /*-ms-filter: brightness(1.1);*/
+    /*-o-filter: brightness(1.1);*/
+    /*filter: brightness(1.1);*/
+    /*transition: all 300ms ease-out;*/
+    /*-moz-transition: all 300ms ease-out;*/
+    /*-webkit-transition: all 300ms ease-out;*/
+    /*-o-transition: all 300ms ease-out;*/
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);
+    -o-filter: blur(5px);
+    filter: blur(5px);
+    transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -webkit-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+}
+.blur_small {
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -ms-filter: blur(2px);
+    -o-filter: blur(2px);
+    filter: blur(2px);
+    transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -webkit-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
 }
 .product_thumbnail_img{
     overflow: hidden
 }
 #popular_products .product_thumbnail:hover, #catalog .product_thumbnail:hover{
-border: 1px solid #ccc;
+/*border: 1px solid #ccc;*/
 }
 #popular_products  h3, #best_selling h3, #catalog h2{
     font-family: 'Open Sans Condensed', sans-serif;
@@ -333,7 +379,7 @@ border: 1px solid #ccc;
     color: #333;
     margin-bottom: 0;
 }
-#popular_products  h3:hover, #best_selling h3:hover, #catalog h2:hover{
+#popular_products .product_thumbnail:hover h3, #best_selling .product_thumbnail:hover h3, #catalog .product_thumbnail:hover h2{
     color: #E67C8E;
 }
 #popular_products a, #best_selling a, #catalog a{
@@ -349,8 +395,37 @@ color: #E67C8E;
 #best_selling .product_thumbnail{
     margin-bottom: 30px;
 }
-
-
+.description_hidden.opacity {
+    -moz-transition: all 300ms ease-out;
+    -webkit-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    opacity: 0;
+}
+.description_hidden {
+    position: absolute;
+    opacity: 1;
+    top: 30px;
+    width: 100%;
+    padding-right: 30px;
+    transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -webkit-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+}
+#popular_products .description_hidden p {
+    font-size: 22px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+#popular_products .description_hidden p.description_brand,
+#best_selling .description_hidden p.description_brand {
+    font-size: 40px;
+    text-align: center;
+}
+#best_selling .description_hidden p.description_brand {
+    margin-top: -30px;
+}
 
 
 /*--------------Акции и скидки-------------*/
