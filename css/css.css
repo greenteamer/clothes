@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: medium;
+}
+html,body{
+    background-color: Silver;
+}
+.cb{
+    clear: both;
+}
+.fr{
+    float: right;
+}
+.fl{
+    float: left;
+}
+
+.bn{
+    border: none;
+}
+#main{
+    margin: 0 auto;
+    width: 900px;
+    background-color: White;
+}
+.bannerIEPadder, .sidebarIEPadder, .contentIEPadder{
+    padding: 50px;
+}
+.navIEPadder, .footerIEPadder{
+    padding: 5px;
+}
+#banner{
+    width: 900px;
+    height: 75px;
+    background-color: Orange;
+    color: White;
+    font-size: 36px;
+    font-weight: bold;
+    position: relative;
+}
+div.cart_box{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: medium;
+}
+div.cart_box a{
+    color:white;
+}
+#sidebar{
+    width: 200px;
+    float: left;
+}
+#content{
+    width: 700px;
+    float: left;
+}
+#footer{
+    clear: both;
+    background-color: #0088CC;
+    color: White;
+    text-align: center;
+}
+a.skip_link{
+    position: absolute;
+    left: -1000px;
+    top: -1000px;
+}
+ul.errorlist{
+    background-color: Red;
+    color: White;
+}
+/*h3{*/
+    /*background-color: #0088CC;*/
+    /*color: White;*/
+    /*padding: 3px;*/
+    /*margin-bottom: 6px;*/
+/*}*/
+div#footer a{
+    color: White;
+    font-size: small;
+    text-decoration: underline;
+    font-weight: normal;
+    margin-right: 10px;
+}
+/*мои стили*/
+.well {
+    padding: 10px;
+}
+.log_menu {
+    float: right!important;
+}
+.footer {
+    padding:20px 0;
+    background-color: #2c2c2c;
+    background-image: -moz-linear-gradient(top, #333333, #222222);
+    background-image: -ms-linear-gradient(top, #333333, #222222);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#333333), to(#222222));
+    background-image: -webkit-linear-gradient(top, #333333, #222222);
+    background-image: -o-linear-gradient(top, #333333, #222222);
+    background-image: linear-gradient(top, #333333, #222222);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#333333', endColorstr='#222222', GradientType=0);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.footer a {
+    color: #999999;
+}
+.footer a:hover {
+    color: #fff;
+    background: none!important;
+    text-decoration: none;
+}
+.footer li:hover {
+    background: none;
+}
+.footer li {
+    list-style: none !important;
+}
+.footer ul {
+    float: right;
+}
+.footer a.brand {
+    float: left;
+}

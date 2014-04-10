@@ -1,0 +1,211 @@
+/* --------------------------------------------------
+ * Homepage
+ *-------------------------------------------------- */
+.flexslider-wrapper .caption,
+.static-banner .caption {
+  padding: 5% 0;
+}
+.flexslider-wrapper .caption.caption-right,
+.static-banner .caption.caption-right {
+  text-align: right;
+}
+.flexslider-wrapper .caption h1,
+.static-banner .caption h1,
+.flexslider-wrapper .caption h2,
+.static-banner .caption h2,
+.flexslider-wrapper .caption h3,
+.static-banner .caption h3,
+.flexslider-wrapper .caption h4,
+.static-banner .caption h4,
+.flexslider-wrapper .caption h5,
+.static-banner .caption h5,
+.flexslider-wrapper .caption p,
+.static-banner .caption p {
+  margin-top: 0;
+}
+.flexslider-wrapper .caption .btn,
+.static-banner .caption .btn {
+  margin: 0;
+}
+.flexslider-wrapper .flexslider,
+.static-banner .flexslider {
+  margin: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background: transparent;
+}
+.flex-viewport {
+    height: 540px!important;
+}
+/* --------------------------------------------------
+ * Misc Pages
+ *-------------------------------------------------- */
+.flex-direction-nav a {
+  text-indent: 0;
+  font-size: 0;
+  background: #343331;
+  width: 40px;
+  height: 75px;
+  line-height: 75px;
+  color: #ffffff;
+  text-align: center;
+  -webkit-border-radius: 2px 0 0 2px;
+  -moz-border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
+}
+.flex-direction-nav a:before {
+  content: '\f105';
+  font-family: 'FontAwesome';
+  font-size: 32px;
+}
+.flex-direction-nav a.flex-prev {
+  -webkit-border-radius: 0 2px 2px 0;
+  -moz-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+}
+.flex-direction-nav a.flex-prev:before {
+  content: '\f104';
+}
+.flex-direction-nav a:hover {
+  text-decoration: none;
+}
+.flex-control-nav {
+  bottom: 10px;
+  right: 5px;
+  width: auto;
+}
+.flex-control-nav li {
+  margin: 0 3px;
+}
+.flex-control-nav li a {
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  height: 14px;
+  width: 14px;
+  border: 2px solid #464b4d;
+  background: transparent;
+}
+.flex-control-nav li a.flex-active {
+  border-color: #ffffff;
+}
+.flexslider-carousel {
+  position: relative;
+}
+.flexslider-carousel .flex-direction-nav a {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  background: #ff5821;
+  width: 30px;
+  height: 50px;
+  line-height: 50px;
+  top: 40%;
+}
+.flexslider-carousel .flex-direction-nav a:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.flexslider-carousel .flex-direction-nav a.flex-prev {
+  left: 0;
+}
+.flexslider-carousel .flex-direction-nav a.flex-next {
+  right: 0;
+}
+.flexslider .slides img {
+  width: 100%;
+  display: inline;
+}
+.slide img,
+.slide .caption {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.8s ease-out;
+  -moz-transition: all 0.8s ease-out;
+  -o-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+}
+.slide .caption {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+.slide.animate-in img,
+.slide.animate-in .caption {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+h1.enlarge {
+  font-size: 52.5px;
+}
+h2.enlarge {
+  font-size: 45.5px;
+}
+h3.enlarge {
+  font-size: 38.5px;
+}
+h4.enlarge {
+  font-size: 31.5px;
+}
+h5.enlarge {
+  font-size: 14px;
+}
+h6.enlarge {
+  font-size: 25.900000000000002px;
+}
+.img-wrap {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+.img-wrap figcaption {
+  font-size: 0.9em;
+  font-weight: normal;
+}
+li .i-circle,
+.i-circle {
+  border: 1px solid #ff5821;
+  -webkit-border-radius: 800px;
+  -moz-border-radius: 800px;
+  border-radius: 800px;
+  padding: 8%;
+  width: 1.05em;
+}
+
+@media (max-width: 979px) {
+
+}
+@media (min-width: 980px) {
+
+}
+@media (min-width: 1200px) {
+
+}
+@media (max-width: 979px) {
+  .page-index .flexslider-wrapper .flex-direction-nav,
+  .page-index .static-banner .flex-direction-nav {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .page-index .flexslider-wrapper img,
+  .page-index .static-banner img {
+    max-height: 200px;
+  }
+  .page-index .flexslider-wrapper .caption,
+  .page-index .static-banner .caption {
+    padding: 5%;
+    text-align: center;
+  }
+  .page-index .flexslider-wrapper .flex-direction-nav,
+  .page-index .static-banner .flex-direction-nav {
+    display: none;
+  }
+  .block {
+    padding: 20px 0 20px 0;
+  }
+}
