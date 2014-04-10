@@ -167,8 +167,27 @@ ul.menu li ul.children {
 ul.menu li:hover ul.children {
 	display: block;
     z-index: 999;
+    background-color: #fff;
+    text-align: left;
+    padding: 10px;
+    border-left: 1px solid #f1f5f6;
+    border-right: 1px solid #f1f5f6;
+    border-top: 4px solid #b2b2b2;
+    border-bottom: 1px solid #f1f5f6;
+    width: 150px;
 }
-
+.region-navigation  .nav>li>a:hover,.region-navigation  .nav>li>a:focus {
+background-color: #FFF;
+}
+.region-navigation li a{
+    padding-bottom: 12px!important;
+}
+.region-navigation li ul li a{
+    padding: 0px 0px 0px !important;
+    color: #777;
+    text-transform: none;
+    font-weight: normal;
+}
 /*мои стили*/
 .phone_area {
 	float: right;
@@ -244,11 +263,11 @@ text-transform: uppercase;
 }
 
 .popular_products, .best_selling{
-    margin-top: 100px;
+    margin-top: 30px;
 }
 #popular_products{
 background: #F7F7F7;
-padding: 40px 0px 60px 0px;
+padding: 40px 0px 100px 0px;
 }
 #popular_products .breadcrumb,#best_selling .breadcrumb, #catalog .col-md-3 h1{
 background: #E67C8E;
@@ -258,6 +277,9 @@ border-radius: 4px;
 font-family: 'Open Sans Condensed' ;
 color: #fff;
 font-size: 22px;
+}
+.tri_bloka{
+    margin-bottom: 60px;
 }
 #popular_products .product_thumbnail, #catalog .product_thumbnail{
 background: #fff;
@@ -273,6 +295,7 @@ border-radius: 3px;
 }
 #popular_products .product_thumbnail img, .best_selling .product_thumbnail img{
     border-bottom: 1px solid #E8E8E8;
+    width: 100%;
   -webkit-transition: all 1s ease;
      -moz-transition: all 1s ease;
        -o-transition: all 1s ease;
@@ -513,7 +536,7 @@ background-color: #E67C8E;
 font-family: 'Open Sans Condensed', sans-serif;
 font-size: 21px;
 }
-.nav>li>a:hover, .nav>li>a:focus {
+.nav-tabs>li>a:hover, #myTab .nav>li>a:focus {
 color: #fff;
 background-color:#E67C8E;
 }
@@ -703,4 +726,96 @@ font-size: 18px;
 }
 #checkout{
     margin-bottom: 20px;
+}
+#id_submit{
+margin: 8px 0px 0px 103px;
+}
+
+/*---------------------Мобильная верстка---------------*/
+
+@media (max-width: 767px) {
+    .cart_icon .icon-addtocart{
+        float: left;}
+    .cart_bloc .col-md-3 {
+padding: 0px 0px 10px 10px;
+    }
+.menu_top{
+    float: none;
+}
+#navbar .col-md-6{
+    overflow: hidden;
+}
+
+.my_slider{
+    display: none;
+}
+.navbar-nav{
+    margin: 0!important;
+}
+.cart_bloc .col-md-3{
+    background: none;
+}
+.logo {
+text-align: center;
+margin: 16px 0px 16px 58px;
+overflow: hidden;
+}
+
+.nav.log_menu i {
+font-size: 0px;
+}
+.phone img, .purchase img{
+    width: 45px;
+}
+.phone,.purchase {
+    overflow: hidden;
+    margin: 0px 6px 6px 54px
+}
+
+.dostavka{
+    display: none;
+}
+.navbar-toggle{
+    float: left;
+    margin-left: 30px;
+}
+.tri_bloka img{
+    width: 100%;
+}
+.navbar-collapse-second nav{
+    margin-left: 30px;
+}
+.tri_bloka_text h3 {
+font-size: 22px;
+}
+.tri_bloka p {
+padding: 12px;
+}
+#popular_products .col-md-3{
+    margin: 0px 12px 0px 12px;
+}
+#footer{
+    height: 500px;
+}
+.promotion img, .discount img{
+    display: none;
+}
+#promotion_discount{
+  height: 390px;
+}
+.promotion .static-text, .discount .static-text{
+width: 100%;
+margin-bottom: 20px;
+}
+#my_slider .carousel-indicators{
+    top: 330px;
+}
+#my_slider ol li {
+width: 90px;
+height: 90px;
+}
+.slide ol li img {
+width: 75px;
+}
+
 }

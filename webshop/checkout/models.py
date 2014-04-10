@@ -25,7 +25,7 @@ class BaseOrderInfo(models.Model):
     shipping_city = models.CharField(max_length=50, verbose_name=(u'Город'))
     #shipping_country = models.CharField(max_length=50) #Область
     shipping_country = models.CharField(max_length=50, verbose_name=(u'Страна'))
-    shipping_zip = models.CharField(max_length=10, verbose_name=(u'Почтовый индекс'))
+    # shipping_zip = models.CharField(max_length=10, verbose_name=(u'Почтовый индекс'))
     # Информация о плательщике
     # billing_name = models.CharField(max_length=50, default='default')
     # billing_address = models.CharField(max_length=50, null=True)
