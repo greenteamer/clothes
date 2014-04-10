@@ -21,7 +21,7 @@ class OrderAdmin(admin.ModelAdmin):
         ('Basics', {'fields': ('status', 'email', 'phone')}),
         ('Shipping', {'fields': ('shipping_name', 'shipping_address_1',
                                 'shipping_address_2', 'shipping_city',
-                                'shipping_zip')}),
+                                )}),
         # ('Billing', {'fields':('billing_name', 'billing_address',
         #                        'billing_city', 'billing_zip', 'billing_country')})
         )
