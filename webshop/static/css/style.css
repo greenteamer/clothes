@@ -817,5 +817,14 @@ height: 85px;
 .slide ol li img {
 width: 70px;
 }
-
+#footer p{display: none}
+#footer .col-md-6{
+    overflow: hidden;
+}
+.brand{
+    margin-top: 10px;
+}
+.product_text{
+    padding: 15px;
+}
 }
