@@ -114,7 +114,7 @@ i.fa.fa-check-square{
 }
 
 .region-navigation .navbar-nav a{
-    padding: 15px 7px 0px 7px;
+    padding: 18px 7px 0px 7px;
 }
 
 .nav.log_menu i{
@@ -134,7 +134,7 @@ i.fa.fa-check-square{
 
 }
 .cart_bloc .col-md-3{
-	padding: 11px 0px 10px 28px;
+	padding: 10px 0px 10px 28px;
 	background:#f0f0f0 ;
 }
 #navigation ul li{
@@ -490,7 +490,7 @@ margin: 9px 0px 0px 15px;
 .row-fluid img {
     width: 100%;
 }
-#product_lict{
+#product_lict,#oplata, #cart,#stranica{
     border-top: 1px solid #E8E8E8;
     padding-top: 40px;
     margin-bottom: 80px;
@@ -652,21 +652,21 @@ padding-bottom: 56px;
 }
 a.icon_vk{
    float: left;
-   background: url(../images/soc_icons.png) no-repeat 0 0;
+   background: url(../images/soc_icons.png) no-repeat -246px 0;
    width: 42px;
    height: 50px;
    background-position-x: -246px;
 }
 a.icon_inst{
    float: left;
-   background: url(../images/soc_icons.png) no-repeat 0 0;
+   background: url(../images/soc_icons.png) no-repeat -83px 0;
    background-position-x: -83px;
    width: 42px;
    height: 50px;
 }
 a.icon_tel{
    float: left;
-   background: url(../images/soc_icons.png) no-repeat 0 0;
+   background: url(../images/soc_icons.png) no-repeat -164px 0;
    background-position-x: -164px;
    width: 42px;
    height: 50px;
@@ -682,20 +682,20 @@ a.icon_email{
     padding-top: 15px;
 }
 a.icon_vk:hover{
-   background: url(../images/soc_icons.png) no-repeat 0 0;
+   background: url(../images/soc_icons.png) no-repeat -287px 0;
    background-position-x: -287px;
 }
 a.icon_inst:hover{
-   background: url(../images/soc_icons.png) no-repeat 0 0;
+   background: url(../images/soc_icons.png) no-repeat -124px 0;
    background-position-x: -124px;
 }
 a.icon_tel:hover{
-   background: url(../images/soc_icons.png) no-repeat 0 0;
+   background: url(../images/soc_icons.png) no-repeat -205px 0;
    background-position-x: -205px;
 }
 a.icon_email:hover{
    float: left;
-   background: url(../images/soc_icons.png) no-repeat 0 0;
+   background: url(../images/soc_icons.png) no-repeat -41px 0;
    background-position-x: -41px;
 }
 .soc_battom span{
@@ -711,13 +711,9 @@ font-size: 18px;
     margin-top: 75px;
 
 }
-#stranica{
-    margin-bottom: 60px;
-}
+
 /*-----------------Карзина---------------*/
-#cart{
-    margin: 60px 0px 60px 0px;
-}
+
 #checkout li{
     margin-bottom: 10px;
 }
@@ -817,5 +813,211 @@ height: 85px;
 .slide ol li img {
 width: 70px;
 }
+#footer p{display: none}
+#footer .col-md-6{
+    overflow: hidden;
+}
+.brand{
+    margin-top: 10px;
+}
+.product_text{
+    padding: 15px;
+}
+#popular_products .product_thumbnail, #catalog .product_thumbnail {
+margin-bottom: 20px;
+}
+#popular_products .description_hidden p{
+    display: none;
+}
+}
+@media (min-width: 780px)and (max-width: 966px){
+    .my_slider{
+    display: none;
+}
+#popular_products .product_thumbnail{
+    width: 30%!important;
+    margin-left: 16px;
+}
+.popular_products{
+    margin: 0;
+}
+#popular_products .product_thumbnail img{
+    height: 164px;
+}
+#popular_products .description_hidden p{
+    display: none;
+}
+#navbar .col-md-6{
+    overflow: hidden;
+}
+.cart_bloc{
+    width: 300px;
+}
+.dostavka{
+    display: none;
+}
+.logo_phone{
+    margin-top: 60px;
+}
+.purchase{
+padding-left: 30px;
+overflow: hidden;
+}
 
+.logo_phone img {
+padding-right: 20px;
+}
+.logo_phone p {
+margin: 15px 0px 0px 0px;
+}
+.row-fluid img {
+width: 60%;
+}
+.promotion .static-text, .discount .static-text{
+    width: 70%;
+    margin-bottom: 20px;
+}
+#promotion_discount{
+    height: 416px;
+}
+#popular_products .description_hidden p.description_brand, #best_selling .description_hidden p.description_brand {
+font-size: 30px;
+}
+.soc_battom p{
+    display: none;
+}
+#footer .col-md-6{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.brand{
+    margin: 0;
+}
+.soc_battom .col-md-5{
+   float: left;
+}
+#footer{
+    height: 256px;
+}
+#my_slider.carousel.slide {
+width: 80%;
+}
+.product_text{
+    padding: 10px;
+}
+.price_cart .col-md-3{
+    float: left;
+}
+.price_cart .col-md-6{
+    overflow: hidden;
+}
+#checkout .row-fluid{
+    padding: 0px 0px 60px 60px;
+}
+}
+@media (min-width: 1024px){
+
+#my_slider .carousel-indicators{
+        top: 306px;
+}
+.slide ol li img{
+     width: 75px;
+}
+#my_slider ol li {
+width: 88px;
+height: 90px;
+}
+.btn.btn-primary{
+    font-size: 12px;
+}
+#footer .col-md-6 {
+width: 53%;
+}
+#footer p{
+    display: none;
+}
+#footer{
+    height: 250px;
+}
+.brand{
+    margin:0;
+}
+.soc_battom{
+    margin-top: 20px;
+}
+.row-fluid img{
+    display: none;
+}
+}
+
+
+ @media (max-width: 1000px){
+#navbar .col-md-6{
+    overflow: hidden;
+}
+.cart_bloc{
+    width: 300px;
+}
+.logo{
+overflow: hidden;
+margin: 30px 0px 30px 0px;
+}
+.logo_phone p {
+margin: 16px 17px 0px 9px;
+font-size: 16px;
+}
+.carousel-inner{
+    width: 80%;
+}
+#product_lict .col-md-4{
+    width: 60%;
+    float: left;
+}
+.col-md-3 .cart{
+    margin: 20px 0px 20px 0px;
+}
+.my_slider{
+    display: none;
+}
+#popular_products .product_thumbnail {
+width: 30%!important;
+margin-left: 16px;
+}
+.popular_products{
+    margin-top: 0;
+}
+.popular_products img{height: 170px;}
+#popular_products .description_hidden p{
+    display: none;
+}
+.row-fluid img {
+width: 70%;
+}
+.promotion .static-text, .discount .static-text{
+    width: 70%;
+    margin-bottom: 20px;
+}
+#promotion_discount{
+    height: 424px;
+}
+
+#footer p{
+    display: none;
+}
+#footer .col-md-6{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.brand {
+ margin-top: 0px;
+}
+#footer .col-md-5{
+    float: left;
+}
+#footer{
+  height: 258px;
+}
+#my_slider .carousel-indicators{
+    top: 260px;
+}
 }
