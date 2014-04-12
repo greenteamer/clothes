@@ -21,10 +21,10 @@ class BaseOrderInfo(models.Model):
     # Информация об адресе для отправки товара
     shipping_name = models.CharField(max_length=50, verbose_name=(u'Имя получателя'))
     shipping_address_1 = models.CharField(max_length=50, verbose_name=(u'Адрес доставки'))
-    shipping_address_2 = models.CharField(max_length=50, verbose_name=(u'Дополнительный адрес(необязательно)'), blank=True)
+    # shipping_address_2 = models.CharField(max_length=50, verbose_name=(u'Дополнительный адрес(необязательно)'), blank=True)
     shipping_city = models.CharField(max_length=50, verbose_name=(u'Город'))
     #shipping_country = models.CharField(max_length=50) #Область
-    shipping_country = models.CharField(max_length=50, verbose_name=(u'Страна'))
+    # shipping_country = models.CharField(max_length=50, verbose_name=(u'Страна'))
     # shipping_zip = models.CharField(max_length=10, verbose_name=(u'Почтовый индекс'))
     # Информация о плательщике
     # billing_name = models.CharField(max_length=50, default='default')
