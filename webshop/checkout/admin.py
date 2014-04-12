@@ -20,7 +20,7 @@ class OrderAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Basics', {'fields': ('status', 'email', 'phone')}),
         ('Shipping', {'fields': ('shipping_name', 'shipping_address_1',
-                                'shipping_address_2', 'shipping_city',
+                                'shipping_city',
                                 )}),
         # ('Billing', {'fields':('billing_name', 'billing_address',
         #                        'billing_city', 'billing_zip', 'billing_country')})
