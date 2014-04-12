@@ -915,7 +915,7 @@ margin: 8px 0px 0px 103px;
         padding: 0px 0px 60px 60px;
     }
 }
-@media (min-width: 1024px){
+@media (max-width: 1024px){
 
     #my_slider .carousel-indicators{
             top: 306px;
