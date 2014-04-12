@@ -57,11 +57,14 @@ thead th{
 tfoot th{
 	 height:40px;
 }
-table#shopping_cart th.right, td.right{
-	 text-align:right;
-}
+/*table#shopping_cart th.right, td.right{*/
+	 /*text-align:right;*/
+/*}*/
 a.cart{
 	 color:DarkOrange;
+}
+#cart .right{
+    width: 90px;
 }
 
 /*навигация*/
@@ -78,7 +81,9 @@ a.cart{
 	border:none ;
 
 }
-
+.log_menu{
+    margin-top: 5px;
+}
 .menu_main a{
     font-family: 'PT Sans Narrow', sans-serif;
     text-transform: uppercase;
@@ -269,7 +274,7 @@ text-transform: uppercase;
 background: #F7F7F7;
 padding: 40px 0px 100px 0px;
 }
-#popular_products .breadcrumb,#best_selling .breadcrumb, #catalog .col-md-3 h1{
+#popular_products .breadcrumb,#best_selling .breadcrumb, #catalog .col-md-3 h1,#cart .col-md-3 h1{
 background: #E67C8E;
 text-align: center;
 padding: 8px 15px;
@@ -290,7 +295,7 @@ border-radius: 3px;
 #catalog .product_thumbnail{
     margin-bottom: 30px;
 }
-#catalog{
+#catalog,#checkout{
     border-top: 1px solid #E8E8E8;
 }
 #popular_products .product_thumbnail img, .best_selling .product_thumbnail img{
@@ -718,13 +723,42 @@ font-size: 18px;
     margin-bottom: 10px;
 }
 .alert-info{
-    margin: 40px 0px 60px 0px;
+    margin: 40px 0px 20px 0px;
 }
 #checkout{
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 #id_submit{
 margin: 8px 0px 0px 103px;
+}
+#checkout_form label {
+display: block;
+font-family: 'Open Sans Condensed', sans-serif;
+font-weight: normal;
+font-size: 19px;
+}
+#checkout_form input{
+    margin-bottom: 10px;
+}
+#checkout_form .btn.btn-primary{
+margin: 20px 0px 0px 110px;
+}
+.border_chec {
+border: 1px solid #d9dde3;
+padding: 20px 0px 20px 27px;
+}
+.checkout h1 {
+background: #E67C8E;
+text-align: center;
+padding: 8px 15px;
+border-radius: 4px;
+font-family: 'Open Sans Condensed';
+color: #fff;
+font-size: 22px;
+margin-bottom: 40px;
+}
+#cart h1{
+    margin-bottom: 40px;
 }
 
 /*---------------------Мобильная верстка---------------*/

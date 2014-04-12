@@ -11,7 +11,11 @@
             <div class="row">
                 <div class="table-responsive">
                             <table class="table">
-                <caption>{% trans "Your Shopping Cart" %}</caption>
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <h1>Ваша карзина</h1>
+                                </div>
+                            </div>
                 <thead>
                     <tr>
                         <th scope="col">{% trans "Product" %}</th>
@@ -44,7 +48,7 @@
                         <td>
                                 <input type="hidden" name="item_id" value="{{ item.id }}" />
                                 <button class="btn btn-info" type="submit" name="update">
-                                    <i class="icon-refresh icon-white"></i> {% trans "Update" %}</button>
+                                    <i class="icon-refresh icon-white"></i> <span>Обнавить</span></button>
                             </form>
                         </td>
                         <td>
@@ -76,7 +80,7 @@
                         <th class="right">
                     <form method="post" action="." class="cart">{% csrf_token %}
                                 <button class="btn btn-success" type="submit" name="checkout">
-                                <i class="icon-shopping-cart icon-white"></i> {% trans " Checkout" %}</button>
+                                <i class="icon-shopping-cart icon-white"></i><span>Офорить заказ</span></button>
                             </form>
                         </th>
                     </tr>
