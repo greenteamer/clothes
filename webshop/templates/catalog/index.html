@@ -25,20 +25,20 @@
         </div>
     </div>
 {% block popular_products %}
+ {% if products %}
     <div id="popular_products">
         <div class="container">
             <div class="row">
+                <div class="col-md-12">
+                 <div class="col-md-12">
 
-                {% if products %}
-                    <div class="col-md-12">
-                        <div class="row">
                             <div class="col-md-3">
                                 <h3>
                                     <div class="breadcrumb">Популярные товары</div>
                                 </h3>
                             </div>
-                        </div>
                     </div>
+
 
                     {% for p in products %}
                         <div class="col-md-4 popular_products">
@@ -65,6 +65,10 @@
                 {% else %}
                     <p>Популярные товары не найдены</p>
                 {% endif %}
+                </div>
+
+
+
 
             </div>
         </div>
