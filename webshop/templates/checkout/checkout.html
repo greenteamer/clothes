@@ -24,8 +24,14 @@
                 {% endif %}
 
               <div class="row-fluid">
-                <h1>{% trans "Checkout" %}</h1>
-                {% if error_message %}
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="col-md-3 checkout">
+                             <h1>Контакты для доставки</h1>
+                          </div>
+                      </div>
+                  </div>
+                        {% if error_message %}
                       <div class="row-fluid">
                           <div class="alert alert-error span5">
                             {{ error_message }}
@@ -34,8 +40,31 @@
                     {% endif %}
                 <form action="." method="post">
                     {% csrf_token %}
-                    {{ form.as_ul }}
-                <input id="id_submit" type="submit" />
+                    <div id="checkout_form">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 border_chec">
+                                    <div class="border_chec2 col-md-6 ">
+                                        <label for="id_email">Ваш email:</label>
+                                        {{form.email}}
+                                        <label for="id_email">Ваш телефон:</label>
+                                        {{form.phone}}
+                                        <label for="id_shipping_name">Ваше имя:</label>
+                                        {{form.shipping_name}}
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="id_shipping_address_1">Ваш адрес:</label>
+                                        {{form.shipping_address_1}}
+                                        <label for="id_shipping_city">Город:</label>
+                                        {{form.shipping_city}}
+                                        <input class="btn btn-primary" type="submit" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
             {#    <form class="form-horizontal" action="." method="post">{% csrf_token %}#}
             {#      <fieldset>#}
             {#        <legend>{% trans "Contact Info" %}</legend>#}
