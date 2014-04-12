@@ -169,6 +169,7 @@ h1.dashboard-title {
 
 .dashboard-module-content a {
     color: #5B80B2;
+    font-size: 13px;
 }
 
 .dashboard-module-content p {
@@ -177,8 +178,9 @@ h1.dashboard-title {
 
 .dashboard-module ul li {
     vertical-align: top;
-    padding: 5px 8px;
+    padding: 10px 8px;
     line-height: 20px;
+    border-bottom: 1px solid #C4C0F8;
 }
 
 .dashboard-module ul li.odd {
