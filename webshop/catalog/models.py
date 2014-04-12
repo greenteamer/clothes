@@ -60,6 +60,7 @@ class Product(models.Model):
     name = models.CharField(_(u'Name'), max_length=255, unique=True)
     slug = models.SlugField(_(u'Slug'), max_length=255, unique=True,
                             help_text=_(u'Unique value for product page URL, created from name.'))
+    articul = models.CharField(verbose_name=u'Артикул', max_length=10)
     brand = models.CharField(_(u'Brand'), max_length=50)
     sku = models.CharField(_(u'SKU'), max_length=50,
                            help_text=_(u'Stock-keeping unit')) # кол-во товара на складе
@@ -72,7 +73,7 @@ class Product(models.Model):
     quantity = models.IntegerField(_(u'Quantity'))
     description = models.TextField(_(u'Description'))
     meta_keywords = models.CharField(_(u'Meta keywords'), max_length=255,
-                                     help_text=_(u'Comma-delimited set of SEO keywords for meta tag'))
+                                     help_text=_(u'Comma-delimited set of SEO keywords for meta tag'), blank=True)
     meta_description = models.CharField(_(u'Meta description'), max_length=255,
                                         help_text=_(u'Content for description meta tag'))
     created_at = models.DateTimeField(_(u'Created at'), auto_now_add=True)

@@ -95,6 +95,9 @@
                                 {% else %}
                                     {% trans "Price" %}: {{ p.price }} {% trans "руб." %}
                                 {% endif %}
+                                <div class="articul">
+                                    <span>Артикул: {{ p.articul }}</span>
+                                </div>
                             </div>
                             <div class="col-md-3">
                                 <form method="post" action="." class="cart">{% csrf_token %}
