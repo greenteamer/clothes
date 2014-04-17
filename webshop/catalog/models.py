@@ -110,6 +110,9 @@ class Product(models.Model):
         else:
             return None
 
+    def get_image(self):
+        image = ProductImage.objects.get(product=self, default=True)
+        return image
 
 class ProductImage(models.Model):
     """Изображения продуктов"""
