@@ -18,13 +18,13 @@ class Category(MPTTModel):
     slug = models.SlugField(_(u'Slug'), max_length=50, unique=True,
                             help_text=_(u'Slug for product url created from name.'))
     # "Чистые" ссылки для продуктов формирующиеся из названия
-    description = models.TextField(_(u'Description'))
+    description = models.TextField(_(u'Description'), blank=True)
     is_active = models.BooleanField(_(u'Active'), default=True)
     meta_keywords = models.CharField(_(u'Meta keywords'), max_length=255,
-                                     help_text=_(u'Comma-delimited set of SEO keywords for meta tag'))
+                                     help_text=_(u'Comma-delimited set of SEO keywords for meta tag'), blank=True)
     # Разделенные запятыми теги для SEO оптимизации
     meta_description = models.CharField(_(u'Meta description'), max_length=255,
-                                        help_text=_(u'Content for description meta tags'))
+                                        help_text=_(u'Content for description meta tags'), blank=True)
     created_at = models.DateTimeField(_(u'Created at'), auto_now_add=True)
     updated_at = models.DateTimeField(_(u'Updated at'), auto_now=True)
     parent = TreeForeignKey('self', verbose_name=_(u'Parent category'),
@@ -71,11 +71,11 @@ class Product(models.Model):
     is_bestseller = models.BooleanField(_(u'Bestseller'), default=False) # Лучшие продажи
     is_featured = models.BooleanField(_(u'Featured'), default=False) # Отображать на главной
     quantity = models.IntegerField(_(u'Quantity'))
-    description = models.TextField(_(u'Description'))
+    description = models.TextField(_(u'Description'), blank=True)
     meta_keywords = models.CharField(_(u'Meta keywords'), max_length=255,
                                      help_text=_(u'Comma-delimited set of SEO keywords for meta tag'), blank=True)
     meta_description = models.CharField(_(u'Meta description'), max_length=255,
-                                        help_text=_(u'Content for description meta tag'))
+                                        help_text=_(u'Content for description meta tag'), blank=True)
     created_at = models.DateTimeField(_(u'Created at'), auto_now_add=True)
     updated_at = models.DateTimeField(_(u'Updated at'), auto_now=True)
     categories = models.ManyToManyField(Category, verbose_name=_(u'Categories'),

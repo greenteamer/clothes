@@ -19,12 +19,15 @@
 {#                    {% endthumbnail %}#}
                     {% if images %}
 
-                        <div id="my_slider" class="carousel slide" data-ride="carousel">
+                        <div id="my_slider" class="carousel slide" data-ride="carousel" style="{% if images.count > 3 %}margin-bottom: 210px;{% endif %}">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
                                 {% for image in images %}
                                     <li data-target="#my_slider" data-slide-to="{{ forloop.counter0 }}" class="{% if image == images|first %}active{% endif %}">
-                                        <img src="/media/{{ image.url }}" alt="">
+{#                                        <img src="/media/{{ image.url }}" alt="">#}
+                                        {% thumbnail image.url "100x100" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% endthumbnail %}
                                     </li>
                                 {% endfor %}
                             </ol>

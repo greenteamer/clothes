@@ -769,6 +769,13 @@ margin-bottom: 40px;
 #cart h1{
     margin-bottom: 40px;
 }
+.cart_items_menu {
+    display: none;
+}
+.cart_icon:hover .cart_items_menu{
+    display: block;
+    position: absolute;
+}
 
 /*---------------------Мобильная верстка---------------*/
 
