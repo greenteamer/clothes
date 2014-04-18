@@ -1,7 +1,10 @@
 {% extends "catalog.html" %}
+{% load thumbnail %}
 {% load i18n %}
+
 {% block slider %}
 {% endblock %}
+
 {% block tri_bloka %}
 {% endblock %}
 
@@ -24,8 +27,11 @@
                             <div class="col-md-3">
                                 <div class="product_thumbnail">
                                     <a href="{{ p.get_absolute_url }}">
-                                        <img src="{{ p.image_url }}"
-                                        alt="{{ p.name }}" />
+
+                                        {% thumbnail p.image_url "360x360" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% endthumbnail %}
+
                                         <br />
                                         <h2>{{ p.name }}</h2>
                                     </a>

@@ -34,7 +34,7 @@ class ProductAdmin(admin.ModelAdmin):
     Как будут отображаться поля товаров в разделе администрирования
     """
     form = ProductAdminForm
-    list_display = ('name', 'price', 'old_price', 'created_at', 'updated_at',)
+    list_display = ('name', 'price', 'old_price', 'created_at', 'updated_at', 'articul')
     list_display_links = ('name',)
     list_per_page = 50
     ordering = ['-created_at']
