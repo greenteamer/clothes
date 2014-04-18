@@ -4,7 +4,7 @@ import decimal
 
 from django.db import models
 
-from webshop.catalog.models import Product
+from webshop.catalog.models import Product, ProductImage
 
 
 class CartItem(models.Model):
@@ -46,3 +46,4 @@ class CartItem(models.Model):
 		if quantity.isdigit():
 			self.quantity = self.quantity + int(quantity)
 			self.save()
+

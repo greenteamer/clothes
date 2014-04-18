@@ -1,11 +1,31 @@
 {% load i18n %}
 {% load catalog_tags %}
+{% load thumbnail %}
+{#{% load menu_photo %}#}
 
-{% with cart_item_count as cart_count %}
-	<a href="{% url show_cart %}">
-
-
-		Кол-во товаров:{{ cart_count }}
+{#{% with cart_item_count as cart_count %}#}
+{#	<a href="{% url show_cart %}">#}
+{##}
+{##}
+{#		Кол-во товаров:{{ cart_count }}#}
 {#        {{ cart_count|pluralize }}#}
-	</a>
-{% endwith %}
+{#	</a>#}
+{#{% endwith %}#}
+
+<a href="{% url show_cart %}">Товаров: {{ cart_i.count }}</a>
+
+{% if cart_i %}
+
+    <div class="cart_items_menu">
+        {% for item in cart_i %}
+            {{ item.product.name }}
+            {% thumbnail item.product.get_image.url "100x100" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+        {% endthumbnail %}
+        {% endfor %}
+    </div>
+
+{% else %}
+    <p>нет товаров</p>
+{% endif %}
+

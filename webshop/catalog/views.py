@@ -33,6 +33,7 @@ def index_view(request, template_name="catalog/index.html"):
 
     #Далее вывод новостей
     news = News.objects.all()[:5]
+    # cart_items = cart.get_cart_items(request)
     # Функция locals получает все поля словаря
     return render_to_response(template_name, locals(),
                               context_instance=RequestContext(request))

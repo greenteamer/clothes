@@ -628,7 +628,7 @@ border: 1px solid #DDDDDD;
 padding: 6px;
 border-radius: 0;
 width: 110px!important;
-height: 107px!important;
+height: 114px!important;
 margin:0!important;
 }
 .carousel-indicators .active{}
@@ -770,6 +770,13 @@ margin-bottom: 40px;
 }
 #cart h1{
     margin-bottom: 40px;
+}
+.cart_items_menu {
+    display: none;
+}
+.cart_icon:hover .cart_items_menu{
+    display: block;
+    position: absolute;
 }
 
 /*---------------------Мобильная верстка---------------*/
@@ -991,6 +998,8 @@ margin-bottom: 40px;
         margin-top: 20px;
     }
 }
+
+/*end style*/
 
 
  /*@media (max-width: 1000px){*/

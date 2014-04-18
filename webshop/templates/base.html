@@ -12,7 +12,9 @@
 
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/css.css" />
 
-        {% bootstrap_css %}
+{#        {% bootstrap_css %}#}
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css"/>
 
         <link href="{{ STATIC_URL }}css/style.css" rel="stylesheet" />
 
@@ -93,8 +95,9 @@
             })(jQuery);
         </script>
 
-        {% bootstrap_javascript %}
-        {% bootstrap_messages %}
+        <script type="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+{#        {% bootstrap_javascript %}#}
+{#        {% bootstrap_messages %}#}
 
     </head>
     <body>
