@@ -128,11 +128,13 @@ i.fa.fa-check-square{
 
 .cart_icon .icon-addtocart{
 	font-size:20px;
+    padding-bottom: 20px;
 }
 .cart_icon a{
     font-family: 'PT Sans Narrow', sans-serif;
 	font-size: 16px;
 	color:#333;
+    padding-bottom: 20px;
 }
 #navigation ul{
     list-style:none;
@@ -777,8 +779,30 @@ margin-bottom: 40px;
 .cart_icon:hover .cart_items_menu{
     display: block;
     position: absolute;
+    background: #fff;
+    border: 1px solid #E8E8E8;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 9px;
 }
-
+.cart_items_menu img{
+    padding: 10px;
+}
+.cart_items_menu p{
+float: left;
+width: 140px;
+}
+.cart_items_menu a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+.cart_items_prod{
+      border-bottom: 1px solid #E8E8E8;
+      margin-bottom: 7px;
+}
+.cart_items_menu .btn{
+padding: 3px 5px;
+}
 /*---------------------Мобильная верстка---------------*/
 
 @media (max-width: 767px) {
