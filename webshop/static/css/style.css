@@ -624,12 +624,14 @@ box-shadow: 2px 2px 20px #E0CBCB;
     width: 95px
 }
 #my_slider ol li {
-width: 110px;
-height: 107px;
 border: 1px solid #DDDDDD;
 padding: 6px;
 border-radius: 0;
+width: 110px!important;
+height: 107px!important;
+margin:0!important;
 }
+.carousel-indicators .active{}
 #my_slider .carousel-indicators {
     left: 0;
     width: 100%;
