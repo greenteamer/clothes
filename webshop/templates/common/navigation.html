@@ -65,8 +65,8 @@
                                     <li><i class="icon-avataralt"><a href="{% url my_account %}">{% trans "My Account" %}</a></i></li>
                                     <li ><i class="icon-avataralt"><a href="{% url django.contrib.auth.views.logout %}">{% trans "Logout" %}</a></i></li>
                                 {% else %}
-                                    <li style=" margin: 15px 22px 0px 0px; "><i class="icon-avataralt"><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></i></li>
-                                   <li style=" margin-top: 15px; "> <i class="fa fa-check-square"><a href="{% url register %}">{% trans "Register" %}</a></i></li>
+                                    <li style=" margin: 10px 22px 0px 0px; "><i class="icon-avataralt"><a href="{% url django.contrib.auth.views.login %}">{% trans "Login" %}</a></i></li>
+                                   <li style=" margin-top: 10px; "> <i class="fa fa-check-square"><a href="{% url register %}">{% trans "Register" %}</a></i></li>
                                 {% endif %}
                             </ul>
                         </div>

@@ -18,11 +18,16 @@
 
     <div class="cart_items_menu">
         {% for item in cart_i %}
-            {{ item.product.name }}
-            {% thumbnail item.product.get_image.url "100x100" crop="center" as im %}
-            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            <div class="cart_items_prod">
+               <p>{{ item.product.name }}</p>
+                {% thumbnail item.product.get_image.url "100x100" crop="center" as im %}
+               <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            </div>
         {% endthumbnail %}
         {% endfor %}
+        <div class="btn btn-primary">
+            <a href="{% url show_cart %}">Простотреть корзину</a>
+        </div>
     </div>
 
 {% else %}
