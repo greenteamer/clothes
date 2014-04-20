@@ -19,11 +19,11 @@
     <div class="cart_items_menu">
         {% for item in cart_i %}
             <div class="cart_items_prod">
-               <p>{{ item.product.name }}</p>
+                <p>{{ item.product.name }}</p>
                 {% thumbnail item.product.get_image.url "100x100" crop="center" as im %}
-               <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                {% endthumbnail %}
             </div>
-        {% endthumbnail %}
         {% endfor %}
         <div class="btn btn-primary">
             <a href="{% url show_cart %}">Простотреть корзину</a>
@@ -31,6 +31,6 @@
     </div>
 
 {% else %}
-    <p>нет товаров</p>
+
 {% endif %}
 

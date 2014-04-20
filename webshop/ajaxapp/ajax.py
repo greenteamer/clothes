@@ -1,6 +1,9 @@
 #-*-coding:utf-8-*-
 from django.utils import simplejson
 from dajax.core import Dajax
+from datetime import datetime
+from django.utils.dateformat import DateFormat
+from django.utils.formats import get_format
 from dajaxice.decorators import dajaxice_register
 from dajaxice.utils import deserialize_form
 from webshop.catalog.forms import *
@@ -24,8 +27,11 @@ def send_form(request, form):
 
         phone = form.cleaned_data.get('phone')
         product_name = form.cleaned_data.get('product_name')
-        subject = u'Заявка в 1 клик'
-        message = u'Телефон: %s \n Товар: %s' % (phone , product_name)
+        date = datetime.now()
+        dateFormat = DateFormat(date)
+        dateFormat = dateFormat.format(get_format('DATE_FORMAT'))
+        subject = u'Заявка в 1 клик %s' % dateFormat
+        message = u'Дата: %s \n Телефон: %s \n Товар: %s' % (dateFormat, phone , product_name)
         send_mail(subject, message, 'teamer777@gmail.com', ['forward.70@yandex.ru'], fail_silently=False)
 
         order = OrderOneClick(phone=phone , product_name=product_name)
