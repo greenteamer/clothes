@@ -639,7 +639,7 @@ margin:0!important;
     width: 100%;
     margin-left: 0;
     text-align: left;
-    top: 370px;
+    top: 260px!important
 }
 #my_slider.carousel.slide {
     margin-bottom: 120px;
@@ -880,14 +880,14 @@ padding: 3px 5px;
     margin-bottom: 20px;
     }
     #my_slider .carousel-indicators{
-        top: 330px;
+        top: 212px!important
     }
     #my_slider ol li {
-    width: 85px;
-    height: 85px;
+    width: 85px!important;
+    height: 85px!important;
     }
     .slide ol li img {
-    width: 70px;
+    height: 70px!important;
     }
     #footer p{display: none}
     #footer .col-md-6{
@@ -990,11 +990,30 @@ padding: 3px 5px;
     #checkout .row-fluid{
         padding: 0px 0px 60px 60px;
     }
+
 }
 @media (max-width: 1024px){
+    .slide ol li img {
+        position: absolute;
+        opacity: 1;
+        width: 80px;
+        height: 80px;
+}
+    #my_slider ol li {
+    width: 94px!important;
+    height: 94px!important;
+}
+    #my_slider .carousel-indicators{
+            top: 214px!important;
+    }
+    .price_cart .col-md-6{
+        border: none;
+    }
+}
+@media (max-width: 900px){
 
     #my_slider .carousel-indicators{
-            top: 306px;
+            top: 260px!important;
     }
     .slide ol li img{
          width: 75px;
