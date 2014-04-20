@@ -37,7 +37,7 @@
                                 {% for image in images %}
                                     <div class="item {% if image == images|first %}active{% endif %}">
 {#                                        <img src="/media/{{ image.url }}" alt="">#}
-                                        {% thumbnail image.url "360x360" crop="center" as im %}
+                                        {% thumbnail image.url "360x235" crop="center" as im %}
                                             <a href="/media/{{ image.url }}">
                                                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                             </a>
