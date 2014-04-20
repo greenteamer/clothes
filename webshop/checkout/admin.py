@@ -38,7 +38,9 @@ class OrderAdmin(admin.ModelAdmin):
             obj.ip_address = request.META.get('REMOTE_ADDR')
             obj.save()
 
-
+class OneClickAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'date')
+    fields = ('product_name', 'phone')
 
 admin.site.register(Order, OrderAdmin)
-admin.site.register(OrderOneClick)
+admin.site.register(OrderOneClick, OneClickAdmin)
