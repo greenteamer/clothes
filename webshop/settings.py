@@ -182,6 +182,7 @@ INSTALLED_APPS = (
     'webshop.news',
     'webshop.search',
     'webshop.ajaxapp',
+    'webshop.cupon',
     'mptt',
     'bootstrap3',
     'sorl.thumbnail',
