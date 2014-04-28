@@ -46,17 +46,33 @@
                                 <div class="col-md-6 border_chec">
                                     <div class="border_chec2 col-md-6 ">
                                         <label for="id_email">Ваш email:</label>
+                                        {{ error.email }}
                                         {{form.email}}
                                         <label for="id_email">Ваш телефон:</label>
+                                        {{ error.phone }}
                                         {{form.phone}}
                                         <label for="id_shipping_name">Ваше имя:</label>
+                                        {{ error.shipping_name }}
                                         {{form.shipping_name}}
                                     </div>
                                     <div class="col-md-6">
                                         <label for="id_shipping_address_1">Ваш адрес:</label>
+                                        {{ error.shipping_address_1 }}
                                         {{form.shipping_address_1}}
                                         <label for="id_shipping_city">Город:</label>
+                                        {{ error.shipping_city }}
                                         {{form.shipping_city}}
+{#                                        <div class="cupon">#}
+{#                                            <label for="id_cupon">Введите Ваш купон:</label>#}
+{#                                            {{form.cupon}}                                            #}
+{#                                        </div>#}
+
+
+{#                                        <div class="cupon">#}
+{#                                            <label for="id_cupon">Введите Ваш купон:</label>#}
+{#                                            {{form.cupon}}#}
+{#                                        </div>#}
+
                                         <input class="btn btn-primary" type="submit" />
                                     </div>
                                 </div>

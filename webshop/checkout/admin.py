@@ -18,7 +18,7 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('email', 'shipping_name', 'id', 'transaction_id')
     inlines = [OrderItemInline, ]
     fieldsets = (
-        ('Basics', {'fields': ('status', 'email', 'phone')}),
+        ('Basics', {'fields': ('status', 'email', 'phone', 'cupon')}),
         ('Shipping', {'fields': ('shipping_name', 'shipping_address_1',
                                 'shipping_city',
                                 )}),
