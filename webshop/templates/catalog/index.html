@@ -57,7 +57,7 @@
                             <div class="description_hidden opacity">
                                 <p class="description_brand">{{ p.brand }}</p>
                                 <p>{{ p.name }}</p>
-                                <p>{{ p.description }}</p>
+                                <p>{{ p.description|removetags:"img"|truncatewords:"20"|safe }}</p>
                             </div>
                         </div>
                     {% endfor %}
@@ -149,7 +149,7 @@
                                         <p>{{ b.price }} руб.</p>
                                     </div>
                                     <div class="description_hidden opacity">
-                                        <p class="description_brand">{{ p.brand }}</p>
+                                        <p class="description_brand">{{ b.brand }}</p>
                                     </div>
                                 </div>
 
