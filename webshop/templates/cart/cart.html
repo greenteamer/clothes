@@ -10,83 +10,102 @@
         <div class="container">
             <div class="row">
                 <div class="table-responsive">
-                            <table class="table">
-                            <div class="col-md-12">
-                                <div class="col-md-3">
-                                    <h1>Ваша карзина</h1>
-                                </div>
+
+                    <table class="table">
+                        <div class="col-md-12">
+                            <div class="col-md-3">
+                                <h1>Ваша корзина</h1>
                             </div>
-                <thead>
-                    <tr>
-                        <th scope="col">{% trans "Product" %}</th>
-                        <th scope="col">{% trans "Price" %}</th>
-                        <th>{% trans "Quantity" %}</th>
-                        <th></th>
-                        <th></th>
-                        <th scope="col" class="right">{% trans "Total" %}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% if cart_items %}
-                        {% for item in cart_items %}
-                    <tr>
-                        <td>
-                            <a href="{{ item.get_absolute_url }}" class="cart">
-                            {{ item.name }}
-                            </a>
-                        </td>
-                        <td>
-                            {{ item.price }} {% trans "руб." %}
-                        </td>
-                        <td class="right">
+                        </div>
+                        <thead>
+                            <tr>
+                                <th scope="col">{% trans "Product" %}</th>
+                                <th scope="col">{% trans "Price" %}</th>
+                                <th>{% trans "Quantity" %}</th>
+                                <th></th>
+                                <th></th>
+                                <th scope="col" class="right">{% trans "Total" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% if cart_items %}
+                                {% for item in cart_items %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ item.get_absolute_url }}" class="cart">
+                                            {{ item.name }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {{ item.price }} {% trans "руб." %}
+                                        </td>
+                                        <td class="right">
+                                            <form method="post" action="." class="cart">{% csrf_token %}
+                                                {#<label class="control-label" for="quantity">{% trans "Quantity" %}:</label>#}
+                                                <input type="text" name="quantity" value="{{ item.quantity }}" id="quantity"
+                                                       size="2" class="quantity" maxlength="5" />
+                                                <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                        </td>
+                                        <td>
+{#                                                <input type="hidden" name="item_id" value="{{ item.id }}" />#}
+                                                <button class="btn btn-info" type="submit" name="update">
+                                                    <i class="icon-refresh icon-white"></i><span>Обновить</span>
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form method="post" action="." class="cart">{% csrf_token %}
+                                                <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                                <button class="btn btn-danger" type="submit" name="remove">
+                                                    <i class="icon-trash icon-white"></i>{% trans "Remove" %}
+                                                </button>
+                                            </form>
+                                        </td>
+                                        <td class="right">{{ item.total }} {% trans "руб." %}</td>
+                                    </tr>
+                            {% endfor %}
+
+                            {% else %}
+                                    <tr>
+                                        <td colspan="6" style="height:30px;">
+                                            {% trans "Your cart is empty" %}
+                                        </td>
+                                    </tr>
+                            {% endif %}
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2"><h4>Введите Ваш купон:</h4></th>
+                                <form method="post" action=".">{% csrf_token %}
+                                    <th><input type="text" name="cupon" value="" id="cupon" size="10"/></th>
+                                    <th>
+                                        <button class="btn btn-info" type="submit" name="update_cupon">
+                                            <i class="icon-refresh icon-white"></i><span>Пересчитать</span>
+                                        </button>
+                                    </th>
+                                </form>
+                                <th></th>
+                                <th>Скидка: {{ cupon.percent }}%</th>
+                            </tr>
+                            <tr>
+                                <th colspan="5">{% trans "Cart Subtotal" %}:</th>
+                                <th>{{ cart_subtotal }} {% trans "руб." %}</th>
+                            </tr>
+                            {% if cart_items %}
+                            <tr>
+                          <th colspan="5"></th>
+                                <th class="right">
                             <form method="post" action="." class="cart">{% csrf_token %}
-                                {#<label class="control-label" for="quantity">{% trans "Quantity" %}:</label>#}
-                                <input type="text" name="quantity" value="{{ item.quantity }}" id="quantity"
-                                       size="2" class="quantity" maxlength="5" />
-                                <input type="hidden" name="item_id" value="{{ item.id }}" />
-                        </td>
-                        <td>
-                                <input type="hidden" name="item_id" value="{{ item.id }}" />
-                                <button class="btn btn-info" type="submit" name="update">
-                                    <i class="icon-refresh icon-white"></i> <span>Обнавить</span></button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="post" action="." class="cart">{% csrf_token %}
-                                <input type="hidden" name="item_id" value="{{ item.id }}" />
-                                <button class="btn btn-danger" type="submit" name="remove">
-                                    <i class="icon-trash icon-white"></i> {% trans "Remove" %}</button>
-                            </form>
-                        </td>
-                        <td class="right">{{ item.total }} {% trans "руб." %}</td>
-                    </tr>
-                    {% endfor %}
-                    {% else %}
-                    <tr>
-                        <td colspan="6" style="height:30px;">
-                            {% trans "Your cart is empty" %}
-                        </td>
-                    </tr>
-                    {% endif %}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="5">{% trans "Cart Subtotal" %}:</th>
-                        <th>{{ cart_subtotal }} {% trans "руб." %}</th>
-                    </tr>
-                    {% if cart_items %}
-                    <tr>
-                  <th colspan="5"></th>
-                        <th class="right">
-                    <form method="post" action="." class="cart">{% csrf_token %}
-                                <button class="btn btn-success" type="submit" name="checkout">
-                                <i class="icon-shopping-cart icon-white"></i><span>Офорить заказ</span></button>
-                            </form>
-                        </th>
-                    </tr>
-                    {% endif %}
-                </tfoot>
-            </table>
+                                        <button class="btn btn-success" type="submit" name="checkout">
+                                        <i class="icon-shopping-cart icon-white"></i><span>Офорить заказ</span></button>
+                                    </form>
+                                </th>
+                            </tr>
+                            {% endif %}
+                        </tfoot>
+                    </table>
                 </div>
             </div>
         </div>

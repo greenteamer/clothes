@@ -4,10 +4,14 @@ import decimal
 
 from django.contrib.auth.models import User
 from django.db import models
+from django.forms import ModelForm, TextInput
+
+from datetime import datetime
 from django.db.models import permalink
 from django.utils.translation import ugettext_lazy as _
 
 from webshop.catalog.models import Product
+from webshop.cupon.models import Cupon
 
 
 class BaseOrderInfo(models.Model):
@@ -56,6 +60,8 @@ class Order(BaseOrderInfo):
     last_updated = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, null=True)
     transaction_id = models.CharField(max_length=20)
+
+    cupon = models.ForeignKey(Cupon, null=True, blank=True)
 
     def __unicode__(self):
         return _(u'Order #') + str(self.id)
@@ -107,6 +113,7 @@ class OrderItem(models.Model):
 class OrderOneClick(models.Model):
     product_name = models.CharField(max_length=128, verbose_name=u'Имя продукта')
     phone = models.CharField(max_length=20, verbose_name=u'Телефон')
+    date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = ('Заказы')

@@ -8,15 +8,15 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'OrderOneClick.product'
-        db.add_column('checkout_orderoneclick', 'product',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default=5, to=orm['catalog.Product']),
+        # Adding field 'Order.cupon'
+        db.add_column('checkout_order', 'cupon',
+                      self.gf('django.db.models.fields.related.ForeignKey')(to=orm['cupon.Cupon'], null=True),
                       keep_default=False)
 
 
     def backwards(self, orm):
-        # Deleting field 'OrderOneClick.product'
-        db.delete_column('checkout_orderoneclick', 'product_id')
+        # Deleting field 'Order.cupon'
+        db.delete_column('checkout_order', 'cupon_id')
 
 
     models = {
@@ -52,13 +52,13 @@ class Migration(SchemaMigration):
         'catalog.category': {
             'Meta': {'ordering': "['-created_at']", 'object_name': 'Category', 'db_table': "'categories'"},
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             u'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
             u'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
-            'meta_description': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'meta_keywords': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'meta_description': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
+            'meta_keywords': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '50'}),
             'parent': ('mptt.fields.TreeForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['catalog.Category']"}),
             u'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
@@ -68,16 +68,17 @@ class Migration(SchemaMigration):
         },
         'catalog.product': {
             'Meta': {'ordering': "['-created_at']", 'object_name': 'Product', 'db_table': "'products'"},
+            'articul': ('django.db.models.fields.CharField', [], {'max_length': '10'}),
             'brand': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
             'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['catalog.Category']", 'symmetrical': 'False'}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
-            'description': ('django.db.models.fields.TextField', [], {}),
+            'description': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'is_active': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
             'is_bestseller': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'is_featured': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'meta_description': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
-            'meta_keywords': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'meta_description': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
+            'meta_keywords': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '255'}),
             'old_price': ('django.db.models.fields.DecimalField', [], {'default': '0.0', 'max_digits': '9', 'decimal_places': '2', 'blank': 'True'}),
             'price': ('django.db.models.fields.DecimalField', [], {'max_digits': '9', 'decimal_places': '2'}),
@@ -88,6 +89,7 @@ class Migration(SchemaMigration):
         },
         'checkout.order': {
             'Meta': {'object_name': 'Order'},
+            'cupon': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['cupon.Cupon']", 'null': 'True'}),
             'date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'email': ('django.db.models.fields.EmailField', [], {'max_length': '50'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -95,11 +97,8 @@ class Migration(SchemaMigration):
             'last_updated': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
             'phone': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
             'shipping_address_1': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'shipping_address_2': ('django.db.models.fields.CharField', [], {'max_length': '50', 'blank': 'True'}),
             'shipping_city': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'shipping_country': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
             'shipping_name': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'shipping_zip': ('django.db.models.fields.CharField', [], {'max_length': '10'}),
             'status': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
             'transaction_id': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']", 'null': 'True'})
@@ -113,10 +112,11 @@ class Migration(SchemaMigration):
             'quantity': ('django.db.models.fields.IntegerField', [], {'default': '1'})
         },
         'checkout.orderoneclick': {
-            'Meta': {'object_name': 'OrderOneClick'},
+            'Meta': {'ordering': "['product_name']", 'object_name': 'OrderOneClick'},
+            'date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'phone': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
-            'product': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['catalog.Product']"})
+            'product_name': ('django.db.models.fields.CharField', [], {'max_length': '128'})
         },
         'contenttypes.contenttype': {
             'Meta': {'ordering': "('name',)", 'unique_together': "(('app_label', 'model'),)", 'object_name': 'ContentType', 'db_table': "'django_content_type'"},
@@ -124,6 +124,12 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
+        'cupon.cupon': {
+            'Meta': {'object_name': 'Cupon'},
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'identifier': ('django.db.models.fields.CharField', [], {'max_length': '256'}),
+            'percent': ('django.db.models.fields.CharField', [], {'max_length': '10'})
         }
     }
 

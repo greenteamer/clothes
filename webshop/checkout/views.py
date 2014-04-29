@@ -6,8 +6,9 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
-from webshop.checkout.forms import CheckoutForm
+# from webshop.checkout.forms import CheckoutForm
 from webshop.checkout.models import Order, OrderItem
+from webshop.cupon.models import Cupon
 from webshop.checkout import checkout
 from webshop.cart import cart
 from webshop.accounts import profile
@@ -54,11 +55,21 @@ def contact(request, template_name='checkout/checkout.html'):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         phone = request.POST['phone']
+
+        """проверка купонов"""
+        # cupon_text = '%s' % request.POST['cupon']
+        # try:
+        #     cupon = Cupon.objects.get(identifier=cupon_text)
+        # except Exception:
+        #     cupon = Cupon.objects.get(identifier='default')
+
+
         if form.is_valid():
             form.clean_phone()
             response = checkout.process(request)
             order_number = response.get('order_number', 0)
             order = response.get('order', 0)
+            order_total = response.get('order_total', 0)
             # получаем список заказынных товаров для передачи в письмо
             order_item = OrderItem.objects.filter(order_id=order.id)
             items = ''
@@ -67,8 +78,8 @@ def contact(request, template_name='checkout/checkout.html'):
             if order_number:
                 request.session['order_number'] = order_number
                 receipt_url = urlresolvers.reverse('checkout_receipt')
-                subject = u'7works заявка от %s' % request.POST['shipping_name']
-                message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: \n %s' % (order_number, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items)
+                subject = u'podarkoff-moscow.ru заявка от %s' % request.POST['shipping_name']
+                message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_number, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
                 send_mail(subject, message, 'teamer777@gmail.com', ['greenteamer@bk.ru'], fail_silently=False)
                 return HttpResponseRedirect(receipt_url)
             # return HttpResponseRedirect('/')
@@ -76,6 +87,7 @@ def contact(request, template_name='checkout/checkout.html'):
             form = ContactForm(request.POST)
             return render(request, 'checkout/checkout.html', {
                 'form': form,
+                'error': form.errors,
             })
     else:
         form = ContactForm()
