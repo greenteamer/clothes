@@ -10,6 +10,7 @@ from django.template import RequestContext
 
 from webshop.cart import cart
 from webshop.catalog.models import Category, Product, ProductImage
+from webshop.slider.models import Slider
 from webshop.checkout import checkout
 from webshop.catalog.models import Category
 
@@ -46,3 +47,13 @@ def cart_box(context, request):
     }
 # Register the custom tag as an inclusion tag with takes_context=True.
 register.inclusion_tag('tags/cart_box.html', takes_context=True)(cart_box)
+
+# The first argument *must* be called "context" here.
+def slider(context, request):
+    slides = Slider.objects.all()
+    return {
+        # 'products': products,
+        'slides': slides,
+    }
+# Register the custom tag as an inclusion tag with takes_context=True.
+register.inclusion_tag('tags/slider.html', takes_context=True)(slider)

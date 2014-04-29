@@ -13,9 +13,10 @@ from webshop.checkout import checkout
 from webshop.cart import cart
 from webshop.accounts import profile
 
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 from webshop.checkout.forms import ContactForm
 from django.shortcuts import render
+from django.template.loader import render_to_string
 
 
 # def checkout_view(request, template_name='checkout/checkout.html'):
@@ -72,6 +73,7 @@ def contact(request, template_name='checkout/checkout.html'):
             order_total = response.get('order_total', 0)
             # получаем список заказынных товаров для передачи в письмо
             order_item = OrderItem.objects.filter(order_id=order.id)
+            transaction = order.transaction_id
             items = ''
             for item in order_item:
                 items = items + '%s \n' % item.name
@@ -81,6 +83,21 @@ def contact(request, template_name='checkout/checkout.html'):
                 subject = u'podarkoff-moscow.ru заявка от %s' % request.POST['shipping_name']
                 message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_number, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
                 send_mail(subject, message, 'teamer777@gmail.com', ['greenteamer@bk.ru'], fail_silently=False)
+
+                # отправка html письма пользователю
+                html_content = '<p>This is an <strong>important</strong> message.</p>'
+                context_dict = {
+                    'transaction': transaction,
+                    'id': order.id,
+                    'items': items,
+                }
+                message = render_to_string('checkout/email.html', context_dict)
+                from_email = 'teamer777@gmail.com'
+                to = '%s' % request.POST['email']
+                msg = EmailMultiAlternatives(subject, message, from_email, [to])
+                msg.content_subtype = "html"
+                msg.send()
+
                 return HttpResponseRedirect(receipt_url)
             # return HttpResponseRedirect('/')
         else:

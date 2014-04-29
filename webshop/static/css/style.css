@@ -651,6 +651,9 @@ margin:0!important;
 #my_slider.carousel.slide {
     margin-bottom: 120px;
 }
+.my_slider .slide {
+    min-height: 600px;
+}
 .carousel-control.right,.carousel-control.left{
     background: none;
 }
