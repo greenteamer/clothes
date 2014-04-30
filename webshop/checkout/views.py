@@ -1,23 +1,23 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
+
 from django.core import urlresolvers
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.utils.translation import ugettext_lazy as _
 
-# from webshop.checkout.forms import CheckoutForm
 from webshop.checkout.models import Order, OrderItem
-from webshop.cupon.models import Cupon
 from webshop.checkout import checkout
 from webshop.cart import cart
-from webshop.accounts import profile
 
 from django.core.mail import send_mail, EmailMultiAlternatives
 from webshop.checkout.forms import ContactForm
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from webshop.settings import ADMIN_EMAIL
+
+from robokassa.forms import RobokassaForm
 
 # def checkout_view(request, template_name='checkout/checkout.html'):
 #     """Представление для оформления заказа"""
@@ -48,11 +48,29 @@ from webshop.settings import ADMIN_EMAIL
 #     return render_to_response(template_name, locals(),
 #                               context_instance=RequestContext(request))
 
+@login_required
+def pay_with_robokassa(request, order_id):
+    order = get_object_or_404(Order, pk=order_id)
+
+    form = RobokassaForm(initial={
+               'OutSum': order.total,
+               'InvId': order.id,
+               'Desc': order.name,
+               'Email': request.user.email,
+               # 'IncCurrLabel': '',
+               # 'Culture': 'ru'
+           })
+
+    return render(request, 'pay_with_robokassa.html', {'form': form})
 
 def contact(request, template_name='checkout/checkout.html'):
     if cart.is_empty(request):
         cart_url = urlresolvers.reverse('show_cart')
         return HttpResponseRedirect(cart_url)
+
+    """работа с robokassa"""
+
+
     if request.method == 'POST':
         form = ContactForm(request.POST)
         phone = request.POST['phone']
@@ -66,6 +84,7 @@ def contact(request, template_name='checkout/checkout.html'):
 
 
         if form.is_valid():
+
             form.clean_phone()
             response = checkout.process(request)
             order_number = response.get('order_number', 0)
