@@ -75,21 +75,13 @@ def contact(request, template_name='checkout/checkout.html'):
         form = ContactForm(request.POST)
         phone = request.POST['phone']
 
-        """проверка купонов"""
-        # cupon_text = '%s' % request.POST['cupon']
-        # try:
-        #     cupon = Cupon.objects.get(identifier=cupon_text)
-        # except Exception:
-        #     cupon = Cupon.objects.get(identifier='default')
-
-
         if form.is_valid():
 
             form.clean_phone()
             response = checkout.process(request)
             order_number = response.get('order_number', 0)
             order = response.get('order', 0)
-            order_total = response.get('order_total', 0)
+            order_total = order.total
             # получаем список заказынных товаров для передачи в письмо
             order_item = OrderItem.objects.filter(order_id=order.id)
             transaction = order.transaction_id
