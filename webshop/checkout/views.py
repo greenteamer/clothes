@@ -17,7 +17,7 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from webshop.checkout.forms import ContactForm
 from django.shortcuts import render
 from django.template.loader import render_to_string
-
+from webshop.settings import ADMIN_EMAIL
 
 # def checkout_view(request, template_name='checkout/checkout.html'):
 #     """Представление для оформления заказа"""
@@ -82,7 +82,7 @@ def contact(request, template_name='checkout/checkout.html'):
                 receipt_url = urlresolvers.reverse('checkout_receipt')
                 subject = u'podarkoff-moscow.ru заявка от %s' % request.POST['shipping_name']
                 message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_number, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
-                send_mail(subject, message, 'teamer777@gmail.com', ['greenteamer@bk.ru'], fail_silently=False)
+                send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
 
                 # отправка html письма пользователю
                 html_content = '<p>This is an <strong>important</strong> message.</p>'

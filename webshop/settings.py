@@ -14,7 +14,7 @@ TEMPLATE_DEBUG = DEBUG
 
 DEFAULT_CHARSET = 'utf-8'
 
-
+ADMIN_EMAIL = 'greenteamer@bk.ru'
 ADMINS = (
 	# ('Your Name', 'your_email@example.com'),
 )
@@ -154,6 +154,7 @@ DAJAXICE_MEDIA_PREFIX="dajaxice"
 
 DAJAX_FUNCTIONS=(
     'webshop.ajaxapp.ajax.send_form',
+    'webshop.ajaxapp.ajax.mainForm',
     'webshop.ajaxapp.ajax.load_form',
 )
 

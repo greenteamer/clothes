@@ -47,9 +47,7 @@ def strip_non_numbers(data):
 
 """форма заказа на всех страницах"""
 class MainForm(forms.Form):
-    name = forms.CharField(max_length=50)
     phone = forms.CharField(max_length=20)
-    text = forms.Textarea()
 
     def clean_phone(self):
         """Проверка телефонного номера (>10 цифр)"""
