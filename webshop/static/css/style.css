@@ -838,6 +838,25 @@ width: 140px;
 .cart_items_menu .btn{
 padding: 3px 5px;
 }
+
+#myModal p{
+    border-top: 1px dotted #e5e5e5;
+    margin-top: 10px;
+    padding-top: 10px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    margin-bottom: 0;
+    color: #940000;
+    font-size: 15px;
+}
+.modal-dialog{
+    width: 286px;
+}
+#myModal .modal-footer{
+    margin-top: 0;
+}
+#myModal label{
+    font-family: 'PT Sans Narrow', sans-serif;
+}
 /*---------------------Мобильная верстка---------------*/
 
 @media (max-width: 767px) {
