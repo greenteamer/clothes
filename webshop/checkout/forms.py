@@ -45,6 +45,20 @@ def strip_non_numbers(data):
     non_numbers = re.compile('\D')
     return non_numbers.sub('', data)
 
+"""форма заказа на всех страницах"""
+class MainForm(forms.Form):
+    name = forms.CharField(max_length=50)
+    phone = forms.CharField(max_length=20)
+    text = forms.Textarea()
+
+    def clean_phone(self):
+        """Проверка телефонного номера (>10 цифр)"""
+        phone = self.cleaned_data['phone']
+        stripped_phone = strip_non_numbers(phone)
+        if len(stripped_phone) < 11:
+            raise forms.ValidationError(_(u"""
+            Введите правильный телефон, например (8-920-351-21-21 или 89203512121)"""))
+        return self.cleaned_data['phone']
 
 
 

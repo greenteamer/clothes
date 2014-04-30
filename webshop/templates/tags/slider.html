@@ -1,0 +1,27 @@
+{% load i18n %}
+{% load catalog_tags %}
+{#            flex-slider#}
+<div class="my_slider">
+    <section class="flexslider-wrapper ">
+        <div class="flexslider" data-slidernav="auto" data-transition="slide" id="flexslider-0">
+            <div class="slides" style="width:800%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(-1170px, 0, 0);">
+
+                {% for slide in slides %}
+                    <div class="slide row-fluid" style="background: url('/media/{{ slide.image }}');">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 caption">
+                                    <h2 class="enlarge">{{ slide.product.name }}</h2>
+                                    <h4>{{ slide.product.brand }}</h4>
+                                    <p>{{ slide.product.description }}</p>
+                                    <a href="{{ slide.product.get_absolute_url }}" class="btn more-link large i-right">Подробнее<i class="default"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+</div>

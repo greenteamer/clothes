@@ -62,55 +62,12 @@
 
 
     {#            flex-slider#}
-     {% block slider %}
-            <div class="my_slider">
+{#            flex-slider#}
+    {% block slider %}
+{#        находится в tags/slider.html#}
+        {% slider request %}
+    {% endblock %}
 
-                 <section class="flexslider-wrapper ">
-                    <div class="flexslider" data-slidernav="auto" data-transition="slide" id="flexslider-0">
-                        <div class="slides" style="width:800%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(-1170px, 0, 0);">
-                            <!--Slide #1 with caption-->
-                            <div class="slide row-fluid first flex-active-slide animate-in" style="width: 100%; float: left; display: block;">
-                                <div class="col-md-4 pull-center hidden-phone">
-                                    <img src="{{ STATIC_URL }}images/bg3-banner.png" alt="Slide 1">
-                                </div>
-                                <div class="col-md-6 caption">
-                                    <h2 class="enlarge">Welcome to <span class="em">Flexor</span></h2>
-                                    <h4>Super flexible responsive theme with a modest design touch.</h4>
-                                    <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
-                                    <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large i-right">Buy Now <i class="default"></i></a>
-                                </div>
-                            </div>
-
-                            <!--Slide #2 -->
-                            <div class="slide row-fluid second" style="width: 100%; float: left; display: block;">
-                                <div class="col-md-5 col-md-offset-1 caption caption-right">
-                                    <h2 class="enlarge"><span class="em">Flexor</span> Bootstrap Theme</h2>
-                                    <h4>High quality, responsive theme!</h4>
-                                    <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
-                                    <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large"><i class="default"></i> Learn More</a>
-                                </div>
-                                <div class="col-md-6  hidden-phone">
-                                    <img src="{{ STATIC_URL }}images/icon-2.png" alt="Slide 2">
-                                </div>
-                            </div>
-    {#                        slide 3#}
-                             <div class="slide row-fluid third" style="width: 100%; float: left; display: block;">
-                                <div class="col-md-5 col-md-offset-1 caption caption-right">
-                                    <h2 class="enlarge"><span class="em">Flexor</span> Bootstrap Theme</h2>
-                                    <h4>High quality, responsive theme!</h4>
-                                    <p>Perfect for your App, Web service, company or portfolio! Magna tincidunt sociis ac integer amet non. Rhoncus augue? Tempor porttitor sed, aliquet phasellus a, nisi nunc aliquet nec rhoncus enim porttitor ultrices lacus tristique?</p>
-                                    <a href="https://wrapbootstrap.com/user/themelize_me" class="btn more-link large"><i class="default"></i> Learn More</a>
-                                </div>
-                                <div class="col-md-6  hidden-phone">
-                                    <img src="{{ STATIC_URL }}images/icon-3.png" alt="Slide 2">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-        </div>
-     {% endblock %}
 
     {#        блок разделов#}
     {% block tri_bloka %}
@@ -118,34 +75,39 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 tri_bloka_text">
-                        <h3>Магазин брендовой одежды кожгалантиреи солнцезащитных очков и аксесуаров</h3>
+                        <h3>Наши очки покупают и носят звезды</h3>
                     </div>
                      <div class="col-md-4">
                          <a href="#">
-                            <img src="{{ STATIC_URL }}images/odejda.jpg" alt="Верхняя одежда">
-                            <h2>Верхняя одежда</h2>
+                             <div class="foto_blok">
+                               <img src="{{ STATIC_URL }}images/ochki_1.jpg" alt="Верхняя одежда">
+                             </div>
+{#                            <h2>Верхняя одежда</h2>#}
                          </a>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
                     </div>
                     <div class="col-md-4">
-                        <a href="/category/sumki/">
-                            <img src="{{ STATIC_URL }}images/coj_gal.jpg" alt="Кожгалантерея ">
-                            <h2>Кожгалантерея </h2>
+                        <a href="#">
+                            <div class="foto_blok">
+                                 <img src="{{ STATIC_URL }}images/ochki_2.jpg" alt="Кожгалантерея ">
+                            </div>
+{#                            <h2>Кожгалантерея </h2>#}
                         </a>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
                     </div>
                     <div class="col-md-4">
-                        <a href="/category/ochki/">
-                            <img src="{{ STATIC_URL }}images/ochci.jpg" alt="Солнцезащитные очки">
-                            <h2>Солнцезащитные очки</h2>
+                        <a href="#">
+                            <div class="foto_blok">
+                                <img src="{{ STATIC_URL }}images/ochki_3.jpg" alt="Солнцезащитные очки">
+                            </div>
+{#                            <h2>Солнцезащитные очки</h2>#}
                         </a>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
                     </div>
                 </div>
             </div>
         </div>
+
     {% endblock %}
     {#        блок контент#}
 
@@ -221,6 +183,27 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <form method="post" action="." id="main_form">{% csrf_token %}
+                            <div class="modal-body">
+                                {{ form_main.as_p }}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                                <button type="button" class="btn btn-primary" onclick="send_form();">Отправить</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -44,7 +44,7 @@
                         <div class="col-md-4 popular_products">
                             <div class="product_thumbnail">
                                 <a href="{{ p.get_absolute_url }}">
-                                    {% thumbnail p.image.url "298x319" crop="center" as im %}
+                                    {% thumbnail p.image.url "298x198" crop="center" as im %}
                                         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                     {% endthumbnail %}
 {#                                  <img src="{{ p.image_url }}"alt="{{ p.name }}" />#}
@@ -57,7 +57,7 @@
                             <div class="description_hidden opacity">
                                 <p class="description_brand">{{ p.brand }}</p>
                                 <p>{{ p.name }}</p>
-                                <p>{{ p.description|removetags:"img"|truncatewords:"20"|safe }}</p>
+                                <p>{{ p.description|removetags:"img"|truncatewords:"15"|safe }}</p>
                             </div>
                         </div>
                     {% endfor %}
@@ -139,7 +139,7 @@
                                 <div class="col-md-3 best_item">
                                     <div class="product_thumbnail">
                                         <a href="{{ b.get_absolute_url }}">
-                                            {% thumbnail b.image.url "255x255" crop="center" as im %}
+                                            {% thumbnail b.image.url "255x166" crop="center" as im %}
                                                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                             {% endthumbnail %}
                                             <br />
