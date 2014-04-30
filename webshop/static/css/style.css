@@ -301,6 +301,7 @@ font-size: 22px;
 }
 .tri_bloka{
     margin-bottom: 60px;
+    min-height: 305px;
 }
 #popular_products .product_thumbnail, #catalog .product_thumbnail{
 background: #fff;
@@ -674,6 +675,10 @@ margin:0!important;
     opacity: 0.7;
     padding: 10px 20px 18px 20px;
 }
+ .flexslider .btn.btn-primary{
+     border-radius: 0;
+     border: 0;
+ }
 .carousel-control.right,.carousel-control.left{
     background: none;
 }
