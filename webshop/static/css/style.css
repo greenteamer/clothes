@@ -97,7 +97,7 @@ a.cart{
     font-family: 'PT Sans Narrow', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 1px;
 }
 .menu_main li a:hover{
@@ -126,9 +126,24 @@ i.fa.fa-check-square{
 .menu_top{
     float:right;
 }
-
+.main_menu{
+    background: #8B799A;
+}
+.navbar {
+min-height: 47px;
+margin-bottom: 0px;
+}
+.main_menu .navbar-collapse{
+    border: none;
+}
+.main_menu .region-navigation ul  a{
+    color:#fff;
+}
+.main_menu .region-navigation ul li ul li a{
+    color:#333;
+}
 .region-navigation .navbar-nav a{
-    padding: 18px 7px 0px 7px;
+    padding: 15px 7px 0px 7px;
 }
 
 .nav.log_menu i{
@@ -188,7 +203,6 @@ ul.menu li:hover ul.children {
     padding: 10px;
     border-left: 1px solid #f1f5f6;
     border-right: 1px solid #f1f5f6;
-    border-top: 4px solid #b2b2b2;
     border-bottom: 1px solid #f1f5f6;
     width: 150px;
 }
@@ -216,7 +230,7 @@ background-color: #FFF;
 }
 
 .logo_phone{
-margin: 30px 0px 30px 0px;
+margin: 30px 0px 50px 0px;
 }
 .logo_phone p {
 margin: 16px 0px 0px 17px;
@@ -863,6 +877,15 @@ padding: 3px 5px;
     .logo_phone {
     margin: 85px 0px 30px 0px;
 }
+    .main_menu .region-navigation ul a {
+    color: #777;
+}
+    .main_menu {
+    background: #FFFFFF;
+    }
+.navbar-toggle .btn.btn-primary {
+font-size: 16px;
+}
     ul.menu li ul.children {
     display: block;
     position: relative;
@@ -871,6 +894,9 @@ padding: 3px 5px;
         border: none;
         padding: 0;
     }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #fff;
+}
     .region-navigation .navbar-nav a {
     padding: 7px 7px 0px 7px;
 }
@@ -927,7 +953,7 @@ padding: 3px 5px;
         margin-left: 30px;
     }
     .tri_bloka_text h3 {
-    font-size: 22px;
+    font-size: 20px;
     }
     .tri_bloka p {
     padding: 12px;
