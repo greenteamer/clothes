@@ -48,28 +48,10 @@ from robokassa.forms import RobokassaForm
 #     return render_to_response(template_name, locals(),
 #                               context_instance=RequestContext(request))
 
-@login_required
-def pay_with_robokassa(request, order_id):
-    order = get_object_or_404(Order, pk=order_id)
-
-    form = RobokassaForm(initial={
-               'OutSum': order.total,
-               'InvId': order.id,
-               'Desc': order.name,
-               'Email': request.user.email,
-               # 'IncCurrLabel': '',
-               # 'Culture': 'ru'
-           })
-
-    return render(request, 'pay_with_robokassa.html', {'form': form})
-
 def contact(request, template_name='checkout/checkout.html'):
     if cart.is_empty(request):
         cart_url = urlresolvers.reverse('show_cart')
         return HttpResponseRedirect(cart_url)
-
-    """работа с robokassa"""
-
 
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -79,21 +61,23 @@ def contact(request, template_name='checkout/checkout.html'):
 
             form.clean_phone()
             response = checkout.process(request)
-            order_number = response.get('order_number', 0)
+
             order = response.get('order', 0)
+            order_id = order.id
             order_total = order.total
+
             # получаем список заказынных товаров для передачи в письмо
             order_item = OrderItem.objects.filter(order_id=order.id)
             transaction = order.transaction_id
             items = ''
             for item in order_item:
                 items = items + '%s \n' % item.name
-            if order_number:
-                request.session['order_number'] = order_number
+            if order_id:
+                request.session['order_id'] = order_id
                 receipt_url = urlresolvers.reverse('checkout_receipt')
                 subject = u'podarkoff-moscow.ru заявка от %s' % request.POST['shipping_name']
-                message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_number, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
-                send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
+                message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_id, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
+                """send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)"""
 
                 # отправка html письма пользователю
                 html_content = '<p>This is an <strong>important</strong> message.</p>'
@@ -107,7 +91,7 @@ def contact(request, template_name='checkout/checkout.html'):
                 to = '%s' % request.POST['email']
                 msg = EmailMultiAlternatives(subject, message, from_email, [to])
                 msg.content_subtype = "html"
-                msg.send()
+                """msg.send()"""
 
                 return HttpResponseRedirect(receipt_url)
             # return HttpResponseRedirect('/')
@@ -130,14 +114,30 @@ def contact(request, template_name='checkout/checkout.html'):
     # })
 
 
+
+
+
+    # return render(request, 'pay_with_robokassa.html', {'form': form})
+
+@login_required
 def receipt_view(request, template_name='checkout/receipt.html'):
     """Представление отображающее сделанный заказ"""
-    order_number = request.session.get('order_number', '')
-    if order_number:
+    order_id = request.session.get('order_id', '')
+    if order_id:
         # если в cookies есть номер заказа, выводим его содержимое
-        order = Order.objects.filter(id=order_number)[0]
+        order = Order.objects.filter(id=order_id)[0]
         order_items = OrderItem.objects.filter(order=order)
-        del request.session['order_number']
+
+        form = RobokassaForm(initial={
+               'OutSum': order.total,
+               'InvId': order.id,
+               'Desc': order.shipping_name,
+               'Email': order.email,
+               # 'IncCurrLabel': '',
+               # 'Culture': 'ru'
+           })
+
+        del request.session['order_id']
     else:
         # иначе перенаправляем пользователя на страницу корзины
         cart_url = urlresolvers.reverse('show_cart')

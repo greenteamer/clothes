@@ -228,8 +228,9 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 90 # 90 дней на хранение cooki
 PRODUCTS_PER_PAGE = 1
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
-ROBOKASSA_LOGIN = 'podarkoff'
+ROBOKASSA_LOGIN = 'podarkoff_moscow'
 ROBOKASSA_PASSWORD1 = 'pushkin14'
+ROBOKASSA_PASSWORD2 = 'pushkin14Robo2'
 ROBOKASSA_TEST_MODE = True
 
 try:
