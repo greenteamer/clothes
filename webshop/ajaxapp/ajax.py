@@ -1,15 +1,17 @@
 #-*-coding:utf-8-*-
-from django.utils import simplejson
 from dajax.core import Dajax
 from datetime import datetime
 from django.utils.dateformat import DateFormat
 from django.utils.formats import get_format
 from dajaxice.decorators import dajaxice_register
+from django.core.mail import send_mail
 from dajaxice.utils import deserialize_form
+from webshop.settings import ADMIN_EMAIL
+
 from webshop.catalog.forms import ProductOneClickForm
 from webshop.checkout.forms import MainForm
-from django.core.mail import send_mail
 from webshop.checkout.models import OrderOneClick
+
 
 @dajaxice_register
 def send_form(request, form):
@@ -30,7 +32,7 @@ def send_form(request, form):
         dateFormat = dateFormat.format(get_format('DATE_FORMAT'))
         subject = u'Заявка в 1 клик %s' % dateFormat
         message = u'Дата: %s \n Телефон: %s \n Товар: %s' % (dateFormat, phone , product_name)
-        send_mail(subject, message, 'teamer777@gmail.com', ['forward.70@yandex.ru'], fail_silently=False)
+        send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
 
         order = OrderOneClick(phone=phone , product_name=product_name)
         order.save()
@@ -70,7 +72,7 @@ def mainForm(request, form):
         phone = form.cleaned_data.get('phone')
         subject = u'podarkoff-moscow.ru Заявка'
         message = u'Телефон: %s' % (phone)
-        send_mail(subject, message, 'teamer777@gmail.com', ['greenteamer@bk.ru'], fail_silently=False)
+        send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
 
     else:
         dajax.remove_css_class('#mainForm input', 'error')
