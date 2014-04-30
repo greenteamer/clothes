@@ -154,6 +154,7 @@ DAJAXICE_MEDIA_PREFIX="dajaxice"
 
 DAJAX_FUNCTIONS=(
     'webshop.ajaxapp.ajax.send_form',
+    'webshop.ajaxapp.ajax.mainForm',
     'webshop.ajaxapp.ajax.load_form',
 )
 

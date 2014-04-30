@@ -58,6 +58,10 @@
                 Dajaxice.webshop.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
             }
 
+            function mainForm(){
+                Dajaxice.webshop.ajaxapp.mainForm(Dajax.process,{'form':$('#mainForm').serialize(true)});
+            }
+
             function closeMessage(){
                 $('#message_show').addClass('hidden');
             }

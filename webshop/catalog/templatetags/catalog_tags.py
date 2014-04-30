@@ -60,11 +60,10 @@ def slider(context, request):
 register.inclusion_tag('tags/slider.html', takes_context=True)(slider)
 
 # The first argument *must* be called "context" here.
-def MainForm(context, request):
-    slides = Slider.objects.all()
+def mainForm(context, request):
+    form = MainForm()
     return {
-        # 'products': products,
-        'slides': slides,
+        'form': form,
     }
 # Register the custom tag as an inclusion tag with takes_context=True.
-register.inclusion_tag('tags/slider.html', takes_context=True)(slider)
+register.inclusion_tag('tags/mainForm.html', takes_context=True)(mainForm)
