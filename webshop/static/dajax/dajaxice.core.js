@@ -17,9 +17,11 @@ var Dajaxice = {
 
             send_form: function(callback_function, argv, custom_settings) {
                 return Dajaxice.call('webshop.ajaxapp.send_form', 'POST', callback_function, argv, custom_settings);
+            },
+
+            mainForm: function(callback_function, argv, custom_settings) {
+                return Dajaxice.call('webshop.ajaxapp.mainForm', 'POST', callback_function, argv, custom_settings);
             }
-
-
 
 
         }

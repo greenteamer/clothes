@@ -1,19 +1,19 @@
 #-*-coding:utf-8-*-
-from django.utils import simplejson
 from dajax.core import Dajax
 from datetime import datetime
 from django.utils.dateformat import DateFormat
 from django.utils.formats import get_format
 from dajaxice.decorators import dajaxice_register
-from dajaxice.utils import deserialize_form
-from webshop.catalog.forms import *
 from django.core.mail import send_mail
+from dajaxice.utils import deserialize_form
+from webshop.settings import ADMIN_EMAIL
+
+from webshop.catalog.forms import ProductOneClickForm
+from webshop.checkout.forms import MainForm
 from webshop.checkout.models import OrderOneClick
 
-@dajaxice_register
-# def sayhello(request):
-#     return simplejson.dumps({'message':'Hello World'})
 
+@dajaxice_register
 def send_form(request, form):
     dajax = Dajax()
     form = ProductOneClickForm(deserialize_form(form))
@@ -32,7 +32,7 @@ def send_form(request, form):
         dateFormat = dateFormat.format(get_format('DATE_FORMAT'))
         subject = u'Заявка в 1 клик %s' % dateFormat
         message = u'Дата: %s \n Телефон: %s \n Товар: %s' % (dateFormat, phone , product_name)
-        send_mail(subject, message, 'teamer777@gmail.com', ['forward.70@yandex.ru'], fail_silently=False)
+        send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
 
         order = OrderOneClick(phone=phone , product_name=product_name)
         order.save()
@@ -60,6 +60,25 @@ def send_form(request, form):
 
     # dajax.add_css_class('div .loading', 'hidden')
     # dajax.alert("Form is_valid(), your phone is: %s" % form.cleaned_data.get('phone'))
+    return dajax.json()
+
+@dajaxice_register
+def mainForm(request, form):
+    dajax = Dajax()
+    form = MainForm(deserialize_form(form))
+
+    if form.is_valid():
+        dajax.remove_css_class('#mainForm input', 'error')
+        phone = form.cleaned_data.get('phone')
+        subject = u'podarkoff-moscow.ru Заявка'
+        message = u'Телефон: %s' % (phone)
+        send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
+
+    else:
+        dajax.remove_css_class('#mainForm input', 'error')
+        for error in form.errors:
+            dajax.add_css_class('#id_%s' % error, 'error')
+
     return dajax.json()
 
 # def load_form(request, form):

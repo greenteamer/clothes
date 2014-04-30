@@ -75,7 +75,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 tri_bloka_text">
-                        <h3>Дорогие девушки !!!-присоеденяйтесь к Звездам!!! В нашем магазине собраны самые трендовые  модели бредовых очков...Очки произведены на фабриках портнерах в Гонконке,качество ЛЮКС в категории "реплика класса ААА"Приятных покупок....,
+                        <h3>Дорогие девушки !!!-присоеденяйтесь к Звездам!!! В нашем магазине собраны самые трендовые  модели бредовых очков...Очки произведены на фабриках портнерах в Гонконге, качество ЛЮКС в категории "реплика класса ААА" Приятных покупок....,
                             <br/>РS.На фото наши модели очков...(съемка в нашем магазине)</h3>
                     </div>
                      <div class="col-md-4">
@@ -188,25 +188,6 @@
                 </div>
             </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                        </div>
-                        <form method="post" action="." id="main_form">{% csrf_token %}
-                            <div class="modal-body">
-                                {{ form_main.as_p }}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
-                                <button type="button" class="btn btn-primary" onclick="send_form();">Отправить</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    {% mainForm request %}
 
 {% endblock %}
