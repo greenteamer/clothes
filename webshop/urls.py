@@ -36,8 +36,8 @@ urlpatterns = patterns('',
     url(r'^set_language/$', 'django.views.i18n.set_language', name='set_language'),
 
     # урл для robokassa
-    url(r'^robokassa/', include('webshop.checkout.robokassa_urls')),
-
+    url(r'^robokassa/', include('robokassa.urls')),
+    url(r'^robokassa/result/', include('webshop.checkout.robokassa_urls')),
     )
 
 if settings.DEBUG:
