@@ -14,6 +14,7 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from webshop.checkout.forms import ContactForm
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from robokassa.signals import result_received
 from django.template.loader import render_to_string
 from webshop.settings import ADMIN_EMAIL
 
@@ -144,3 +145,10 @@ def receipt_view(request, template_name='checkout/receipt.html'):
         return HttpResponseRedirect(cart_url)
     return render_to_response(template_name, locals(),
                               context_instance=RequestContext(request))
+
+def payment_received(sender, **kwargs):
+    order = Order.objects.get(id=kwargs['InvId'])
+    order.status = Order.PROCESSED
+    order.save()
+
+result_received.connect(payment_received)
