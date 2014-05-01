@@ -871,6 +871,10 @@ padding: 3px 5px;
 #myModal label{
     font-family: 'PT Sans Narrow', sans-serif;
 }
+th,td {
+padding: 5px 12px 5px 12px;
+border: 1px solid #CACACA;
+}
 /*---------------------Мобильная верстка---------------*/
 
 @media (max-width: 767px) {

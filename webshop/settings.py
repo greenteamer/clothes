@@ -14,7 +14,7 @@ TEMPLATE_DEBUG = DEBUG
 
 DEFAULT_CHARSET = 'utf-8'
 
-ADMIN_EMAIL = 'greenteamer@bk.ru'
+ADMIN_EMAIL = 'godmen777@mail.ru'
 ADMINS = (
 	# ('Your Name', 'your_email@example.com'),
 )

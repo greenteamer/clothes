@@ -79,7 +79,7 @@ def contact(request, template_name='checkout/checkout.html'):
                 receipt_url = urlresolvers.reverse('checkout_receipt')
                 subject = u'podarkoff-moscow.ru заявка от %s' % request.POST['shipping_name']
                 message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_id, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
-                """send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)"""
+                send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
 
                 # отправка html письма пользователю
                 html_content = '<p>This is an <strong>important</strong> message.</p>'
@@ -93,7 +93,7 @@ def contact(request, template_name='checkout/checkout.html'):
                 to = '%s' % request.POST['email']
                 msg = EmailMultiAlternatives(subject, message, from_email, [to])
                 msg.content_subtype = "html"
-                """msg.send()"""
+                msg.send()
 
                 return HttpResponseRedirect(receipt_url)
             # return HttpResponseRedirect('/')
