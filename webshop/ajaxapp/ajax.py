@@ -56,11 +56,10 @@ def send_form(request, form):
         for error in form.errors:
             dajax.add_css_class('#id_%s' % error, 'error')
 
-
-
     # dajax.add_css_class('div .loading', 'hidden')
     # dajax.alert("Form is_valid(), your phone is: %s" % form.cleaned_data.get('phone'))
     return dajax.json()
+
 
 @dajaxice_register
 def mainForm(request, form):
@@ -80,9 +79,3 @@ def mainForm(request, form):
             dajax.add_css_class('#id_%s' % error, 'error')
 
     return dajax.json()
-
-# def load_form(request, form):
-#     dajax = Dajax()
-#     dajax.alert("Form is_valid(), your phone is: %s" % form.cleaned_data.get('phone'))
-#
-#     return dajax.json()

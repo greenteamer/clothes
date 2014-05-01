@@ -190,6 +190,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'dajaxice',
     'dajax',
+    'robokassa',
 )
 
 THUMBNAIL_DEBUG = True
@@ -226,6 +227,11 @@ LOGIN_REDIRECT_URL = '/accounts/my_account/'
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 90 # 90 дней на хранение cookies
 PRODUCTS_PER_PAGE = 1
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+
+ROBOKASSA_LOGIN = 'podarkoff_moscow'
+ROBOKASSA_PASSWORD1 = 'pushkin14'
+ROBOKASSA_PASSWORD2 = 'pushkin14Robo2'
+ROBOKASSA_TEST_MODE = True
 
 try:
     from settings_local import *

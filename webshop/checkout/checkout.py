@@ -33,7 +33,7 @@ def process(request):
 
     transaction_id = random.randint(1, 999999)
     order = create_order(request, transaction_id)
-    results = {'order_number': order.id, 'order': order, 'order_total': order.total}
+    results = {'order': order}
 
     return results
 
