@@ -5,13 +5,13 @@ from django.core import urlresolvers
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.views.generic import TemplateView
 
 from webshop.checkout.models import Order, OrderItem
 from webshop.checkout import checkout
 from webshop.cart import cart
 
 from django.core.mail import send_mail, EmailMultiAlternatives
-from django.views.generic import TemplateView, DetailView
 from webshop.checkout.forms import ContactForm
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -122,7 +122,7 @@ def contact(request, template_name='checkout/checkout.html'):
     # return render(request, 'pay_with_robokassa.html', {'form': form})
 
 # @login_required
-def receipt_view(request):
+def receipt_view(request, template_name='checkout/receipt.html'):
     """Представление отображающее сделанный заказ"""
     order_id = request.session.get('order_id', '')
     if order_id:
@@ -144,9 +144,8 @@ def receipt_view(request):
         # иначе перенаправляем пользователя на страницу корзины
         cart_url = urlresolvers.reverse('show_cart')
         return HttpResponseRedirect(cart_url)
-    return render(request, 'checkout/receipt.html', {'form': form,
-                                                     'order': order,
-                                                     'order_items': order_items})
+    return render_to_response(template_name, locals(),
+                              context_instance=RequestContext(request))
 
 
 class RobokassaSuccess(TemplateView):
