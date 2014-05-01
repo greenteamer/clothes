@@ -61,7 +61,7 @@ class Product(models.Model):
     slug = models.SlugField(_(u'Slug'), max_length=255, unique=True,
                             help_text=_(u'Unique value for product page URL, created from name.'))
     articul = models.CharField(verbose_name=u'Артикул', max_length=10)
-    brand = models.CharField(_(u'Brand'), max_length=50)
+    brand = models.CharField(_(u'Brand'), max_length=50, blank=True)
     sku = models.CharField(_(u'SKU'), max_length=50,
                            help_text=_(u'Stock-keeping unit')) # кол-во товара на складе
     price = models.DecimalField(max_digits=9, decimal_places=2)
