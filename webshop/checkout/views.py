@@ -162,3 +162,12 @@ class RobokassaError(TemplateView):
 
 def robokassa_result(request):
     return render(request, 'robokassa/result.html')
+
+
+def payment_received(sender, **kwargs):
+    order = Order.objects.get(id=kwargs['InvId'])
+    order.email = 'ok@bk.ru'
+    # order.paid_sum = kwargs['OutSum']
+    order.save()
+
+result_received.connect(payment_received)
