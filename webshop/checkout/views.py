@@ -122,6 +122,7 @@ def contact(request, template_name='checkout/checkout.html'):
     # return render(request, 'pay_with_robokassa.html', {'form': form})
 
 # @login_required
+"""подготавливаем данные к оплате"""
 def receipt_view(request, template_name='checkout/receipt.html'):
     """Представление отображающее сделанный заказ"""
     order_id = request.session.get('order_id', '')
@@ -164,9 +165,11 @@ def robokassa_result(request):
     return render(request, 'robokassa/result.html')
 
 
+"""обрабатываем сигналы"""
 def payment_received(sender, **kwargs):
     order = Order.objects.get(id=kwargs['InvId'])
-    order.email = 'ok@bk.ru'
+    # order.email = 'ok@bk.ru'
+    order.status = Order.PAID
     # order.paid_sum = kwargs['OutSum']
     order.save()
 
