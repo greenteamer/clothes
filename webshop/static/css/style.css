@@ -2,7 +2,7 @@
 body{
     padding-bottom: 0!important;
 }
-#loader, #loader2 {
+#loader {
     width: 150px;
     height: 100px;
     background: #F7F7F7;
@@ -12,6 +12,19 @@ body{
     border: 1px solid #C0C0C0;
     box-shadow: 8px 10px 15px #c2c2c2;
     top: 100px;
+    right: 45%;
+    padding: 10px;
+}
+#loader2 {
+    width: 150px;
+    height: 100px;
+    background: #F7F7F7;
+    overflow: hidden;
+    border-radius: 5px;
+    position: absolute;
+    border: 1px solid #C0C0C0;
+    box-shadow: 8px 10px 15px #c2c2c2;
+    top: 50%;
     right: 45%;
     padding: 10px;
 }
