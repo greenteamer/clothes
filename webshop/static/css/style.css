@@ -897,11 +897,13 @@ border: 1px solid #CACACA;
     #popular_products .product_thumbnail, #catalog .product_thumbnail{
         padding: 0;
     }
-=======
+
     .sh_btn_bottom_right {
 bottom: 0;
 position: relative!important;
-width: 200px!important;
+width: 100%!important;
+right: 0px!important;
+    ;
 }
 
     .navbar-fixed-top, .navbar-fixed-bottom {
