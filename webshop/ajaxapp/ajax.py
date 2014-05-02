@@ -17,10 +17,10 @@ from webshop.checkout.models import OrderOneClick
 def send_form(request, form):
     dajax = Dajax()
     form = ProductOneClickForm(deserialize_form(form))
-    # dajax.remove_css_class('#my_form .loading', 'hidden')
+    dajax.remove_css_class('#loader2', 'hidden')
     if form.is_valid():
         dajax.remove_css_class('#my_form input', 'error')
-        # dajax.remove_css_class('#status', 'hidden')
+        dajax.remove_css_class('#loader2', 'hidden')
 
         # result = u'Отправляем сообщение'
         # dajax.assign('#status', 'value', result)
@@ -56,8 +56,7 @@ def send_form(request, form):
         for error in form.errors:
             dajax.add_css_class('#id_%s' % error, 'error')
 
-    # dajax.add_css_class('div .loading', 'hidden')
-    # dajax.alert("Form is_valid(), your phone is: %s" % form.cleaned_data.get('phone'))
+    dajax.add_css_class('#loader2', 'hidden')
     return dajax.json()
 
 
@@ -65,8 +64,9 @@ def send_form(request, form):
 def mainForm(request, form):
     dajax = Dajax()
     form = MainForm(deserialize_form(form))
-
+    dajax.remove_css_class('#loader', 'hidden')
     if form.is_valid():
+        dajax.remove_css_class('#loader', 'hidden')
         dajax.remove_css_class('#mainForm input', 'error')
         phone = form.cleaned_data.get('phone')
         subject = u'podarkoff-moscow.ru Заявка'
@@ -81,4 +81,5 @@ def mainForm(request, form):
         for error in form.errors:
             dajax.add_css_class('#id_%s' % error, 'error')
 
+    dajax.add_css_class('#loader', 'hidden')
     return dajax.json()
