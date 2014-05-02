@@ -893,6 +893,9 @@ border: 1px solid #CACACA;
     body {
     padding-top: 0!important;
 }
+    #popular_products .product_thumbnail, #catalog .product_thumbnail{
+        padding: 0;
+    }
     .navbar-fixed-top, .navbar-fixed-bottom {
     position: relative!important;
     }
