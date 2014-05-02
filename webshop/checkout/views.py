@@ -21,35 +21,8 @@ from webshop.settings import ADMIN_EMAIL
 
 from robokassa.forms import RobokassaForm
 
-# def checkout_view(request, template_name='checkout/checkout.html'):
-#     """Представление для оформления заказа"""
-#     if cart.is_empty(request):
-#         cart_url = urlresolvers.reverse('show_cart')
-#         return HttpResponseRedirect(cart_url)
-#     if request.method == 'POST':
-#         postdata = request.POST.copy()
-#         form = CheckoutForm(postdata)
-#         if form.is_valid():
-#             response = checkout.process(request)
-#             order_number = response.get('order_number', 0)
-#             error_message = response.get('message', '')
-#             if order_number:
-#                 request.session['order_number'] = order_number
-#                 receipt_url = urlresolvers.reverse('checkout_receipt')
-#                 return HttpResponseRedirect(receipt_url)
-#         else:
-#             error_message = _(u'Correct the errors below')
-#             if request.user.is_authenticated():
-#                 user_profile = profile.retrieve(request)
-#                 form = CheckoutForm(instance=user_profile)
-#             else:
-#                 form = CheckoutForm()
-#     else:
-#         form = CheckoutForm()
-#     page_title = _(u'Checkout')
-#     return render_to_response(template_name, locals(),
-#                               context_instance=RequestContext(request))
 
+"""обработа контактных данных и создание сущности Order"""
 def contact(request, template_name='checkout/checkout.html'):
     if cart.is_empty(request):
         cart_url = urlresolvers.reverse('show_cart')
@@ -79,7 +52,7 @@ def contact(request, template_name='checkout/checkout.html'):
                 receipt_url = urlresolvers.reverse('checkout_receipt')
                 subject = u'podarkoff-moscow.ru заявка от %s' % request.POST['shipping_name']
                 message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_id, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
-                send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
+                """send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)"""
 
                 # отправка html письма пользователю
                 html_content = '<p>This is an <strong>important</strong> message.</p>'
@@ -93,7 +66,7 @@ def contact(request, template_name='checkout/checkout.html'):
                 to = '%s' % request.POST['email']
                 msg = EmailMultiAlternatives(subject, message, from_email, [to])
                 msg.content_subtype = "html"
-                msg.send()
+                """msg.send()"""
 
                 return HttpResponseRedirect(receipt_url)
             # return HttpResponseRedirect('/')
@@ -110,16 +83,6 @@ def contact(request, template_name='checkout/checkout.html'):
     return render_to_response(template_name, locals(),
                               context_instance=RequestContext(request))
 
-    # return render(request, 'checkout/checkout.html', {
-    #     'form': form,
-    #     # 'posts': post,
-    # })
-
-
-
-
-
-    # return render(request, 'pay_with_robokassa.html', {'form': form})
 
 # @login_required
 """подготавливаем данные к оплате"""
@@ -149,6 +112,7 @@ def receipt_view(request, template_name='checkout/receipt.html'):
                               context_instance=RequestContext(request))
 
 
+"""обозначаем шаблоны robokassa"""
 class RobokassaSuccess(TemplateView):
     template_name = 'robokassa/success.html'
 
@@ -168,7 +132,6 @@ def robokassa_result(request):
 """обрабатываем сигналы"""
 def payment_received(sender, **kwargs):
     order = Order.objects.get(id=kwargs['InvId'])
-    # order.email = 'ok@bk.ru'
     order.status = Order.PAID
     # order.paid_sum = kwargs['OutSum']
     order.save()
