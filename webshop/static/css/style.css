@@ -893,6 +893,11 @@ border: 1px solid #CACACA;
     body {
     padding-top: 0!important;
 }
+    .sh_btn_bottom_right {
+bottom: 0;
+position: relative!important;
+width: 200px!important;
+}
     .navbar-fixed-top, .navbar-fixed-bottom {
     position: relative!important;
     }
