@@ -39,37 +39,12 @@ def contact(request, template_name='checkout/checkout.html'):
 
             order = response.get('order', 0)
             order_id = order.id
-            order_total = order.total
 
-            # получаем список заказынных товаров для передачи в письмо
-            order_item = OrderItem.objects.filter(order_id=order.id)
-            transaction = order.transaction_id
-            items = ''
-            for item in order_item:
-                items = items + '%s \n' % item.name
             if order_id:
                 request.session['order_id'] = order_id
                 receipt_url = urlresolvers.reverse('checkout_receipt')
-                subject = u'podarkoff-moscow.ru заявка от %s' % request.POST['shipping_name']
-                message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_id, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
-                """send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)"""
-
-                # отправка html письма пользователю
-                html_content = '<p>This is an <strong>important</strong> message.</p>'
-                context_dict = {
-                    'transaction': transaction,
-                    'id': order.id,
-                    'items': items,
-                }
-                message = render_to_string('checkout/email.html', context_dict)
-                from_email = 'teamer777@gmail.com'
-                to = '%s' % request.POST['email']
-                msg = EmailMultiAlternatives(subject, message, from_email, [to])
-                msg.content_subtype = "html"
-                """msg.send()"""
 
                 return HttpResponseRedirect(receipt_url)
-            # return HttpResponseRedirect('/')
         else:
             form = ContactForm(request.POST)
             return render(request, 'checkout/checkout.html', {
@@ -94,14 +69,44 @@ def receipt_view(request, template_name='checkout/receipt.html'):
         order = Order.objects.filter(id=order_id)[0]
         order_items = OrderItem.objects.filter(order=order)
 
-        form = RobokassaForm(initial={
-               'OutSum': order.total,
-               'InvId': order.id,
-               'Desc': order.shipping_name,
-               'Email': order.email,
-               # 'IncCurrLabel': '',
-               # 'Culture': 'ru'
-           })
+        if order.payment_method == 2:
+            form = RobokassaForm(initial={
+                   'OutSum': order.total,
+                   'InvId': order.id,
+                   'Desc': order.shipping_name,
+                   'Email': order.email,
+                   # 'IncCurrLabel': '',
+                   # 'Culture': 'ru'
+               })
+        else:
+
+            """отправка писем"""
+            items = ''
+            for item in order_items:
+                items = items + '%s \n' % item.name
+            if order.payment_method == 1:
+                payment_method = u'Оплата курьером'
+            else:
+                payment_method = u'Оплата онлайн'
+            subject = u'podarkoff-moscow.ru заявка от %s' % order.shipping_name
+            message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id заказа: %s \n Товары: %s \n К оплате курьером: %s \n Способ оплаты: %s' % (order.transaction_id, order.shipping_name, order.phone, order.email, order.id, items, order.total, payment_method)
+            send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
+
+            context_dict = {
+                    'transaction': order.transaction_id,
+                    'id': order.id,
+                    'items': items,
+                    'total': order.total,
+                    'payment_method': payment_method,
+                }
+
+            message = render_to_string('checkout/email.html', context_dict)
+            from_email = 'teamer777@gmail.com'
+            to = '%s' % order.email
+            msg = EmailMultiAlternatives(subject, message, from_email, [to])
+            msg.content_subtype = "html"
+            msg.send()
+
 
         del request.session['order_id']
     else:
@@ -135,5 +140,33 @@ def payment_received(sender, **kwargs):
     order.status = Order.PAID
     # order.paid_sum = kwargs['OutSum']
     order.save()
+
+    """отправка писем"""
+    order_items = OrderItem.objects.filter(order=order)
+    items = ''
+    for item in order_items:
+        items = items + '%s \n' % item.name
+    if order.payment_method == 1:
+        payment_method = u'Оплата курьером'
+    else:
+        payment_method = u'Оплата онлайн'
+    subject = u'podarkoff-moscow.ru заявка от %s' % order.shipping_name
+    message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id заказа: %s \n Товары: %s \n Стоимость: %s \n Способ оплаты: %s' % (order.transaction_id, order.shipping_name, order.phone, order.email, order.id, items, order.total, payment_method)
+    send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
+
+    context_dict = {
+            'transaction': order.transaction_id,
+            'id': order.id,
+            'items': items,
+            'total': order.total,
+            'payment_method': payment_method,
+        }
+
+    message = render_to_string('checkout/email.html', context_dict)
+    from_email = 'teamer777@gmail.com'
+    to = '%s' % order.email
+    msg = EmailMultiAlternatives(subject, message, from_email, [to])
+    msg.content_subtype = "html"
+    msg.send()
 
 result_received.connect(payment_received)

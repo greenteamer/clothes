@@ -83,6 +83,14 @@ STATIC_ROOT = ''
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
+CKEDITOR_UPLOAD_PATH = "webshop/media/uploads"
+CKEDITOR_UPLOAD_PREFIX = "/media/uploads"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+    },
+}
+
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
@@ -191,6 +199,7 @@ INSTALLED_APPS = (
     'dajaxice',
     'dajax',
     'robokassa',
+    'ckeditor',
 )
 
 THUMBNAIL_DEBUG = True

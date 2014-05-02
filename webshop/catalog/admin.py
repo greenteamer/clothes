@@ -6,6 +6,14 @@ from django.utils.translation import ugettext_lazy as _
 from webshop.catalog.forms import ProductAdminForm
 from webshop.catalog.models import Product, Category, Characteristic, CharacteristicType, ProductImage
 
+"""ckeditor для flatpages"""
+from django.contrib.flatpages.models import FlatPage
+# Note: we are renaming the original Admin and Form as we import them!
+from django.contrib.flatpages.admin import FlatPageAdmin as FlatPageAdminOld
+from django.contrib.flatpages.admin import FlatpageForm as FlatpageFormOld
+from django import forms
+from ckeditor.widgets import CKEditorWidget
+
 
 class CharacteristicAdmin(admin.StackedInline):
     """Добавление характеристик для продуктов"""
@@ -60,7 +68,19 @@ class CategoryAdmin(admin.ModelAdmin):
     # exclude = ('created_at', 'updated_at',)
     prepopulated_fields = {'slug': ('name',)}
 
+"""переопределяем админку flatPages"""
+class FlatpageForm(FlatpageFormOld):
+    content = forms.CharField(widget=CKEditorWidget())
+    class Meta:
+        model = FlatPage # this is not automatically inherited from FlatpageFormOld
+
+class FlatPageAdmin(FlatPageAdminOld):
+    form = FlatpageForm
+
 # Регистрирация моделей в админке
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(CharacteristicType)
+
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, FlatPageAdmin)
