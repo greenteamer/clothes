@@ -1,4 +1,10 @@
 /* стили для страницы категории */
+
+
+#checkout_form label[for=id_payment_method_0] {
+    font-size: 15px;
+}
+
 body{
     padding-bottom: 0!important;
 }
