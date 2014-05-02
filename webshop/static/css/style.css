@@ -794,11 +794,13 @@ font-size: 18px;
     margin-top: 75px;
 
 }
-
+.sh_btn{
+    background: #D9534F!important;
+}
 /*-----------------Карзина---------------*/
 
 #checkout li{
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .alert-info{
     margin: 40px 0px 20px 0px;
@@ -819,7 +821,17 @@ font-size: 19px;
     margin-bottom: 10px;
 }
 #checkout_form .btn.btn-primary{
-margin: 20px 0px 0px 110px;
+margin: 16px 0px 0px 147px;
+}
+#checkout_form  label[for=id_payment_method_0],#checkout_form label[for=id_payment_method_1]{
+ font-size: 15px;
+}
+#checkout_form label[for=id_payment_method_1]{
+    background: url(../images/payments.png) no-repeat 16px 24px;
+    padding-bottom: 24px;
+}
+#checkout_form ul{
+list-style-type: none;
 }
 .border_chec {
 border: 1px solid #d9dde3;
@@ -891,12 +903,28 @@ th,td {
 padding: 5px 12px 5px 12px;
 border: 1px solid #CACACA;
 }
+.sh_btn_bottom_right {
+right: 0px!important;
+}
 /*---------------------Мобильная верстка---------------*/
 
 @media (max-width: 767px) {
     body {
     padding-top: 0!important;
 }
+
+    #popular_products .product_thumbnail, #catalog .product_thumbnail{
+        padding: 0;
+    }
+
+    .sh_btn_bottom_right {
+bottom: 0;
+position: relative!important;
+width: 100%!important;
+right: 0px!important;
+    ;
+}
+
     .navbar-fixed-top, .navbar-fixed-bottom {
     position: relative!important;
     }
