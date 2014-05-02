@@ -778,11 +778,13 @@ font-size: 18px;
     margin-top: 75px;
 
 }
-
+.sh_btn{
+    background: #D9534F!important;
+}
 /*-----------------Карзина---------------*/
 
 #checkout li{
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 .alert-info{
     margin: 40px 0px 20px 0px;
@@ -803,7 +805,17 @@ font-size: 19px;
     margin-bottom: 10px;
 }
 #checkout_form .btn.btn-primary{
-margin: 20px 0px 0px 110px;
+margin: 16px 0px 0px 147px;
+}
+#checkout_form  label[for=id_payment_method_0],#checkout_form label[for=id_payment_method_1]{
+ font-size: 15px;
+}
+#checkout_form label[for=id_payment_method_1]{
+    background: url(../images/payments.png) no-repeat 16px 24px;
+    padding-bottom: 24px;
+}
+#checkout_form ul{
+list-style-type: none;
 }
 .border_chec {
 border: 1px solid #d9dde3;
