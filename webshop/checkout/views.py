@@ -5,13 +5,13 @@ from django.core import urlresolvers
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.views.generic import TemplateView
 
 from webshop.checkout.models import Order, OrderItem
 from webshop.checkout import checkout
 from webshop.cart import cart
 
 from django.core.mail import send_mail, EmailMultiAlternatives
-from django.views.generic import TemplateView, DetailView
 from webshop.checkout.forms import ContactForm
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -79,7 +79,7 @@ def contact(request, template_name='checkout/checkout.html'):
                 receipt_url = urlresolvers.reverse('checkout_receipt')
                 subject = u'podarkoff-moscow.ru заявка от %s' % request.POST['shipping_name']
                 message = u'Заказ №: %s \n Имя: %s \n телефон: %s \n почта: %s \n id: %s \n Товары: %s \n К оплате: %s' % (order_id, request.POST['shipping_name'], request.POST['phone'], request.POST['email'], order.id, items, order_total)
-                """send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)"""
+                send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
 
                 # отправка html письма пользователю
                 html_content = '<p>This is an <strong>important</strong> message.</p>'
@@ -93,7 +93,7 @@ def contact(request, template_name='checkout/checkout.html'):
                 to = '%s' % request.POST['email']
                 msg = EmailMultiAlternatives(subject, message, from_email, [to])
                 msg.content_subtype = "html"
-                """msg.send()"""
+                msg.send()
 
                 return HttpResponseRedirect(receipt_url)
             # return HttpResponseRedirect('/')
@@ -122,7 +122,8 @@ def contact(request, template_name='checkout/checkout.html'):
     # return render(request, 'pay_with_robokassa.html', {'form': form})
 
 # @login_required
-def receipt_view(request):
+"""подготавливаем данные к оплате"""
+def receipt_view(request, template_name='checkout/receipt.html'):
     """Представление отображающее сделанный заказ"""
     order_id = request.session.get('order_id', '')
     if order_id:
@@ -144,9 +145,8 @@ def receipt_view(request):
         # иначе перенаправляем пользователя на страницу корзины
         cart_url = urlresolvers.reverse('show_cart')
         return HttpResponseRedirect(cart_url)
-    return render(request, 'checkout/receipt.html', {'form': form,
-                                                     'order': order,
-                                                     'order_items': order_items})
+    return render_to_response(template_name, locals(),
+                              context_instance=RequestContext(request))
 
 
 class RobokassaSuccess(TemplateView):
@@ -163,3 +163,14 @@ class RobokassaError(TemplateView):
 
 def robokassa_result(request):
     return render(request, 'robokassa/result.html')
+
+
+"""обрабатываем сигналы"""
+def payment_received(sender, **kwargs):
+    order = Order.objects.get(id=kwargs['InvId'])
+    # order.email = 'ok@bk.ru'
+    order.status = Order.PAID
+    # order.paid_sum = kwargs['OutSum']
+    order.save()
+
+result_received.connect(payment_received)

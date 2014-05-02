@@ -43,15 +43,11 @@ class Order(BaseOrderInfo):
 
     # Константы статуса
     SUBMITTED = 1
-    PROCESSED = 2
-    SHIPPED = 3
-    CANCELLED = 4
+    PAID = 2
 
     # Словарь возможных статусов заказа
-    ORDER_STATUSES = ((SUBMITTED, _(u'Submitted')),
-                      (PROCESSED, _(u'Processed')),
-                      (SHIPPED, _(u'Shipped')),
-                      (CANCELLED, _(u'Cancelled')),)
+    ORDER_STATUSES = ((SUBMITTED, _(u'Принято')),
+                      (PAID, _(u'Оплачено')),)
 
     # Информация о заказе
     date = models.DateTimeField(auto_now_add=True)

@@ -871,9 +871,19 @@ padding: 3px 5px;
 #myModal label{
     font-family: 'PT Sans Narrow', sans-serif;
 }
+th,td {
+padding: 5px 12px 5px 12px;
+border: 1px solid #CACACA;
+}
 /*---------------------Мобильная верстка---------------*/
 
 @media (max-width: 767px) {
+    body {
+    padding-top: 0!important;
+}
+    .navbar-fixed-top, .navbar-fixed-bottom {
+    position: relative!important;
+    }
     .logo_phone {
     margin: 85px 0px 30px 0px;
 }

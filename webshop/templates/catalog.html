@@ -81,7 +81,7 @@
                      <div class="col-md-4">
                          <a href="#">
                              <div class="foto_blok">
-                               <img src="{{ STATIC_URL }}images/ochki_2.jpg" alt="Верхняя одежда">
+                               <img src="{{ STATIC_URL }}images/ochki_1.jpg" alt="Верхняя одежда">
                              </div>
 {#                            <h2>Верхняя одежда</h2>#}
                          </a>
@@ -90,7 +90,7 @@
                     <div class="col-md-4">
                         <a href="#">
                             <div class="foto_blok">
-                                 <img src="{{ STATIC_URL }}images/ochki_1.jpg" alt="Кожгалантерея ">
+                                 <img src="{{ STATIC_URL }}images/ochki_4.jpg" alt="Кожгалантерея ">
                             </div>
 {#                            <h2>Кожгалантерея </h2>#}
                         </a>
@@ -189,5 +189,13 @@
             </div>
 
     {% mainForm request %}
+
+    <div id="message_show" class="hidden">
+        <div class="message_inner">
+            <h6>Спасибо!</h6>
+            <p>В ближайшее время наш менеджер свяжется с Вами</p>
+            <button id="id_submit" class="red" onclick="closeMessage();">Закрыть</button>
+        </div>
+    </div>
 
 {% endblock %}
