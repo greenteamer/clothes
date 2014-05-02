@@ -73,6 +73,9 @@ def mainForm(request, form):
         message = u'Телефон: %s' % (phone)
         send_mail(subject, message, 'teamer777@gmail.com', [ADMIN_EMAIL], fail_silently=False)
 
+        dajax.remove_css_class('#message_show', 'hidden')
+        dajax.script('closemodal()')
+
     else:
         dajax.remove_css_class('#mainForm input', 'error')
         for error in form.errors:

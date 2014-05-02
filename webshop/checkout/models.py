@@ -44,14 +44,21 @@ class Order(BaseOrderInfo):
     # Константы статуса
     SUBMITTED = 1
     PAID = 2
+    CURIER = 3
 
     # Словарь возможных статусов заказа
     ORDER_STATUSES = ((SUBMITTED, _(u'Принято')),
-                      (PAID, _(u'Оплачено')),)
+                      (PAID, _(u'Оплачено')),
+                      (CURIER, _(u'Оплата курьеру')),)
+
+    # словарь способа оплаты
+    PAYMENT_DICTIONARY = ((1, _(u'Оплатить курьеру')),
+                          (2, _(u'Оплатить онлайн')),)
 
     # Информация о заказе
     date = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=ORDER_STATUSES, default=SUBMITTED)
+    payment_method = models.IntegerField(choices=PAYMENT_DICTIONARY, default=2)
     ip_address = models.IPAddressField()
     last_updated = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, null=True)

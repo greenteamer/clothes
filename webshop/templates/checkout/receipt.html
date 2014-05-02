@@ -11,6 +11,10 @@
         <div class="container">
             <div class="row">
 
+                {% if order.payment_method == 2 %}
+                    <h2>Спасибо, в ближайшее время с Вами свяжется Наш менеджер</h2>
+                {% endif %}
+
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <table id="receipt">
@@ -44,14 +48,16 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                    <div class="form_robo">
-                        <form action="{{ form.target }}" method="POST">
-                            <p>{{ form.as_p }}</p>
-                             <p><input class="btn btn-primary" value="Оплатить"/></p>
-                        </form>
+                {% if order.payment_method == 2 %}
+                    <div class="col-md-12">
+                        <div class="form_robo">
+                            <form action="{{ form.target }}" method="POST">
+                                <p>{{ form.as_p }}</p>
+                                <input class="btn btn-primary" type="submit" value="Оплатить"/>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                {% endif %}
 
             </div>
         </div>

@@ -4,7 +4,7 @@ import datetime
 import re
 
 from django import forms
-from django.forms import ModelForm, Textarea, TextInput
+from django.forms import ModelForm, Textarea, TextInput, CheckboxInput, CheckboxSelectMultiple, RadioSelect
 from django.utils.translation import ugettext_lazy as _
 from django.core.validators import email_re
 from django.utils.encoding import smart_unicode
@@ -18,15 +18,19 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Order
         exclude = ('status', 'ip_address', 'user', 'transaction_id',)
-        # widgets = {
-        #     'cupon': TextInput(),
-        # }
+        widgets = {
+            'payment_method': RadioSelect(),
+        }
 
+    """переопределение размера формы checkout"""
     def __init__(self, *args, **kwargs):
         super(ContactForm, self).__init__(*args, **kwargs)
         # переопределяем аттрибуты по умолчанию
         for field in self.fields:
-            self.fields[field].widget.attrs['size'] = '30'
+            if self.fields[field] == self.fields['payment_method']:
+                self.fields[field].widget.attrs['size'] = '1'
+            else:
+                self.fields[field].widget.attrs['size'] = '30'
 
     def clean_phone(self):
         """Проверка телефонного номера (>10 цифр)"""
