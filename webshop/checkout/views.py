@@ -94,14 +94,15 @@ def receipt_view(request, template_name='checkout/receipt.html'):
         order = Order.objects.filter(id=order_id)[0]
         order_items = OrderItem.objects.filter(order=order)
 
-        form = RobokassaForm(initial={
-               'OutSum': order.total,
-               'InvId': order.id,
-               'Desc': order.shipping_name,
-               'Email': order.email,
-               # 'IncCurrLabel': '',
-               # 'Culture': 'ru'
-           })
+        if order.payment_method == 2:
+            form = RobokassaForm(initial={
+                   'OutSum': order.total,
+                   'InvId': order.id,
+                   'Desc': order.shipping_name,
+                   'Email': order.email,
+                   # 'IncCurrLabel': '',
+                   # 'Culture': 'ru'
+               })
 
         del request.session['order_id']
     else:
