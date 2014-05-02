@@ -53,7 +53,7 @@ class Order(BaseOrderInfo):
 
     # словарь способа оплаты
     PAYMENT_DICTIONARY = ((1, _(u'Оплатить курьеру')),
-                          (2, _(u'Оплатить онлайн')),)
+                          (2, _(u'Оплатить Viza, MasterCard, ЯндексДеньги')),)
 
     # Информация о заказе
     date = models.DateTimeField(auto_now_add=True)
