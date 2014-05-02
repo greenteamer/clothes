@@ -55,10 +55,12 @@
         <script type="text/javascript" charset="utf-8">
             function send_form(){
     {#            $('.loading').removeClass('hidden');#}
+                $('#loader2').removeClass('hidden');
                 Dajaxice.webshop.ajaxapp.send_form(Dajax.process,{'form':$('#my_form').serialize(true)});
             }
 
             function mainForm(){
+                $('#loader').removeClass('hidden');
                 Dajaxice.webshop.ajaxapp.mainForm(Dajax.process,{'form':$('#mainForm').serialize(true)});
             }
 
@@ -112,30 +114,10 @@
 
         {% include "common/navigation.html" %}
 
-
-    {#		<div class="row">#}
-    {#			<div class="span12">#}
-    {#				{% block header %}{% endblock %}#}
-    {#                {% include "common/languages.html" %}#}
-    {#			</div>#}
-    {#		</div>#}
-
-
-        {#                содержимое в catalog.html#}
         {% block site_wrapper %}
         {% endblock %}
 
-
-    {#    {% block footer %}#}
-    {#        {% include "common/footer.html" %}#}
-    {#    {% endblock %}#}
-
-
-
-
-
-
-    {#    flex-slider#}
+        {#    flex-slider#}
         <script src="{{ STATIC_URL }}js/jquery.flexslider-min.js"></script>
         <script src="{{ STATIC_URL }}js/script.js"></script>
 
@@ -144,38 +126,32 @@
         {% endblock %}
         {#    конец blueimp#}
 
-    {#    <script type="text/javascript">#}
-    {#        (function($) {#}
-    {#      		$(document).ready(function(){#}
-    {##}
-    {#                $(".popular_products").hover(function () {#}
-    {#                    $(this).find(".description_hidden").removeClass(".hidden");#}
-    {#                    alert("Hello");#}
-    {#                });#}
-    {##}
-    {#      		});#}
-    {#    	})(jQuery);#}
-    {#    </script>#}
+        <div id="loader2" class="hidden">
+            <div class="loader_content">
+                <img src="{{ STATIC_URL }}images/335.gif" alt=""/>
+                <p>Подождите пожалуйста</p>
+            </div>
+        </div>
 
 {#    Онлайн консультат#}
     <!-- Start SiteHeart code -->
-<script>
-(function(){
-var widget_id = 700396;
-_shcp =[{widget_id : widget_id}];
-var lang =(navigator.language || navigator.systemLanguage
-|| navigator.userLanguage ||"en")
-.substr(0,2).toLowerCase();
-var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
-var hcc = document.createElement("script");
-hcc.type ="text/javascript";
-hcc.async =true;
-hcc.src =("https:"== document.location.protocol ?"https":"http")
-+"://"+ url;
-var s = document.getElementsByTagName("script")[0];
-s.parentNode.insertBefore(hcc, s.nextSibling);
-})();
-</script>
+        <script>
+            (function(){
+            var widget_id = 700396;
+            _shcp =[{widget_id : widget_id}];
+            var lang =(navigator.language || navigator.systemLanguage
+            || navigator.userLanguage ||"en")
+            .substr(0,2).toLowerCase();
+            var url ="widget.siteheart.com/widget/sh/"+ widget_id +"/"+ lang +"/widget.js";
+            var hcc = document.createElement("script");
+            hcc.type ="text/javascript";
+            hcc.async =true;
+            hcc.src =("https:"== document.location.protocol ?"https":"http")
+            +"://"+ url;
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hcc, s.nextSibling);
+            })();
+        </script>
 <!-- End SiteHeart code -->
     </body>
 </html>

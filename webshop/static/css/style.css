@@ -1,12 +1,22 @@
 /* стили для страницы категории */
-
-
-#checkout_form label[for=id_payment_method_0] {
-    font-size: 15px;
-}
-
 body{
     padding-bottom: 0!important;
+}
+#loader, #loader2 {
+    width: 150px;
+    height: 100px;
+    background: #F7F7F7;
+    overflow: hidden;
+    border-radius: 5px;
+    position: absolute;
+    border: 1px solid #C0C0C0;
+    box-shadow: 8px 10px 15px #c2c2c2;
+    top: 100px;
+    right: 45%;
+    padding: 10px;
+}
+.loader_content {
+    text-align: center;
 }
 h1,h2,h3,h4{
     font-family: 'PT Sans Narrow', sans-serif;
