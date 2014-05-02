@@ -778,7 +778,9 @@ font-size: 18px;
     margin-top: 75px;
 
 }
-
+.sh_btn{
+    background: #D9534F!important;
+}
 /*-----------------Карзина---------------*/
 
 #checkout li{
@@ -804,6 +806,9 @@ font-size: 19px;
 }
 #checkout_form .btn.btn-primary{
 margin: 20px 0px 0px 110px;
+}
+#checkout_form ul{
+list-style-type: none;
 }
 .border_chec {
 border: 1px solid #d9dde3;
