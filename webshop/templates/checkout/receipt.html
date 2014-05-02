@@ -14,9 +14,7 @@
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <table id="receipt">
-                            <caption>{% trans "Your order has been placed!" %}<br /><br />
-                                {% trans "Your Order Number is: {{ order.id }}" %}
-                            </caption>
+
                             <thead>
                                 <tr>
                                     <th scope="col">{% trans "Product" %}</th>
@@ -38,7 +36,7 @@
                             <tfoot>
                                 <tr>
                                     <td colspan="4" class="right" style="height:30px;">
-                                        {% trans "Order Total" %}: {{ order.total }}
+                                        {% trans "Итоговая цена" %}: {{ order.total }}
                                     </td>
                                 </tr>
                             </tfoot>
@@ -50,7 +48,7 @@
                     <div class="form_robo">
                         <form action="{{ form.target }}" method="POST">
                             <p>{{ form.as_p }}</p>
-                            <p><input type="submit" value="Оплатить"/></p>
+                             <p><input class="btn btn-primary" value="Оплатить"/></p>
                         </form>
                     </div>
                 </div>
