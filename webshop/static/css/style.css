@@ -1029,7 +1029,7 @@ font-size: 16px;
         margin: 0px 12px 0px 12px;
     }
     #footer{
-        height: 370px!important;
+        height: 400px!important;
     }
     .promotion img, .discount img{
         display: none;
@@ -1054,7 +1054,7 @@ font-size: 16px;
     #footer p{display: none}
     #footer .col-md-6{
         overflow: hidden;
-        width: 112%!important;
+        width: 100%!important;
     }
     .cart_bloc .col-md-3 {
     background: none;
