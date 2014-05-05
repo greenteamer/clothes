@@ -119,7 +119,17 @@
 {#            <div class="col-md-12">#}
 {#                <h2>Раздел после контента</h2>#}
 {#            </div>#}
-
+        <div class="main_menu menu_footer" id="menu_fixed">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+            {#            содержимое в category_list.html#}
+            {#            <h3>Блок основное меню</h3>#}
+                        {% categories_tree request %}
+                    </div>
+                </div>
+            </div>
+        </div>
     {#        блок футер#}
             <div id="footer">
                 <div class="container">

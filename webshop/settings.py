@@ -87,7 +87,7 @@ CKEDITOR_UPLOAD_PATH = "webshop/media/uploads"
 CKEDITOR_UPLOAD_PREFIX = "/media/uploads"
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Full',
+        'toolbar': 'All',
     },
 }
 
