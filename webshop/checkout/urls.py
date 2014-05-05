@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 
 from webshop import settings
 

@@ -10,101 +10,70 @@
     <div id="checkout">
         <div class="container">
             <div class="row">
-              <div class="alert alert-info span5">
-                <strong>{% trans "Warning" %}!</strong><br />
-                * {% trans "Required fields" %}
-              </div>
+                <div class="alert alert-info span5">
+                    <strong>{% trans "Warning" %}!</strong><br />
+                    * {% trans "Required fields" %}
+                </div>
 
                 {% if not request.user.is_authenticated %}
-                <div class="row-fluid">
-                      <a href="{% url login %}?next={{ request.path }}">
-                        {% trans "Have an account" %}?<br />{% trans "Sign in now" %}!
-                      </a>
-                </div>
+                    <div class="row-fluid">
+                          <a href="{% url login %}?next={{ request.path }}">
+                            {% trans "Have an account" %}?<br />{% trans "Sign in now" %}!
+                          </a>
+                    </div>
                 {% endif %}
 
-              <div class="row-fluid">
-                  <div class="row">
-                      <div class="col-md-12">
-                          <div class="col-md-3 checkout">
-                             <h1>Контакты для доставки</h1>
-                          </div>
-                      </div>
-                  </div>
-                        {% if error_message %}
-                      <div class="row-fluid">
-                          <div class="alert alert-error span5">
-                            {{ error_message }}
-                          </div>
-                       </div>
+                <div class="row-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-3 checkout">
+                                <h1>Контакты для доставки</h1>
+                            </div>
+                        </div>
+                    </div>
+                    {% if error_message %}
+                        <div class="row-fluid">
+                            <div class="alert alert-error span5">
+                                {{ error_message }}
+                            </div>
+                        </div>
                     {% endif %}
-                <form action="." method="post">
-                    {% csrf_token %}
-                    <div id="checkout_form">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 border_chec">
-                                    <div class="border_chec2 col-md-6 ">
-                                        <label for="id_email">Ваш email:</label>
-                                        {{form.email}}
-                                        <label for="id_email">Ваш телефон:</label>
-                                        {{form.phone}}
-                                        <label for="id_shipping_name">Ваше имя:</label>
-                                        {{form.shipping_name}}
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="id_shipping_address_1">Ваш адрес:</label>
-                                        {{form.shipping_address_1}}
-                                        <label for="id_shipping_city">Город:</label>
-                                        {{form.shipping_city}}
-                                        <input class="btn btn-primary" type="submit" />
+
+                    <form action="." method="post">
+                        {% csrf_token %}
+                        <div id="checkout_form">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6 border_chec">
+                                        <div class="border_chec2 col-md-6 ">
+                                            <label for="id_email">Ваш email:</label>
+                                            {{ error.email }}
+                                            {{form.email}}
+                                            <label for="id_email">Ваш телефон:</label>
+                                            {{ error.phone }}
+                                            {{form.phone}}
+                                            <label for="id_shipping_name">Ваше имя:</label>
+                                            {{ error.shipping_name }}
+                                            {{form.shipping_name}}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="id_shipping_address_1">Ваш адрес:</label>
+                                            {{ error.shipping_address_1 }}
+                                            {{form.shipping_address_1}}
+                                            <label for="id_shipping_city">Город:</label>
+                                            {{ error.shipping_city }}
+                                            {{form.shipping_city}}
+                                            <label for="id_payment_method">Способ оплаты:</label>
+                                            {{ form.payment_method }}
+                                            <input class="btn btn-primary" type="submit" value="Далее"/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
 
-
-            {#    <form class="form-horizontal" action="." method="post">{% csrf_token %}#}
-            {#      <fieldset>#}
-            {#        <legend>{% trans "Contact Info" %}</legend>#}
-            {#          {% form_row form.email %}#}
-            {#          {% form_row form.phone %}#}
-            {#      </fieldset>#}
-            {#      <fieldset>#}
-            {#        <legend>{% trans "Shipping Info" %}</legend>#}
-            {#          {% form_row form.shipping_name %}#}
-            {#          {% form_row form.shipping_address_1 %}#}
-            {#          {% form_row form.shipping_address_2 %}#}
-            {#          {% form_row form.shipping_city %}#}
-            {#          {% form_row form.shipping_zip %}#}
-            {#          {% form_row form.shipping_country %}#}
-            {#      </fieldset>#}
-            {#      <fieldset>#}
-            {#        <legend>{% trans "Billing Info" %}</legend>#}
-            {#          {% form_row form.billing_name %}#}
-            {#          {% form_row form.billing_address %}#}
-            {#          {% form_row form.billing_city %}#}
-            {#          {% form_row form.billing_zip %}#}
-            {#          {% form_row form.billing_country %}#}
-            {#      </fieldset>#}
-            {#      <fieldset>#}
-            {#        <legend>{% trans "Credit Card Info" %}</legend>#}
-            {#          {% form_row form.credit_card_number %}#}
-            {#          {% choice_field form.credit_card_type %}#}
-            {#          {% choice_field form.credit_card_expire_month %}#}
-            {#          {% choice_field form.credit_card_expire_year %}#}
-            {#          {% form_row form.credit_card_cvv %}#}
-            {#      </fieldset>#}
-            {#    </form>#}
-              </div>
-
-            {#  <form method="post" action="." class="cart">{% csrf_token %}#}
-            {#    <button class="btn btn-success" type="submit">#}
-            {#    <i class="icon-shopping-cart icon-white"></i> {% trans " Place order" %}</button>#}
-            {#  </form>#}
-
-
+                </div>
             </div>
         </div>
     </div>

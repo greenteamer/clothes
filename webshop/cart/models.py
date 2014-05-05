@@ -4,46 +4,49 @@ import decimal
 
 from django.db import models
 
+from webshop.cupon.models import Cupon
 from webshop.catalog.models import Product, ProductImage
 
 
 class CartItem(models.Model):
-	"""
-	Класс для товаров в корзине, хранит данные о том
-	какой товар в корзине и его количество
-	"""
+    """
+    Класс для товаров в корзине, хранит данные о том
+    какой товар в корзине и его количество
+    """
 
-	cart_id = models.CharField(max_length=50)
-	date_added = models.DateTimeField(auto_now_add=True)
-	quantity = models.IntegerField(default=1)
-	product = models.ForeignKey(Product, unique=False)
+    cart_id = models.CharField(max_length=50)
+    date_added = models.DateTimeField(auto_now_add=True)
+    quantity = models.IntegerField(default=1)
+    product = models.ForeignKey(Product, unique=False)
 
-	class Meta:
-		db_table = 'cart_items'
-		ordering = ['date_added']
+    cupon = models.ForeignKey(Cupon, blank=True, null=True, default='default')
 
-	@property
-	def total(self):
-		"""Метод для подсчета суммы, цена товара * кол-во"""
-		return decimal.Decimal(self.quantity * float(self.product.price))
+    class Meta:
+        db_table = 'cart_items'
+        ordering = ['date_added']
 
-	@property
-	def name(self):
-		"""Получение названия товара в корзине"""
-		return self.product.name
+    @property
+    def total(self):
+        """Метод для подсчета суммы, цена товара * кол-во"""
+        return decimal.Decimal(self.quantity * float(self.product.price))
 
-	@property
-	def price(self):
-		"""Получение цены товара в корзине"""
-		return self.product.price
+    @property
+    def name(self):
+        """Получение названия товара в корзине"""
+        return self.product.name
 
-	def get_absolute_url(self):
-		"""Получение абсолютной ссылки на товар"""
-		return self.product.get_absolute_url()
+    @property
+    def price(self):
+        """Получение цены товара в корзине"""
+        return self.product.price
 
-	def augment_quantity(self, quantity):
-		"""Изменение количества товара в корзине"""
-		if quantity.isdigit():
-			self.quantity = self.quantity + int(quantity)
-			self.save()
+    def get_absolute_url(self):
+        """Получение абсолютной ссылки на товар"""
+        return self.product.get_absolute_url()
+
+    def augment_quantity(self, quantity):
+        """Изменение количества товара в корзине"""
+        if quantity.isdigit():
+            self.quantity = self.quantity + int(quantity)
+            self.save()
 

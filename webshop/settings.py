@@ -14,7 +14,7 @@ TEMPLATE_DEBUG = DEBUG
 
 DEFAULT_CHARSET = 'utf-8'
 
-
+ADMIN_EMAIL = 'greenteamer@bk.ru'
 ADMINS = (
 	# ('Your Name', 'your_email@example.com'),
 )
@@ -82,6 +82,14 @@ STATIC_ROOT = ''
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
+
+CKEDITOR_UPLOAD_PATH = "webshop/media/uploads"
+CKEDITOR_UPLOAD_PREFIX = "/media/uploads"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'All',
+    },
+}
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
@@ -154,6 +162,7 @@ DAJAXICE_MEDIA_PREFIX="dajaxice"
 
 DAJAX_FUNCTIONS=(
     'webshop.ajaxapp.ajax.send_form',
+    'webshop.ajaxapp.ajax.mainForm',
     'webshop.ajaxapp.ajax.load_form',
 )
 
@@ -182,11 +191,15 @@ INSTALLED_APPS = (
     'webshop.news',
     'webshop.search',
     'webshop.ajaxapp',
+    'webshop.cupon',
+    'webshop.slider',
     'mptt',
     'bootstrap3',
     'sorl.thumbnail',
     'dajaxice',
     'dajax',
+    'robokassa',
+    'ckeditor',
 )
 
 THUMBNAIL_DEBUG = True
@@ -223,6 +236,11 @@ LOGIN_REDIRECT_URL = '/accounts/my_account/'
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 90 # 90 дней на хранение cookies
 PRODUCTS_PER_PAGE = 1
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+
+ROBOKASSA_LOGIN = 'podarkoff_moscow'
+ROBOKASSA_PASSWORD1 = 'pushkin14'
+ROBOKASSA_PASSWORD2 = 'pushkin14Robo2'
+ROBOKASSA_TEST_MODE = True
 
 try:
     from settings_local import *

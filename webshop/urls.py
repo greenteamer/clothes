@@ -30,11 +30,15 @@ urlpatterns = patterns('',
     url(r'^checkout/', include('webshop.checkout.urls')),
     url(r'^', include('webshop.news.urls')),
     url(r'^search/', include('webshop.search.urls')),
+    url(r'^ckeditor/', include('ckeditor.urls')),
 
     # enable language choice
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^set_language/$', 'django.views.i18n.set_language', name='set_language'),
 
+    # урл для robokassa
+    url(r'^robokassa/', include('robokassa.urls')),
+    url(r'^robokassa/result/', include('webshop.checkout.robokassa_urls')),
     )
 
 if settings.DEBUG:

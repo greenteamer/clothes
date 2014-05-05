@@ -4,47 +4,63 @@
 {% endblock %}
 {% block tri_bloka %}
 {% endblock %}
+
 {% block content %}
+
     <div id="oplata">
         <div class="container">
             <div class="row">
+
+                {% if order.payment_method == 1 %}
+                    <h2>Спасибо, в ближайшее время с Вами свяжется Наш менеджер</h2>
+                {% endif %}
+
                 <div class="col-md-12">
                     <div class="table-responsive">
-                         <table id="receipt">
-                            <caption>{% trans "Your order has been placed!" %}<br /><br />
-                              {% trans "Your Order Number is: {{ order.id }}" %}
-                            </caption>
+                        <table id="receipt">
+
                             <thead>
-                            <tr>
-                              <th scope="col">{% trans "Product" %}</th>
-                              <th scope="col">{% trans "Price" %}</th>
-                              <th scope="col">{% trans "Quantity" %}</th>
-                              <th class="right" scope="col">{% trans "Total" %}</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">{% trans "Product" %}</th>
+                                    <th scope="col">{% trans "Price" %}</th>
+                                    <th scope="col">{% trans "Quantity" %}</th>
+                                    <th class="right" scope="col">{% trans "Total" %}</th>
+                                </tr>
                             </thead>
-                            <tfoot>
-                            <tr>
-                              <td colspan="4" class="right" style="height:30px;">
-                              {% trans "Order Total" %}: {{ order.total }}
-                              </td>
-                            </tr>
-                            </tfoot>
                             <tbody>
                             {% for item in order_items %}
-                              <tr>
-                                <td>{{ item.name }}</td>
-                                <td>{{ item.price }}</td>
-                                <td>{{ item.quantity }}</td>
-                                <td class="right">{{ item.total }}</td>
-                              </tr>
+                                <tr>
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.price }}</td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td class="right">{{ item.total }}</td>
+                                </tr>
                             {% endfor %}
                             </tbody>
-                         </table>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4" class="right" style="height:30px;">
+                                        {% trans "Итоговая цена" %}: {{ order.total }}
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
+
+                {% if order.payment_method == 2 %}
+                    <div class="col-md-12">
+                        <div class="form_robo">
+                            <form action="{{ form.target }}" method="POST">
+                                <p>{{ form.as_p }}</p>
+                                <input class="btn btn-primary" type="submit" value="Оплатить"/>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+
             </div>
         </div>
     </div>
-
 
 {% endblock %}

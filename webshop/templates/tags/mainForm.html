@@ -1,0 +1,37 @@
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    {% if error_message %}
+                        {{ error_message }}
+                    {% else %}
+                        Заказать звонок
+                    {% endif %}
+                </h4>
+            </div>
+            <form method="post" action="." id="mainForm">{% csrf_token %}
+                <div class="modal-body">
+                    <label for="id_phone">Телефон:</label>
+                    {{ form.phone }}
+                    <p>введите Ваш телефон в формате 89139993344 или 8-913-999-33-44</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отменить</button>
+                    <button class="btn btn-primary" type="button" onclick="mainForm();">Отправить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="loader" class="hidden">
+        <div class="loader_content">
+            <img src="{{ STATIC_URL }}/static/images/335.gif" alt=""/>
+            <p>Подождите пожалуйста</p>
+        </div>
+    </div>
+
+</div>

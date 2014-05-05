@@ -18,7 +18,7 @@ class OrderAdmin(admin.ModelAdmin):
     search_fields = ('email', 'shipping_name', 'id', 'transaction_id')
     inlines = [OrderItemInline, ]
     fieldsets = (
-        ('Basics', {'fields': ('status', 'email', 'phone')}),
+        ('Basics', {'fields': ('status','payment_method', 'email', 'phone', 'cupon')}),
         ('Shipping', {'fields': ('shipping_name', 'shipping_address_1',
                                 'shipping_city',
                                 )}),
@@ -38,7 +38,9 @@ class OrderAdmin(admin.ModelAdmin):
             obj.ip_address = request.META.get('REMOTE_ADDR')
             obj.save()
 
-
+class OneClickAdmin(admin.ModelAdmin):
+    list_display = ('__unicode__', 'date')
+    fields = ('product_name', 'phone')
 
 admin.site.register(Order, OrderAdmin)
-admin.site.register(OrderOneClick)
+admin.site.register(OrderOneClick, OneClickAdmin)

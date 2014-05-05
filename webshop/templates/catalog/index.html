@@ -44,7 +44,7 @@
                         <div class="col-md-4 popular_products">
                             <div class="product_thumbnail">
                                 <a href="{{ p.get_absolute_url }}">
-                                    {% thumbnail p.image.url "298x319" crop="center" as im %}
+                                    {% thumbnail p.image.url "298x198" crop="center" as im %}
                                         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                     {% endthumbnail %}
 {#                                  <img src="{{ p.image_url }}"alt="{{ p.name }}" />#}
@@ -53,11 +53,6 @@
                                 </a>
                                 <br />
                                 <p>{{ p.price }} руб.</p>
-                            </div>
-                            <div class="description_hidden opacity">
-                                <p class="description_brand">{{ p.brand }}</p>
-                                <p>{{ p.name }}</p>
-                                <p>{{ p.description }}</p>
                             </div>
                         </div>
                     {% endfor %}
@@ -83,14 +78,14 @@
                         <div class="box-static col">
                             <div class="row-fluid">
                                 <div class="static-image">
-                                    <a href="#"><img src="{{ STATIC_URL }}images/price-tag.png" alt=""></a>
+                                    <a href="/akcia/"><img src="{{ STATIC_URL }}images/price-tag.png" alt=""></a>
                                 </div>
                                     <div class="col-md-8">
                                         <div class="static-text">
                                             <div class="icon">&nbsp;</div>
                                             <h3>АКЦИИ И СКИДКИ</h3>
                                             <p>В нашем интернет магазине существуют выгодные акции и большие скидки</p>
-                                            <a href="#">Подробнее</a>
+                                            <a href="/akcia/">Подробнее</a>
                                         </div>
                                     </div>
                             </div>
@@ -103,7 +98,7 @@
                         <div class="box-static col1">
                             <div class="row-fluid">
                                     <div>
-                                        <div class="static-image"><a href="#">
+                                        <div class="static-image"><a href="/o-nas/">
                                             <img src="{{ STATIC_URL }}images/ak-phone.png" alt=""></a>
                                         </div>
                                     </div>
@@ -112,7 +107,7 @@
                                         <div class="icon"></div>
                                             <h3>ТЕЛЕФОН +7(926) 304 5777</h3>
                                             <p>Вы можите звонить нам в любое время, Вы получить ответ не все ваши вопросы и предложения </p>
-                                        <a href="#">Подробнее</a>
+                                        <a href="/o-nas/">Подробнее</a>
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +134,7 @@
                                 <div class="col-md-3 best_item">
                                     <div class="product_thumbnail">
                                         <a href="{{ b.get_absolute_url }}">
-                                            {% thumbnail b.image.url "255x255" crop="center" as im %}
+                                            {% thumbnail b.image.url "255x166" crop="center" as im %}
                                                 <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                             {% endthumbnail %}
                                             <br />
@@ -149,7 +144,7 @@
                                         <p>{{ b.price }} руб.</p>
                                     </div>
                                     <div class="description_hidden opacity">
-                                        <p class="description_brand">{{ p.brand }}</p>
+                                        <p class="description_brand">{{ b.brand }}</p>
                                     </div>
                                 </div>
 

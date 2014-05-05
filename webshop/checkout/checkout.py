@@ -9,7 +9,7 @@ from django.core import urlresolvers
 #from webshop.checkout import google_checkout
 from webshop.cart import cart
 from webshop.checkout.models import Order, OrderItem
-from webshop.checkout.forms import CheckoutForm, ContactForm
+from webshop.checkout.forms import ContactForm
 from webshop.accounts import profile
 #from webshop.checkout import authnet
 #from webshop import settings
@@ -33,7 +33,7 @@ def process(request):
 
     transaction_id = random.randint(1, 999999)
     order = create_order(request, transaction_id)
-    results = {'order_number': order.id, 'order': order}
+    results = {'order': order}
 
     return results
 
@@ -56,6 +56,7 @@ def create_order(request, transaction_id):
     if request.user.is_authenticated():
         order.user = request.user
     order.status = Order.SUBMITTED
+    order.cupon = cart.get_cupon(request)
     order.save()
 
     if order.pk:
@@ -66,7 +67,7 @@ def create_order(request, transaction_id):
             oi = OrderItem()
             oi.order = order
             oi.quantity = ci.quantity
-            oi.price = ci.price
+            oi.price = (ci.price - (ci.price * int(ci.cupon.percent) / 100))
             oi.product = ci.product
             oi.save()
         # Очищаем корзину после оформления заказа
