@@ -126,7 +126,7 @@ a.cart{
     font-family: 'PT Sans Narrow', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 1px;
 }
 .menu_main li a:hover{
@@ -172,7 +172,7 @@ margin-bottom: 0px;
     color:#333;
 }
 .region-navigation .navbar-nav a{
-    padding: 18px 7px 0px 7px;
+    padding: 18px 5px 0px 5px;
 }
 
 .nav.log_menu i{
