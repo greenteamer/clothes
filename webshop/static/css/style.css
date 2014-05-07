@@ -929,7 +929,7 @@ right: 0px!important;
 }
 .scrollTop:hover{ background-position:0 -48px; }
 .menu_footer{
-    background: #AEA0A0;
+    background: #8B799A;
 }
 /*---------------------Мобильная верстка---------------*/
 
@@ -1094,6 +1094,11 @@ font-size: 16px;
     #popular_products .product_thumbnail{
         width: 30%!important;
         margin-left: 16px;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .foto_blok img{
+        width: 100%;
     }
     .popular_products{
         margin: 0;
@@ -1180,6 +1185,9 @@ font-size: 16px;
         width: 80px;
         height: 80px;
 }
+    .foto_blok img{
+        width: 100%;
+    }
     #my_slider ol li {
     width: 94px!important;
     height: 94px!important;
