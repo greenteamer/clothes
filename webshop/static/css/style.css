@@ -126,7 +126,7 @@ a.cart{
     font-family: 'PT Sans Narrow', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 1px;
 }
 .menu_main li a:hover{
@@ -172,7 +172,7 @@ margin-bottom: 0px;
     color:#333;
 }
 .region-navigation .navbar-nav a{
-    padding: 18px 7px 0px 7px;
+    padding: 18px 5px 0px 5px;
 }
 
 .nav.log_menu i{
@@ -929,7 +929,7 @@ right: 0px!important;
 }
 .scrollTop:hover{ background-position:0 -48px; }
 .menu_footer{
-    background: #AEA0A0;
+    background: #8B799A;
 }
 /*---------------------Мобильная верстка---------------*/
 
@@ -1094,6 +1094,11 @@ font-size: 16px;
     #popular_products .product_thumbnail{
         width: 30%!important;
         margin-left: 16px;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .foto_blok img{
+        width: 100%;
     }
     .popular_products{
         margin: 0;
@@ -1180,6 +1185,9 @@ font-size: 16px;
         width: 80px;
         height: 80px;
 }
+    .foto_blok img{
+        width: 100%;
+    }
     #my_slider ol li {
     width: 94px!important;
     height: 94px!important;
