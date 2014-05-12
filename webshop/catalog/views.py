@@ -16,7 +16,7 @@ from webshop.news.models import News
 
 def index_view(request, template_name="catalog/index.html"):
     """Представление главной страницы"""
-    page_title = _(u'Internet Magazine')
+    page_title = _(u'Podarkoff-moscow - Магазин модной одежды и аксессуаров. Бесплатная доставка по России')
     products = Product.feautured.all()
     for p in products:
         try:

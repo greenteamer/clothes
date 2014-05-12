@@ -229,7 +229,7 @@ LOGGING = {
 
 # Custom settings
 ENABLE_SSL = False
-SITE_NAME = _(u'Product magazine')
+SITE_NAME = _(u'')
 META_KEYWORDS = _(u'products, online, shop, buy')
 META_DESCRIPTION = _(u'Product magazine is an online supplier of products')
 LOGIN_REDIRECT_URL = '/accounts/my_account/'
