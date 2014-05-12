@@ -78,7 +78,7 @@
                         <h3> Мы продаем солнцезащиные очки по РФ,по ценам закупки в Европе +5% доставка.</h3>
                     </div>
                      <div class="col-md-4">
-                         <a href="#">
+                         <a href="/product/dolcegabbana-dg-4167-25702a">
                              <div class="foto_blok">
                                <img src="{{ STATIC_URL }}images/ochki_1.jpg" alt="Верхняя одежда">
                              </div>
@@ -87,7 +87,7 @@
 
                     </div>
                     <div class="col-md-4">
-                        <a href="#">
+                        <a href="/product/tom-ford-ft0370-50k">
                             <div class="foto_blok">
                                  <img src="{{ STATIC_URL }}images/ochki_4.jpg" alt="Кожгалантерея ">
                             </div>
@@ -96,7 +96,7 @@
 
                     </div>
                     <div class="col-md-4">
-                        <a href="#">
+                        <a href="/product/bottega-veneta-bv195s-80770">
                             <div class="foto_blok">
                                 <img src="{{ STATIC_URL }}images/ochki_3.jpg" alt="Солнцезащитные очки">
                             </div>
@@ -137,7 +137,17 @@
                         <div class="col-md-12">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
-                                        {% footer_links %}
+                                        <nav role="navigation">
+                                            <div class="region region-navigation">
+                                                <ul class="menu nav navbar-nav">
+                                                    <li><a href="/o-nas/">О нас</a></li>
+                                                    <li><a href="/akcia/">Акции</a></li>
+                                                    <li><a href="/katalog/">Каталог</a></li>
+                                                    <li><a href="/contact/">Контакты</a></li>
+                                                    <li></i><a href="{% url show_cart %}">{% trans "Shopping Cart" %}</a></li>
+                                                </ul>
+                                            </div>
+                                        </nav>
                                     </div>
                                     <div class="col-md-12">
                                          <a class="brand" href="http://forward70.ru">Создание сайтов Forward Group</a>
