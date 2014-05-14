@@ -34,14 +34,14 @@
 
                             <div class="col-md-3">
                                 <h3>
-                                    <div class="breadcrumb">Популярные товары</div>
+                                    <div class="breadcrumb">Новинки</div>
                                 </h3>
                             </div>
                     </div>
 
 
                     {% for p in products %}
-                        <div class="col-md-4 popular_products">
+                        <div class="col-md-4">
                             <div class="product_thumbnail">
                                 <a href="{{ p.get_absolute_url }}">
                                     {% thumbnail p.image.url "298x198" crop="center" as im %}
@@ -62,62 +62,11 @@
                 {% endif %}
                 </div>
 
-
-
-
             </div>
         </div>
     </div>
 {% endblock %}
-{% block promotion_discount %}
-    <div id="promotion_discount">
-        <div class="container">
-            <div class="row">
-                <div class="promotion">
-                    <div class="col-md-6">
-                        <div class="box-static col">
-                            <div class="row-fluid">
-                                <div class="static-image">
-                                    <a href="/akcia/"><img src="{{ STATIC_URL }}images/price-tag.png" alt=""></a>
-                                </div>
-                                    <div class="col-md-8">
-                                        <div class="static-text">
-                                            <div class="icon">&nbsp;</div>
-                                            <h3>АКЦИИ И СКИДКИ</h3>
-                                            <p>В нашем интернет магазине существуют выгодные акции и большие скидки</p>
-                                            <a href="/akcia/">Подробнее</a>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                   </div>
-               </div>
 
-               <div class="discount">
-                   <div class="col-md-6">
-                        <div class="box-static col1">
-                            <div class="row-fluid">
-                                    <div>
-                                        <div class="static-image"><a href="/o-nas/">
-                                            <img src="{{ STATIC_URL }}images/ak-phone.png" alt=""></a>
-                                        </div>
-                                    </div>
-                                <div class="col-md-8">
-                                    <div class="static-text">
-                                        <div class="icon"></div>
-                                            <h3>ТЕЛЕФОН +7(926) 304 5777</h3>
-                                            <p>Вы можите звонить нам в любое время, Вы получить ответ не все ваши вопросы и предложения </p>
-                                        <a href="/o-nas/">Подробнее</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
 {#        блок лучшие продажи#}
     <div id="best_selling">
         <div class="container">
@@ -158,6 +107,90 @@
             </div>
         </div>
     </div>
+ {% block tri_bloka %}
+        <div class="tri_bloka">
+            <div class="container">
+                <div class="row">
+                    
+                     <div class="col-md-4">
+                         <a href="/product/dolcegabbana-dg-4167-25702a">
+                             <div class="foto_blok">
+                               <img src="{{ STATIC_URL }}images/ochki_1.jpg" alt="Верхняя одежда">
+                             </div>
+                            {# <h2>Верхняя одежда</h2>#}
+                         </a>
 
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/product/tom-ford-ft0370-50k">
+                            <div class="foto_blok">
+                                 <img src="{{ STATIC_URL }}images/ochki_4.jpg" alt="Кожгалантерея ">
+                            </div>
+                            {#  <h2>Кожгалантерея </h2>#}
+                        </a>
 
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/product/bottega-veneta-bv195s-80770">
+                            <div class="foto_blok">
+                                <img src="{{ STATIC_URL }}images/ochki_3.jpg" alt="Солнцезащитные очки">
+                            </div>
+                            {# <h2>Солнцезащитные очки</h2>#}
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
+{% block promotion_discount %}
+    <div id="promotion_discount">
+        <div class="container">
+            <div class="row">
+                <div class="promotion">
+                    <div class="col-md-6">
+                        <div class="box-static col">
+                            <div class="row-fluid">
+                                <div class="static-image">
+                                    <a href="/akcia/"><img src="{{ STATIC_URL }}images/price-tag.png" alt=""></a>
+                                </div>
+                                    <div class="col-md-8">
+                                        <div class="static-text">
+                                            <div class="icon">&nbsp;</div>
+                                            <h3>АКЦИИ И СКИДКИ</h3>
+                                            <p>В нашем интернет магазине существуют выгодные акции и большие скидки</p>
+                                            <a href="/akcia/">Подробнее</a>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+
+               <div class="discount">
+                   <div class="col-md-6">
+                        <div class="box-static col1">
+                            <div class="row-fluid">
+                                    <div>
+                                        <div class="static-image"><a href="/o-nas/">
+                                            <img src="{{ STATIC_URL }}images/ak-phone.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                <div class="col-md-8">
+                                    <div class="static-text">
+                                        <div class="icon"></div>
+                                            <h3>ТЕЛЕФОН +7(495) 25 60 811</h3>
+                                            <p>Вы можите звонить нам в любое время, Вы получить ответ не все ваши вопросы и предложения </p>
+                                        <a href="/o-nas/">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 {% endblock %}
