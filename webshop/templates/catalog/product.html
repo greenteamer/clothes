@@ -105,7 +105,7 @@
                             <div class="col-md-3">
                                 <form method="post" action="." class="cart">{% csrf_token %}
                                     {{ form.as_p }}
-                                    <input class="btn btn-primary" type="submit" value="{% trans "Add To Cart" %}"
+                                    <input class="btn btn-primary " type="submit" value="{% trans "Add To Cart" %}"
                                     name="submit" alt="{% trans "Add To Cart" %}" />
                                 </form>
                             </div>
@@ -124,7 +124,7 @@
                                         <label for="id_phone">Ваш телефон:</label>
                                         {{ form2.phone }}
                                     </div>
-                                    <input id="id_submit" class="btn btn-primary" value="Отправить" type="button" onclick="send_form();">
+                                    <input id="id_submit" class="lar btn btn-primary" value="Купить" type="button" onclick="send_form();">
 {#                                    <input class="btn btn-primary" type="submit" value="1 клик" name="submit" onclick="send_form();" alt="" />#}
                                 </form>
                             </div>

@@ -34,7 +34,7 @@
 
                             <div class="col-md-3">
                                 <h3>
-                                    <div class="breadcrumb">Популярные товары</div>
+                                    <div class="breadcrumb">Новинки</div>
                                 </h3>
                             </div>
                     </div>
@@ -62,13 +62,88 @@
                 {% endif %}
                 </div>
 
-
-
-
             </div>
         </div>
     </div>
 {% endblock %}
+
+{#        блок лучшие продажи#}
+    <div id="best_selling">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="row">
+                    {% if bestseller %}
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <h3><div class="breadcrumb">Лучшие продажи</div></h3>
+                                </div>
+                            </div>
+                        <div class="best_selling">
+                            {% for b in bestseller %}
+                                <div class="col-md-3 best_item">
+                                    <div class="product_thumbnail">
+                                        <a href="{{ b.get_absolute_url }}">
+                                            {% thumbnail b.image.url "255x166" crop="center" as im %}
+                                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                            {% endthumbnail %}
+                                            <br />
+                                            <h3>{{ b.name }}</h3>
+                                        </a>
+                                        <br />
+                                        <p>{{ b.price }} руб.</p>
+                                    </div>
+                                    <div class="description_hidden opacity">
+                                        <p class="description_brand">{{ b.brand }}</p>
+                                    </div>
+                                </div>
+
+                                {% endfor %}
+
+                            {% else %}
+                            <p>Лучшие продажи не найдены</p>
+                            {% endif %}
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ {% block tri_bloka %}
+        <div class="tri_bloka">
+            <div class="container">
+                <div class="row">
+                    
+                     <div class="col-md-4">
+                         <a href="/product/dolcegabbana-dg-4167-25702a">
+                             <div class="foto_blok">
+                               <img src="{{ STATIC_URL }}images/ochki_1.jpg" alt="Верхняя одежда">
+                             </div>
+                            {# <h2>Верхняя одежда</h2>#}
+                         </a>
+
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/product/tom-ford-ft0370-50k">
+                            <div class="foto_blok">
+                                 <img src="{{ STATIC_URL }}images/ochki_4.jpg" alt="Кожгалантерея ">
+                            </div>
+                            {#  <h2>Кожгалантерея </h2>#}
+                        </a>
+
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/product/bottega-veneta-bv195s-80770">
+                            <div class="foto_blok">
+                                <img src="{{ STATIC_URL }}images/ochki_3.jpg" alt="Солнцезащитные очки">
+                            </div>
+                            {# <h2>Солнцезащитные очки</h2>#}
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endblock %}
 {% block promotion_discount %}
     <div id="promotion_discount">
         <div class="container">
@@ -118,46 +193,4 @@
         </div>
     </div>
 {% endblock %}
-{#        блок лучшие продажи#}
-    <div id="best_selling">
-        <div class="container">
-            <div class="col-md-12">
-                <div class="row">
-                    {% if bestseller %}
-                            <div class="col-md-12">
-                                <div class="col-md-3">
-                                    <h3><div class="breadcrumb">Лучшие продажи</div></h3>
-                                </div>
-                            </div>
-                        <div class="best_selling">
-                            {% for b in bestseller %}
-                                <div class="col-md-3 best_item">
-                                    <div class="product_thumbnail">
-                                        <a href="{{ b.get_absolute_url }}">
-                                            {% thumbnail b.image.url "255x166" crop="center" as im %}
-                                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                            {% endthumbnail %}
-                                            <br />
-                                            <h3>{{ b.name }}</h3>
-                                        </a>
-                                        <br />
-                                        <p>{{ b.price }} руб.</p>
-                                    </div>
-                                    <div class="description_hidden opacity">
-                                        <p class="description_brand">{{ b.brand }}</p>
-                                    </div>
-                                </div>
-
-                                {% endfor %}
-
-                            {% else %}
-                            <p>Лучшие продажи не найдены</p>
-                            {% endif %}
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 {% endblock %}
