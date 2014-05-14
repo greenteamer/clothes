@@ -240,7 +240,7 @@ AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 ROBOKASSA_LOGIN = 'podarkoff_moscow_new'
 ROBOKASSA_PASSWORD1 = 'pushkin14NewPass'
 ROBOKASSA_PASSWORD2 = 'pushkin14NewPassRobo2'
-ROBOKASSA_TEST_MODE = True
+ROBOKASSA_TEST_MODE = False
 
 try:
     from settings_local import *
