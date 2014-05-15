@@ -104,7 +104,13 @@
                             </div>
                             <div class="col-md-3">
                                 <form method="post" action="." class="cart">{% csrf_token %}
-                                    {{ form.as_p }}
+                                    <div class="hidden">
+                                        {{ form.product_slug }}
+                                    </div>
+                                    <div class="quantity">
+                                        <label for="id_quantity">Количество:</label>
+                                        {{ form.quantity }}
+                                    </div>
                                     <input class="btn btn-primary " type="submit" value="{% trans "Add To Cart" %}"
                                     name="submit" alt="{% trans "Add To Cart" %}" />
                                 </form>
