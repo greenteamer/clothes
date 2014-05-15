@@ -24,7 +24,7 @@
                     <div class="col-md-3">
                         <div class="phone">
                            <img src="{{ STATIC_URL }}images/phone.png">
-                           <p>+7(926) 304 5777</p>
+                           <p>+7(495) 25 60 811</p>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -67,49 +67,9 @@
 {#        находится в tags/slider.html#}
         {% slider request %}
     {% endblock %}
-
-
-    {#        блок разделов#}
-    {% block tri_bloka %}
-        <div class="tri_bloka">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 tri_bloka_text">
+                <div class="col-md-12 tri_bloka_text">
                         <h3> Мы продаем солнцезащиные очки по РФ,по ценам закупки в Европе +5% доставка.</h3>
                     </div>
-                     <div class="col-md-4">
-                         <a href="#">
-                             <div class="foto_blok">
-                               <img src="{{ STATIC_URL }}images/ochki_1.jpg" alt="Верхняя одежда">
-                             </div>
-{#                            <h2>Верхняя одежда</h2>#}
-                         </a>
-
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#">
-                            <div class="foto_blok">
-                                 <img src="{{ STATIC_URL }}images/ochki_4.jpg" alt="Кожгалантерея ">
-                            </div>
-{#                            <h2>Кожгалантерея </h2>#}
-                        </a>
-
-                    </div>
-                    <div class="col-md-4">
-                        <a href="#">
-                            <div class="foto_blok">
-                                <img src="{{ STATIC_URL }}images/ochki_3.jpg" alt="Солнцезащитные очки">
-                            </div>
-{#                            <h2>Солнцезащитные очки</h2>#}
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    {% endblock %}
-    {#        блок контент#}
 
     {#содержимое в catalog/index.html#}
         {% block content %}
@@ -119,7 +79,17 @@
 {#            <div class="col-md-12">#}
 {#                <h2>Раздел после контента</h2>#}
 {#            </div>#}
-
+        <div class="main_menu menu_footer" id="menu_fixed">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+            {#            содержимое в category_list.html#}
+            {#            <h3>Блок основное меню</h3>#}
+                        {% categories_tree request %}
+                    </div>
+                </div>
+            </div>
+        </div>
     {#        блок футер#}
             <div id="footer">
                 <div class="container">
@@ -127,7 +97,17 @@
                         <div class="col-md-12">
                                 <div class="col-md-6">
                                     <div class="col-md-12">
-                                        {% footer_links %}
+                                        <nav role="navigation">
+                                            <div class="region region-navigation">
+                                                <ul class="menu nav navbar-nav">
+                                                    <li><a href="/o-nas/">О нас</a></li>
+                                                    <li><a href="/akcia/">Акции</a></li>
+                                                    <li><a href="/katalog/">Каталог</a></li>
+                                                    <li><a href="/contact/">Контакты</a></li>
+                                                    <li></i><a href="{% url show_cart %}">{% trans "Shopping Cart" %}</a></li>
+                                                </ul>
+                                            </div>
+                                        </nav>
                                     </div>
                                     <div class="col-md-12">
                                          <a class="brand" href="http://forward70.ru">Создание сайтов Forward Group</a>
@@ -137,7 +117,7 @@
 
                             <div class="col-md-6">
                                 <div class="soc_battom">
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                         <p>Мы в социальных сетях</p>
                                         <ul>
                                             <li><a href="http://vk.com/public61461184" class="icon_vk"></a><a href="http://vk.com/public61461184">vk.com/podarkoff</a></li>
@@ -147,16 +127,16 @@
                                     <div class="col-md-6">
                                         <p>Контакты</p>
                                         <ul>
-                                            <li><a class="icon_tel"></a><span>+7(926) 304 5777</span></li>
+                                            <li><a class="icon_tel"></a><span>+7(495) 25-60-811</span></li>
                                             <li><a href="mailto:podarkoff777@gmail.com" class="icon_email"></a><a href="mailto:podarkoff777@gmail.com">podarkoff777@gmail.com</a></li>
                                         </ul>
                                         <div class="metrika">
-                                            <!-- Yandex.Metrika counter -->
+                                          <!-- Yandex.Metrika counter -->
                                             <script type="text/javascript">
                                             (function (d, w, c) {
                                             (w[c] = w[c] || []).push(function() {
                                             try {
-                                            w.yaCounter23714320 = new Ya.Metrika({id:23714320,
+                                            w.yaCounter24887471 = new Ya.Metrika({id:24887471,
                                             webvisor:true,
                                             clickmap:true,
                                             trackLinks:true,
@@ -176,7 +156,7 @@
                                             } else { f(); }
                                             })(document, window, "yandex_metrika_callbacks");
                                             </script>
-                                            <noscript>&lt;div&gt;&lt;img src="//mc.yandex.ru/watch/23714320" style="position:absolute; left:-9999px;" alt="" /&gt;&lt;/div&gt;</noscript>
+                                            <noscript><div><img src="//mc.yandex.ru/watch/24887471" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
                                             <!-- /Yandex.Metrika counter -->
                                         </div>
                                     </div>

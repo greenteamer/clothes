@@ -9,7 +9,8 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-
+        <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/css.css" />
 
 {#        {% bootstrap_css %}#}
@@ -35,7 +36,10 @@
 
 
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-        <title>{% block title %}{% if page_title %}{{ page_title }} - {% endif %}{{ site_name }}{% endblock %}</title>
+        <title>{% block title %}
+            {% if page_title %}{{ page_title }} {% endif %}
+
+        {% endblock %}</title>
         <meta charset="utf-8">
         <meta name="keywords" content="{{ meta_keywords }}" />
         <meta name="description" content="{{ meta_description }}" />
@@ -52,6 +56,7 @@
 
     {#    dajax#}
         <script type="text/javascript" src="{{ STATIC_URL }}dajax/jquery.dajax.core.js"></script>
+         <script type="text/javascript" src="{{ STATIC_URL }}js/skrol_top.js"></script>
         <script type="text/javascript" charset="utf-8">
             function send_form(){
     {#            $('.loading').removeClass('hidden');#}

@@ -2,6 +2,7 @@
 body{
     padding-bottom: 0!important;
 }
+img {max-width: 100%;}
 #loader {
     width: 150px;
     height: 100px;
@@ -14,6 +15,47 @@ body{
     top: 100px;
     right: 45%;
     padding: 10px;
+}
+
+.tovar{
+    padding: 15px 0px 15px 0px;
+    border-bottom: 1px solid #C7C7C7;
+    overflow: hidden;
+}
+.price p{
+    margin: 0;
+}
+.price table{
+    border: 1px solid #CACACA;
+    margin: 2px 0px 10px 0px;
+}
+.price{
+    float: left;
+    margin: 0px 14px 0px 14px;
+}
+.post,.button_remove{
+    float: left;
+}
+.total{
+    float: left;
+    margin: 7px 0px 0px 20px;
+    font-weight: bold;
+}
+.name{
+    float: left;
+}
+.name p{
+    margin: 0 0 2px;
+}
+.oformit{
+    margin-top: 49px;
+}
+.kupon{
+    margin-top: 20px;
+}
+.price table th,.price table td {
+padding: 5px 7px 5px 7px;
+border: none;
 }
 #loader2 {
     width: 150px;
@@ -126,7 +168,7 @@ a.cart{
     font-family: 'PT Sans Narrow', sans-serif;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 1px;
 }
 .menu_main li a:hover{
@@ -172,7 +214,7 @@ margin-bottom: 0px;
     color:#333;
 }
 .region-navigation .navbar-nav a{
-    padding: 18px 7px 0px 7px;
+    padding: 18px 5px 0px 5px;
 }
 
 .nav.log_menu i{
@@ -237,6 +279,9 @@ ul.menu li:hover ul.children {
 }
 .region-navigation  .nav>li>a:hover,.region-navigation  .nav>li>a:focus {
 background-color: #FFF;
+}
+#footer .region-navigation .nav>li>a:hover, #footer .region-navigation .nav>li>a:focus {
+background-color: rgba(255, 255, 255, 0);
 }
 .region-navigation li a{
     padding-bottom: 12px!important;
@@ -319,6 +364,7 @@ text-transform: uppercase;
     font-family:Verdana, Arial;
     font-size: 24px;
     text-transform: none;
+    padding-top: 30px;
 }
 .tri_bloka a{
     text-decoration: none;
@@ -352,6 +398,7 @@ background: #fff;
 padding: 30px;
 border: 1px solid #E8E8E8;
 border-radius: 3px;
+margin-bottom: 30px;
 }
 #catalog .product_thumbnail{
     margin-bottom: 30px;
@@ -560,7 +607,7 @@ margin: 9px 0px 0px 15px;
 /*-------------Страница товара--------------*/
 
 .row-fluid img {
-    width: 100%;
+    max-width: 100%;
 }
 #product_lict,#oplata, #cart,#stranica{
     border-top: 1px solid #E8E8E8;
@@ -588,18 +635,17 @@ padding: 16px 0px 14px 0px;
   color: #666;
 }
 .btn-primary {
-  color: #636363;
-  background-color: #FFFFFF;
   border-color: #B8B8B8;
   font-weight: bold;
   font-family: 'helvetica';
 }
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-color: #fff;
-background: #e67c8e;
-border-color: #B8B8B8;
+.lar {
+color: #018641;
+background-color: #FFFFFF;
+border-color: #B8B8B8
 }
+
+
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
 color: #FFF;
 background-color: #E67C8E;
@@ -694,9 +740,9 @@ box-shadow: 2px 2px 20px #E0CBCB;
 border: 1px solid #DDDDDD;
 padding: 6px;
 border-radius: 0;
-width: 110px!important;
-height: 114px!important;
-margin:0!important;
+width: 110px;
+height: 114px;
+margin:0;
 }
 .carousel-indicators .active{}
 #my_slider .carousel-indicators {
@@ -704,7 +750,7 @@ margin:0!important;
     width: 100%;
     margin-left: 0;
     text-align: left;
-    top: 260px!important
+    top: 260px;
 }
 #my_slider.carousel.slide {
     margin-bottom: 120px;
@@ -740,6 +786,7 @@ padding: 20px;
 }
 .price_cart .col-md-6{
 border-left: 1px solid #E4C0C0;
+overflow: hidden;
 }
 /*-------------Подвал---------------*/
 .soc_battom li{
@@ -919,31 +966,279 @@ border: 1px solid #CACACA;
 .sh_btn_bottom_right {
 right: 0px!important;
 }
-/*---------------------Мобильная верстка---------------*/
 
-@media (max-width: 767px) {
+.scrollTop{
+	background:url(../images/arrows3.png) 0 0 no-repeat;
+	width:50px;
+	height:45px;
+	bottom:50px;
+	left:95%;
+}
+.scrollTop:hover{ background-position:0 -48px; }
+.menu_footer{
+    background: #8B799A;
+}
+/*---------------------Мобильная верстка---------------*/
+@media screen and (min-width:991px ) and (max-width: 1024px) {
+    .description_hidden p.description_brand {
+        margin-top: 2px;
+    }
+    .description_hidden p {
+        margin-top: 5px;
+    }
+    .logo_phone p {
+        margin: 16px 0px 0px 10px;
+        font-size: 14px;
+    }
+    .phone img,.purchase img,.dostavka img {
+        width: 40px   
+    }
+    #promotion_discount img{
+        display: none;
+    }
+    .promotion .static-text h3, .discount .static-text h3 {
+    font-size: 22px;
+}
+    .soc_battom p{
+    display: none;
+    }
+    #footer .col-md-5 {
+    width: 50%;
+}
+   .soc_battom span{
+    font-size: 16px;
+   }
+   div#footer a{
+    margin-right: 3px;
+    font-size: 12px;
+   }
+    .price_cart .col-md-6{
+        border: none;
+    }
+    #my_slider .carousel-indicators{
+    top: 220px;
+    }
+    #my_slider ol li{
+        width: 94px;
+        height: 94px;
+    }
+    .slide ol li img{
+       width: 80px;
+       height: 80px; 
+    }
+    #product_lict .btn-primary{
+        font-size: 12px;
+    }
+}
+@media screen and (min-width: 801px) and (max-width: 991px){
     body {
     padding-top: 0!important;
 }
-
+    
     #popular_products .product_thumbnail, #catalog .product_thumbnail{
         padding: 0;
     }
+    .navbar .col-md-4{
+        overflow: hidden;
+    }
+    .log_menu {
+    margin-top: 0px;
+    }
+    .cart_bloc{
+        float: right;
+    }
+        .sh_btn_bottom_right {
+    bottom: 0;
+    position: relative!important;
+    width: 100%!important;
+    right: 0px!important;
+    
+}
+    .cart_icon .icon-addtocart{
+        float: left;}
+    .cart_bloc .col-md-3 {
+    padding: 0px 0px 10px 10px;
+        }
+    .menu_top{
+        float: none;
+    }
+    #navbar .col-md-6{
+        overflow: hidden;
+    }
 
+    .my_slider{
+        display: none;
+    }
+    .navbar-nav{
+        margin: 0;
+    }
+    .cart_bloc .col-md-3{
+        background: none;
+    }
+    .logo {
+    margin: 0px 0px 28px 39%;
+    overflow: hidden;
+    }
+    #navbar{
+        position: relative;
+    }
+    .logo_phone p{
+      margin: 4px 30px 0px 9px;  
+    }
+    .nav.log_menu i {
+    font-size: 0px;
+    }
+     .zakaz_zvonka{
+        float: left;
+     }
+    
+    .promotion .static-text h3, .discount .static-text h3 {
+    font-size: 22px;
+}
+    .dostavka,.purchase {
+        overflow: hidden;
+        margin: 0px 6px 6px 0px;
+        float: left;
+    }   
+    .phone img,.purchase img,.dostavka img {
+        width: 30px
+    }
+    .phone{
+        overflow: hidden;
+        float: left;
+    }
+    .navbar-toggle{
+        float: left;
+        margin-left: 30px;
+    }
+    .scrollTop{
+        display: none!important;
+    }
+    .navbar-collapse-second nav{
+        margin-left: 30px;
+    }
+    .tri_bloka_text h3 {
+    font-size: 20px;
+    }
+    .tri_bloka p {
+    padding: 12px;
+    }
+    #popular_products .col-md-3{
+        margin: 0px 12px 0px 12px;
+    }
+    #my_slider.carousel.slide {
+    margin-bottom: 120px;
+    width: 56%;
+    }
+    #footer{
+        height: 260px;
+    }
+    .promotion img, .discount img{
+        display: none;
+    }
+    #promotion_discount{
+      height: 400px;
+    }
+    .promotion .static-text, .discount .static-text{
+    width: 100%;
+    margin-bottom: 20px;
+    }
+    #my_slider .carousel-indicators{
+        top: 290px;
+    }
+    #my_slider ol li {
+    width: 130px;
+    height: 130px;
+    }
+    .slide ol li img {
+    width: 115px;
+    height: 115px;
+    }
+    #footer p{display: none}
+    #footer .col-md-6{
+        overflow: hidden;
+    }
+    .soc_battom .col-md-5{
+        float: left;
+    }
+    .cart_bloc .col-md-3 {
+    background: none;
+}
+.price_cart .col-md-3{
+    margin-bottom: 10px;
+    float: left;
+}
+    .brand{
+        margin-top: 10px;
+    }
+    .product_text{
+        padding: 15px;
+    }
+    #popular_products .product_thumbnail, #catalog .product_thumbnail {
+    margin-bottom: 20px;
+    margin-left: 28px;
+    }
+    #best_selling .product_thumbnail {
+    margin-left: 40px;
+    }
+    #popular_products .description_hidden p{
+        display: none;
+    }
+     .kupon button{
+        margin-top: 10px;
+    }
+    .oformit {
+    margin-top: 18px;
+    }
+}
+
+@media screen and (min-width: 760px) and (max-width: 800px) {
+     body {
+    padding-top: 0!important;
+}
+    .main_menu .navbar-toggle {
+        float: left;
+        margin-left: 10px;
+    }
+    .cart_bloc .col-md-3{
+        background: none;
+    }
+    .zakaz_zvonka{
+    float: left;
+    margin-bottom: 10px;
+    overflow: hidden;
+    }
+    
+    .navbar-collapse-second nav {
+    margin-left: 30px;
+    }
+    #popular_products .product_thumbnail, #catalog .product_thumbnail{
+        padding: 0;
+    }
+    .navbar .col-md-4{
+        overflow: hidden;
+    }
+    .log_menu {
+    margin-top: 0px;
+    }
+    .cart_bloc{
+        float: right;
+    }
     .sh_btn_bottom_right {
 bottom: 0;
 position: relative!important;
 width: 100%!important;
 right: 0px!important;
-    ;
+    
 }
 
     .navbar-fixed-top, .navbar-fixed-bottom {
-    position: relative!important;
+    position: relative;
     }
-    .logo_phone {
-    margin: 85px 0px 30px 0px;
+    .logo img {
+    max-width: 75%;
 }
+
     .main_menu .region-navigation ul a {
     color: #777;
 }
@@ -965,7 +1260,7 @@ font-size: 16px;
     background-color: #fff;
 }
     .region-navigation .navbar-nav a {
-    padding: 7px 7px 0px 7px;
+    padding: 7px 5px 0px 5px;
 }
 
         .cart_icon .icon-addtocart{
@@ -984,37 +1279,453 @@ font-size: 16px;
         display: none;
     }
     .navbar-nav{
-        margin: 0!important;
+        margin: 0;
+    }
+    .cart_bloc .col-md-3{
+        background: none;
+    }
+    .logo {
+    margin: 0px 0px 28px 39%;
+    overflow: hidden;
+    }
+    
+    .logo_phone p{
+      margin: 4px 30px 0px 9px;  
+    }
+    .nav.log_menu i {
+    font-size: 0px;
+    }
+    
+    
+    .promotion .static-text h3, .discount .static-text h3 {
+    font-size: 22px;
+}
+    .dostavka,.purchase {
+        overflow: hidden;
+        margin: 0px 6px 6px 0px;
+        float: left;
+    }   
+    .phone img,.purchase img,.dostavka img {
+        width: 30px
+    }
+    .phone{
+        overflow: hidden;
+        float: left;
+    }
+    .navbar-toggle{
+        float: left;
+        margin-left: 30px;
+    }
+    .scrollTop{
+        display: none!important;
+    }
+    .navbar-collapse-second nav{
+        margin-left: 30px;
+    }
+    .tri_bloka_text h3 {
+    font-size: 20px;
+    }
+    .tri_bloka p {
+    padding: 12px;
+    }
+    #popular_products .col-md-3{
+        margin: 0px 12px 0px 12px;
+    }
+    #my_slider.carousel.slide {
+    margin-bottom: 120px;
+    width: 56%;
+    }
+    #footer{
+        height: 260px;
+    }
+    .promotion img, .discount img{
+        display: none;
+    }
+    #promotion_discount{
+      height: 400px;
+    }
+    .promotion .static-text, .discount .static-text{
+    width: 100%;
+    margin-bottom: 20px;
+    }
+    #my_slider .carousel-indicators{
+        top: 290px;
+    }
+    #my_slider ol li {
+    width: 130px;
+    height: 130px;
+    }
+    .slide ol li img {
+    width: 115px;
+    height: 115px;
+    }
+    #footer p{display: none}
+    #footer .col-md-6{
+        overflow: hidden;
+    }
+    .soc_battom .col-md-6{
+        float: left;
+    }
+    .cart_bloc .col-md-3 {
+    background: none;
+}
+.price_cart .col-md-3{
+    margin-bottom: 10px;
+    float: left;
+}
+    .brand{
+        margin-top: 10px;
+    }
+    .product_text{
+        padding: 15px;
+    }
+    #popular_products .product_thumbnail, #catalog .product_thumbnail {
+    margin-bottom: 20px;
+    margin-left: 28px;
+    }
+    #best_selling .product_thumbnail {
+    margin-left: 40px;
+    }
+    #popular_products .description_hidden p{
+        display: none;
+    }
+     .kupon button{
+        margin-top: 10px;
+    }
+    .oformit {
+    margin-top: 18px;
+    }
+
+}
+
+@media screen and (min-width: 300px) and (max-width: 480px){
+    body {
+    padding-top: 0!important;
+}
+
+    #popular_products .product_thumbnail, #catalog .product_thumbnail{
+        padding: 0;
+    }
+
+    .sh_btn_bottom_right {
+    bottom: 0;
+    position: relative!important;
+    width: 100%!important;
+    right: 0px!important;
+    
+    }
+
+    .navbar-fixed-top, .navbar-fixed-bottom {
+    position: relative;
+    }
+    .logo img {
+    max-width: 75%;
+    }
+    .zakaz_zvonka{
+        display: none;
+    }
+    .phone_area {
+    display: none;
+    }
+    .logo_phone {
+    margin: 8px 0px 50px 0px;
+    }
+    .main_menu .region-navigation ul a {
+    color: #777;
+    }   
+    .main_menu {
+    background: #FFFFFF;
+    }
+    .tri_bloka .col-md-4{
+        margin-bottom: 20px;
+    }
+    .best_item{
+        margin-bottom: 20px;
+    }
+    .navbar-toggle .btn.btn-primary {
+    font-size: 16px;
+    }
+    ul.menu li ul.children {
+    display: block;
+    position: relative;
+    }
+    ul.menu li:hover ul.children{
+        border: none;
+        padding: 0;
+    }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #fff;
+    }
+    .region-navigation .navbar-nav a {
+    padding: 7px 3px 0px 3px;
+    font-size: 14px;
+    }
+
+        .cart_icon .icon-addtocart{
+            float: left;}
+        .cart_bloc .col-md-3 {
+    padding: 0px 0px 10px 10px;
+        }
+    .menu_top{
+        float: none;
+    }
+    #navbar .col-md-6{
+        overflow: hidden;
+    }
+
+    .my_slider{
+        display: none;
+    }
+    .navbar-nav{
+        margin: 0;
+    }
+    .cart_bloc .col-md-3{
+        background: none;
+    }
+    .logo {
+    margin:0px 0px 16px 93px;
+    overflow: hidden;
+    }
+    .logo_phone p{
+      margin: 4px 0px 0px 17px;  
+    }
+    .nav.log_menu i {
+    font-size: 0px;
+    }
+    .dostavka img, .purchase img{
+        display: none;
+    }
+    .dostavka p,.purchase p{
+        display: none;
+    }
+    .promotion .static-text h3, .discount .static-text h3 {
+    font-size: 22px;
+}
+    .dostavka,.purchase {
+        overflow: hidden;
+        margin: 0px 6px 6px 0px;
+        float: left;
+    }   
+    .phone img{
+        width: 30px
+    }
+    .phone{
+        margin-left: 20px;
+    }
+    .navbar-toggle{
+        float: left;
+        margin-left: 30px;
+    }
+    .scrollTop{
+        display: none!important;
+    }
+    .navbar-collapse-second nav{
+        margin-left: 30px;
+    }
+    .tri_bloka_text h3 {
+    font-size: 20px;
+    }
+    .tri_bloka p {
+    padding: 12px;
+    }
+    #popular_products .col-md-3{
+        margin: 0px 12px 0px 12px;
+    }
+    
+    #footer{
+        height: 420px;
+    }
+    .promotion img, .discount img{
+        display: none;
+    }
+    #promotion_discount{
+      height: 400px;
+    }
+    .promotion .static-text, .discount .static-text{
+    width: 100%;
+    margin-bottom: 20px;
+    }
+    #my_slider .carousel-indicators{
+        top: 212px;
+    }
+    #my_slider ol li {
+    width: 85px;
+    height: 85px;
+    }
+    .slide ol li img {
+    width: 72px;
+    height: 72px;
+    }
+    #footer p{display: none}
+    #footer .col-md-6{
+        overflow: hidden;
+        width: 100%;
+    }
+    .cart_bloc .col-md-3 {
+    background: none;
+}
+.price_cart .col-md-3{
+    margin-bottom: 10px;
+}
+    .brand{
+        margin-top: 10px;
+    }
+    .product_text{
+        padding: 15px;
+    }
+    #popular_products .product_thumbnail, #catalog .product_thumbnail {
+    margin-bottom: 20px;
+    }
+    #popular_products .description_hidden p{
+        display: none;
+    }
+     .kupon button{
+        margin-top: 10px;
+    }
+    .oformit {
+    margin-top: 18px;
+    }
+/*----------ТЕЛЕФОН ПО ГОРИЗОГТАЛИ---------------*/
+
+}
+@media screen and (min-width: 480px) and (max-width: 640px){
+    body {
+    padding-top: 0!important;
+}
+    .kupon button{
+        margin-top: 10px;
+    }
+    .zakaz_zvonka{
+        display: none;
+    }
+     .cart_bloc{
+    position: absolute;
+    margin: 8px 0px 0px 73%;
+    top: 0;
+    }
+        .phone_area{
+        display: none;
+    }
+    .oformit {
+    margin-top: 18px;
+    }
+    .btn{
+        font-size: 10px;
+        padding: 6px 5px;
+    }
+    #popular_products .product_thumbnail, #catalog .product_thumbnail{
+        padding: 0;
+    }
+
+    .sh_btn_bottom_right {
+    bottom: 0;
+    position: relative!important;
+    width: 100%!important;
+    right: 0px!important;
+    
+}
+    #popular_products .col-md-4{
+        margin-left: 100px;
+    }
+    .zakaz_zvonka{
+    float: left;
+    margin-bottom: 10px;
+    }
+    .navbar-fixed-top, .navbar-fixed-bottom {
+    position: relative;
+    }
+    .logo img {
+    max-width: 75%;
+}
+
+    .main_menu .region-navigation ul a {
+    color: #777;
+}
+    .main_menu {
+    background: #FFFFFF;
+    }
+    .navbar-toggle .btn.btn-primary {
+    font-size: 16px;
+}
+    ul.menu li ul.children {
+    display: block;
+    position: relative;
+}
+    ul.menu li:hover ul.children{
+        border: none;
+        padding: 0;
+    }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #fff;
+}
+    .region-navigation .navbar-nav a {
+    padding: 7px 5px 0px 5px;
+}
+
+        .cart_icon .icon-addtocart{
+            float: left;}
+        .cart_bloc .col-md-3 {
+    padding: 0px 0px 10px 10px;
+        }
+    .menu_top{
+        float: none;
+    }
+    #navbar .col-md-6{
+        overflow: hidden;
+    }
+
+    .my_slider{
+        display: none;
+    }
+    .navbar-nav{
+        margin-top:7px; 
     }
     .cart_bloc .col-md-3{
         background: none;
     }
     .logo {
     text-align: center;
-    margin: 16px 0px 16px 58px;
+    margin: 0px 0px 16px 58px;
     overflow: hidden;
     }
-
+    .logo_phone p{
+      margin: 4px 0px 0px 17px;  
+    }
     .nav.log_menu i {
     font-size: 0px;
     }
-    .phone img, .purchase img{
-        width: 45px;
-    }
-    .phone,.purchase {
-        overflow: hidden;
-        margin: 0px 6px 6px 54px
-    }
-
-    .dostavka{
+    .dostavka img, .purchase img{
         display: none;
+    }
+    #my_slider{
+     width: 75%;
+    }
+    .dostavka p,.purchase p{
+        font-size: 10px;
+        font-family: Verdana, Arial;
+        margin-top: 9px;
+    }
+    .promotion .static-text h3, .discount .static-text h3 {
+    font-size: 22px;
+}
+    .dostavka,.purchase {
+        overflow: hidden;
+        margin: 0px 6px 6px 0px;
+        float: left;
+    }   
+    .phone img{
+        width: 30px
+    }
+    .phone{
+        overflow: hidden;
+        float:left;
     }
     .navbar-toggle{
         float: left;
         margin-left: 30px;
     }
-    .tri_bloka img{
-        width: 100%;
+    .scrollTop{
+        display: none!important;
     }
     .navbar-collapse-second nav{
         margin-left: 30px;
@@ -1029,41 +1740,57 @@ font-size: 16px;
         margin: 0px 12px 0px 12px;
     }
     #footer{
-        height: 400px!important;
+        height: 300px;
     }
     .promotion img, .discount img{
         display: none;
     }
     #promotion_discount{
-      height: 390px;
+      height: 400px;
     }
     .promotion .static-text, .discount .static-text{
     width: 100%;
     margin-bottom: 20px;
     }
     #my_slider .carousel-indicators{
-        top: 212px!important
+        top: 280px;
     }
     #my_slider ol li {
-    width: 85px!important;
-    height: 85px!important;
+    width: 123px;
+    height: 123px;
+    }
+    #footer .brand{
+        margin: 0px 0px 20px 0px;
     }
     .slide ol li img {
-    height: 70px!important;
+    width: 110px;
+    height: 110px;
     }
     #footer p{display: none}
     #footer .col-md-6{
         overflow: hidden;
-        width: 100%!important;
     }
     .cart_bloc .col-md-3 {
     background: none;
-}
+    }
+    .price_cart .col-md-3{
+    margin-bottom: 10px;
+    float: left;
+    }
+    .price_cart .col-md-6 {
+    float: left;
+    }
     .brand{
         margin-top: 10px;
     }
     .product_text{
         padding: 15px;
+    }
+    .price_cart .col-md-6 {
+    float: left;
+    }
+    .sh_btn_top, .sh_btn_bottom{
+        max-width: 100%!important;
     }
     #popular_products .product_thumbnail, #catalog .product_thumbnail {
     margin-bottom: 20px;
@@ -1071,215 +1798,8 @@ font-size: 16px;
     #popular_products .description_hidden p{
         display: none;
     }
-}
-@media (min-width: 780px)and (max-width: 966px){
-        .my_slider{
-        display: none;
-    }
-    .cart_bloc .col-md-3 {
-    background: none;
-}
-    #popular_products .product_thumbnail{
-        width: 30%!important;
-        margin-left: 16px;
-    }
-    .popular_products{
-        margin: 0;
-    }
-    #popular_products .product_thumbnail img{
-        height: 164px;
-    }
-    #popular_products .description_hidden p{
-        display: none;
-    }
-    #navbar .col-md-6{
-        overflow: hidden;
-    }
-    .cart_bloc{
-        width: 300px;
-    }
-    .dostavka{
-        display: none;
-    }
-    .logo_phone{
-        margin-top: 60px;
-    }
-    .purchase{
-    padding-left: 30px;
-    overflow: hidden;
-    }
-
-    .logo_phone img {
-    padding-right: 20px;
-    }
-    .logo_phone p {
-    margin: 15px 0px 0px 0px;
-    }
-    .row-fluid img {
-    width: 60%;
-    }
-    .promotion .static-text, .discount .static-text{
-        width: 70%;
-        margin-bottom: 20px;
-    }
-    #promotion_discount{
-        height: 416px;
-    }
-    #popular_products .description_hidden p.description_brand, #best_selling .description_hidden p.description_brand {
-    font-size: 30px;
-    }
-    .soc_battom p{
-        display: none;
-    }
-    #footer .col-md-6{
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
-    .brand{
-        margin: 0;
-    }
-    .soc_battom .col-md-5{
-       float: left;
-    }
-    #footer{
-        height: 256px;
-    }
-    #my_slider.carousel.slide {
-    width: 80%;
-    }
-    .product_text{
-        padding: 10px;
-    }
-    .price_cart .col-md-3{
+    .soc_battom .col-md-6{
         float: left;
     }
-    .price_cart .col-md-6{
-        overflow: hidden;
-    }
-    #checkout .row-fluid{
-        padding: 0px 0px 60px 60px;
-    }
 
 }
-@media (max-width: 1024px){
-    .slide ol li img {
-        position: absolute;
-        opacity: 1;
-        width: 80px;
-        height: 80px;
-}
-    #my_slider ol li {
-    width: 94px!important;
-    height: 94px!important;
-}
-    #my_slider .carousel-indicators{
-            top: 214px!important;
-    }
-    .price_cart .col-md-6{
-        border: none;
-    }
-}
-@media (max-width: 900px){
-
-    #my_slider .carousel-indicators{
-            top: 260px!important;
-    }
-    .slide ol li img{
-         width: 75px;
-    }
-    #my_slider ol li {
-    width: 88px;
-    height: 90px;
-    }
-    .btn.btn-primary{
-        font-size: 12px;
-    }
-    #footer .col-md-6 {
-    width: 53%;
-    }
-    #footer p{
-        display: none;
-    }
-    #footer{
-        height: 250px;
-    }
-    .brand{
-        margin:0;
-    }
-    .soc_battom{
-        margin-top: 20px;
-    }
-}
-
-/*end style*/
-
-
- /*@media (max-width: 1000px){*/
-/*#navbar .col-md-6{*/
-    /*overflow: hidden;*/
-/*}*/
-/*.cart_bloc{*/
-    /*width: 300px;*/
-/*}*/
-/*.logo{*/
-/*overflow: hidden;*/
-/*margin: 30px 0px 30px 0px;*/
-/*}*/
-/*.logo_phone p {*/
-/*margin: 16px 17px 0px 9px;*/
-/*font-size: 16px;*/
-/*}*/
-/*.carousel-inner{*/
-    /*width: 80%;*/
-/*}*/
-/*#product_lict .col-md-4{*/
-    /*width: 60%;*/
-    /*float: left;*/
-/*}*/
-/*.col-md-3 .cart{*/
-    /*margin: 20px 0px 20px 0px;*/
-/*}*/
-/*.my_slider{*/
-    /*display: none;*/
-/*}*/
-/*#popular_products .product_thumbnail {*/
-/*width: 30%!important;*/
-/*margin-left: 16px;*/
-/*}*/
-/*.popular_products{*/
-    /*margin-top: 0;*/
-/*}*/
-/*.popular_products img{height: 170px;}*/
-/*#popular_products .description_hidden p{*/
-    /*display: none;*/
-/*}*/
-/*.row-fluid img {*/
-/*width: 70%;*/
-/*}*/
-/*.promotion .static-text, .discount .static-text{*/
-    /*width: 70%;*/
-    /*margin-bottom: 20px;*/
-/*}*/
-/*#promotion_discount{*/
-    /*height: 424px;*/
-/*}*/
-
-/*#footer p{*/
-    /*display: none;*/
-/*}*/
-/*#footer .col-md-6{*/
-    /*overflow: hidden;*/
-    /*margin-bottom: 20px;*/
-/*}*/
-/*.brand {*/
- /*margin-top: 0px;*/
-/*}*/
-/*#footer .col-md-5{*/
-    /*float: left;*/
-/*}*/
-/*#footer{*/
-  /*height: 258px;*/
-/*}*/
-/*#my_slider .carousel-indicators{*/
-    /*top: 260px;*/
-/*}*/

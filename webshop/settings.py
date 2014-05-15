@@ -87,7 +87,7 @@ CKEDITOR_UPLOAD_PATH = "webshop/media/uploads"
 CKEDITOR_UPLOAD_PREFIX = "/media/uploads"
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Full',
+        'toolbar': 'All',
     },
 }
 
@@ -229,7 +229,7 @@ LOGGING = {
 
 # Custom settings
 ENABLE_SSL = False
-SITE_NAME = _(u'Product magazine')
+SITE_NAME = _(u'')
 META_KEYWORDS = _(u'products, online, shop, buy')
 META_DESCRIPTION = _(u'Product magazine is an online supplier of products')
 LOGIN_REDIRECT_URL = '/accounts/my_account/'
@@ -237,10 +237,10 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 90 # 90 дней на хранение cooki
 PRODUCTS_PER_PAGE = 1
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
-ROBOKASSA_LOGIN = 'podarkoff_moscow'
-ROBOKASSA_PASSWORD1 = 'pushkin14'
-ROBOKASSA_PASSWORD2 = 'pushkin14Robo2'
-ROBOKASSA_TEST_MODE = True
+ROBOKASSA_LOGIN = 'podarkoff_moscow_new'
+ROBOKASSA_PASSWORD1 = 'pushkin14NewPass'
+ROBOKASSA_PASSWORD2 = 'pushkin14NewPassRobo2'
+ROBOKASSA_TEST_MODE = False
 
 try:
     from settings_local import *
