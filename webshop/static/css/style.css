@@ -786,6 +786,7 @@ padding: 20px;
 }
 .price_cart .col-md-6{
 border-left: 1px solid #E4C0C0;
+overflow: hidden;
 }
 /*-------------Подвал---------------*/
 .soc_battom li{
