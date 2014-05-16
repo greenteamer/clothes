@@ -32,6 +32,10 @@
                                         <div class="number">
                                             <input type="text" name="quantity" value="{{ item.quantity }}" id="quantity" size="2" class="quantity" maxlength="5" />
                                             <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                            <input type="hidden" name="item_id" value="{{ item.id }}" />
+                                            <button class="btn btn-info" type="submit" name="update" style=" float: left; margin-right: 20px; ">
+                                                <i class="icon-refresh icon-white"></i><span>Обновить</span>
+                                            </button>
                                         </div>
                                     </form>
                                     </td>
@@ -40,15 +44,15 @@
                                 </table>
                             </div>
 
-                            <form method="post" action="." class="cart">{% csrf_token %}
+{#                            <form method="post" action="." class="cart">{% csrf_token %}#}
                                 
-                                <div class="button_refresh">
-                                    <input type="hidden" name="item_id" value="{{ item.id }}" />
-                                    <button class="btn btn-info" type="submit" name="update" style=" float: left; margin-right: 20px; ">
-                                        <i class="icon-refresh icon-white"></i><span>Обновить</span>
-                                    </button>
-                                </div>
-                            </form>
+{#                                <div class="button_refresh">#}
+{#                                    <input type="hidden" name="item_id" value="{{ item.id }}" />#}
+{#                                    <button class="btn btn-info" type="submit" name="update" style=" float: left; margin-right: 20px; ">#}
+{#                                        <i class="icon-refresh icon-white"></i><span>Обновить</span>#}
+{#                                    </button>#}
+{#                                </div>#}
+{#                            </form>#}
 
                             <div class="button_remove">
                                 <form method="post" action="." class="cart">{% csrf_token %}
