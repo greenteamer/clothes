@@ -1600,6 +1600,10 @@ font-size: 16px;
     .kupon button{
         margin-top: 10px;
     }
+    form.cart{
+        overflow: hidden;
+        float: left;
+    }
     #catalog .col-md-3,.best_item{
         overflow: hidden;
         float: left;
