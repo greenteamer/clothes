@@ -1600,6 +1600,10 @@ font-size: 16px;
     .kupon button{
         margin-top: 10px;
     }
+    form.cart{
+        overflow: hidden;
+        float: left;
+    }
     #catalog .col-md-3,.best_item{
         overflow: hidden;
         float: left;
@@ -1820,4 +1824,9 @@ font-size: 16px;
         float: left;
     }
 
+}
+@media screen and (min-width: 480px) and (max-width: 509px){
+#footer{
+        height: 400px;
+    }
 }
