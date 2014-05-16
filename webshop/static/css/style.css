@@ -1805,9 +1805,7 @@ font-size: 16px;
     .product_text{
         padding: 15px;
     }
-    .price_cart .col-md-6 {
-    float: left;
-    }
+
     .sh_btn_top, .sh_btn_bottom{
         max-width: 100%!important;
     }
@@ -1826,7 +1824,22 @@ font-size: 16px;
 
 }
 @media screen and (min-width: 480px) and (max-width: 509px){
-#footer{
+    #footer{
         height: 400px;
     }
+    #my_slider ol li{
+        width: 110px;
+        height: 110px;
+    }
+
+    .slide ol li img{
+        width:96px;
+        height: 96px;
+    }
+
+    #my_slider .carousel-indicators{
+    top: 255px;
+    }
 }
+
+
