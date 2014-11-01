@@ -37,7 +37,7 @@ def cart_view(request, template_name="cart/cart.html"):
     # Получаем список всех товаров в корзине из cookies
     #cart_item_count = cart.cart_item_count(request)
     cart_items = cart.get_cart_items(request)
-    cupon = cart.get_cupon(request)
+    # cupon = cart.get_cupon(request)
     cart_subtotal = cart.cart_subtotal(request)
     return render_to_response(template_name, locals(),
                               context_instance=RequestContext(request))
