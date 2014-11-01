@@ -38,7 +38,7 @@ urlpatterns = patterns('',
 
     # урл для robokassa
     url(r'^robokassa/', include('robokassa.urls')),
-    url(r'^robokassa/result/', include('webshop.checkout.robokassa_urls')),
+    # url(r'^robokassa/result/', include('webshop.checkout.robokassa_urls')),
     )
 
 if settings.DEBUG:
