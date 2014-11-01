@@ -86,9 +86,13 @@
                     {% if cart_items %}
                         <form method="post" action="." class="cart">{% csrf_token %}
                             <button class="btn btn-success" type="submit" name="checkout">
-                            <i class="icon-shopping-cart icon-white"></i><span>Офорить заказ</span></button>
+                            <i class="icon-shopping-cart icon-white"></i><span>Оформить заказ</span></button>
                         </form>
                     {% endif %}
+                </div>
+
+                <div class="col-md-8">
+                    <p>Итого: {{ cart_subtotal }}</p>
                 </div>
             </div>
         </div>
